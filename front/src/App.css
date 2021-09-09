@@ -3,9 +3,31 @@
   height: 100%;
 
 }
+/* NAVBAR */
+.navbar {
+  position: sticky;
+}
+.navbar-site-links{
+  display: inline-flex;
+}
+.navbar-social-links {
+  float: right;
+  display: inline-flex;
+  height: 47px;
+}
+
+.navbar-link, .navbar-social {
+  margin: 0px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
 /* ACCUEIL */
 .accueil-body {
   width: 100%;
-
+  height: 100%;
+  background-color: dimgrey;
+  /* background-image: url(""); */
 }
