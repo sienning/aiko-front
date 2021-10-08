@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-// import { Menu, Segment } from 'semantic-ui-react'
+import { Container, Image } from 'semantic-ui-react'
 
 class Accueil extends Component {
 
     render() {
         return (
-            <div className="accueil-body" >
-                Accueil Aiko
-            </div >
+            <div  className="accueil-body">
+                <Container textAlign="center" >
+                    <Image src="images/logo.png" size="large" />
+                </Container >
+            </div>
         );
     }
 }
