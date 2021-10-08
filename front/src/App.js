@@ -33,9 +33,10 @@ class App extends Component {
   }
 
   connexionDiscord = async (code) => {
-    const headers = {
-      'Content-Type': 'application/x-www-form-urlencoded'
-    };
+    // const headers = {
+    //   'Authorization': 
+    //   'Content-Type': 'application/x-www-form-urlencoded'
+    // };
     const data = {
       'client_id': "885505998972915724",
       'client_secret': "Kz44FQjQIhkA8GghyUJuL4U0cK5Qvd49",
