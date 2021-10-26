@@ -12,6 +12,7 @@ import './App.css';
 import axios from 'axios';
 import Connexion from './components/Connexion';
 import Inscription from './components/Inscription';
+import MdpOublie from './components/MdpOublie';
 
 class App extends Component {
   state = {
@@ -59,35 +60,26 @@ class App extends Component {
         <div className="App">
           <nav className="navbar">
             <div className="navbar-site-links">
-              <div className="navbar-link navbar-logo">
+              <div className="navbar-link navbar-logo" style={{ marginLeft: 100 }}>
                 <Link to="/">
                   <Image src="./images/icon.png" size="mini" />
                 </Link>
               </div>
-              <div className="navbar-link" >
-                <Link to="/joueurs">Joueurs</Link>
-              </div>
               <div className="navbar-link">
-                <Link to="/equipes">Équipes</Link>
-              </div>
-              <div className="navbar-link">
-                <Link to="/coaching">Coaching</Link>
+                <Link to="/coaching">Le coaching Aiko</Link>
               </div>
               <div className="navbar-link">
                 <Link to="/evenements">Évènements</Link>
               </div>
-              <div className="navbar-link">
-                <a id="login" href={`https://discord.com/api/oauth2/authorize?client_id=885505998972915724&redirect_uri=http%3A%2F%2Flocalhost%3A3000&response_type=code&scope=identify`}>Connexion avec Discord</a>
-              </div>
+            </div>
+
+            <div className="navbar-social-links" style={{ marginRight: 100 }}>
               <div className="navbar-link">
                 <Link to="/login">Connexion</Link>
               </div>
               <div className="navbar-link">
-                <Link to="/sign-in">S'inscrire</Link>
+                <Link to="/sign-in">Inscription</Link>
               </div>
-            </div>
-
-            <div className="navbar-social-links">
               <div className="navbar-social">
                 <a rel="noreferrer" target="_blank" href="https://discord.com/"><Icon name="youtube play" /></a>
               </div>
@@ -109,6 +101,9 @@ class App extends Component {
             </Route>
             <Route path="/sign-in">
               <Inscription />
+            </Route>
+            <Route path="/forgot-my-password">
+              <MdpOublie />
             </Route>
             <Route path="/">
               <Accueil />
