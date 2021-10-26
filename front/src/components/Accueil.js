@@ -7,7 +7,7 @@ class Accueil extends Component {
         return (
             <div  className="accueil-body">
                 <Container textAlign="center" >
-                    <Image src="images/logo.png" size="large" />
+                    <Image style={{ margin: "auto" }} src="images/logo.png" size="large" />
                 </Container >
             </div>
         );

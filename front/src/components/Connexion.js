@@ -13,7 +13,7 @@ class Connexion extends Component {
                     <p>Je n'ai pas de compte Aiko. <Link to="/sign-in">M'inscrire</Link></p>
                 </div>
                 <div style={{ textAlign: "center", marginBottom: 30 }}>
-                    <Button className="discord-button"><Icon name='discord' />S'inscrire avec Discord</Button>
+                    <Button className="discord-button"><Icon name='discord' />Se connecter avec Discord</Button>
                 </div>
                 <Divider horizontal>Ou</Divider>
                 <Form size="large">
