@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Accueil from './components/Accueil';
 import 'semantic-ui-css/semantic.min.css';
-import { Button, Image, Icon } from 'semantic-ui-react'
+import { Image, Icon } from 'semantic-ui-react'
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,6 +10,8 @@ import {
 } from "react-router-dom";
 import './App.css';
 import axios from 'axios';
+import Connexion from './components/Connexion';
+import Inscription from './components/Inscription';
 
 class App extends Component {
   state = {
@@ -25,7 +27,7 @@ class App extends Component {
     }
 
     console.log("code : ", code);
-    this.connexionDiscord(code);
+    // this.connexionDiscord(code);
     // this.setState({
     //   url: url,
     //   code: code
@@ -45,10 +47,10 @@ class App extends Component {
       'redirect_uri': "http://localhost:3000"
     }
     await axios.post("https://discord.com/api/v8/oauth2/token", data)
-    .then(response=> {
-      console.log(response.data);
-    })
-    .catch(err => { console.log(err) })
+      .then(response => {
+        console.log(response.data);
+      })
+      .catch(err => { console.log(err) })
   }
 
   render() {
@@ -75,7 +77,13 @@ class App extends Component {
                 <Link to="/evenements">Évènements</Link>
               </div>
               <div className="navbar-link">
-                <a id="login" href={`https://discord.com/api/oauth2/authorize?client_id=885505998972915724&redirect_uri=http%3A%2F%2Flocalhost%3A3000&response_type=code&scope=identify`}>Connexion</a>
+                <a id="login" href={`https://discord.com/api/oauth2/authorize?client_id=885505998972915724&redirect_uri=http%3A%2F%2Flocalhost%3A3000&response_type=code&scope=identify`}>Connexion avec Discord</a>
+              </div>
+              <div className="navbar-link">
+                <Link to="/login">Connexion</Link>
+              </div>
+              <div className="navbar-link">
+                <Link to="/sign-in">S'inscrire</Link>
               </div>
             </div>
 
@@ -96,8 +104,11 @@ class App extends Component {
             <Route path="/about">
               <Accueil />
             </Route>
-            <Route path="/users">
-              <Accueil />
+            <Route path="/login">
+              <Connexion />
+            </Route>
+            <Route path="/sign-in">
+              <Inscription />
             </Route>
             <Route path="/">
               <Accueil />

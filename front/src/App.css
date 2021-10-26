@@ -1,16 +1,46 @@
 html, #root, body {
   background-color: #10002B;
+  color: white !important;
+}
 
+h1, h2, h3, h4, h5, h6, .ui.header, label, .ui.horizontal.divider {
+  color: white !important;
 }
 
 a {
   color: #B754A5;
 }
 
+a:hover {
+  color: #B754A5;
+  text-decoration: underline;
+}
+
+.ui.form .field .ui.input input, .ui.form .fields .field .ui.input input{
+  border-radius: 30px;
+}
+.ui.button.discord-button {
+  background-color: #9E47B1;
+}
+.ui.button.discord-button:hover {
+  background-color: #9c32b4;
+}
+
+.ui.button, .ui.buttons .button, .ui.buttons .or {
+  border-radius: 5px;
+  background-color: #B754A5;
+  color: white;
+}
+.ui.button:hover, .ui.buttons:hover .button:hover, .ui.buttons:hover .or:hover {
+  background-color: #8f2d7d;
+  color: white;
+}
+
 .App {
   width: 100%;
   height: 100%;
   background-color: #10002B;
+  color: white;
 }
 /* NAVBAR */
 .navbar {
