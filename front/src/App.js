@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import Accueil from './components/Accueil';
 import 'semantic-ui-css/semantic.min.css';
-import { Image, Icon } from 'semantic-ui-react'
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 import './App.css';
 import axios from 'axios';
 import Connexion from './components/Connexion';
 import Inscription from './components/Inscription';
+import InscriptionCoach from './components/InscriptionCoach';
 import MdpOublie from './components/MdpOublie';
+import Footer from './components/Footer';
+import NavigationBar from './components/NavigationBar';
 
 class App extends Component {
   state = {
@@ -26,13 +27,6 @@ class App extends Component {
     if (code.length > 0) {
       code = code.replace("/?code=", "");
     }
-
-    console.log("code : ", code);
-    // this.connexionDiscord(code);
-    // this.setState({
-    //   url: url,
-    //   code: code
-    // })
   }
 
   connexionDiscord = async (code) => {
@@ -58,43 +52,11 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <nav className="navbar">
-            <div className="navbar-site-links">
-              <div className="navbar-link navbar-logo" style={{ marginLeft: 100 }}>
-                <Link to="/">
-                  <Image src="./images/icon.png" size="mini" />
-                </Link>
-              </div>
-              <div className="navbar-link">
-                <Link to="/coaching">Le coaching Aiko</Link>
-              </div>
-              <div className="navbar-link">
-                <Link to="/evenements">Évènements</Link>
-              </div>
-            </div>
-
-            <div className="navbar-social-links" style={{ marginRight: 100 }}>
-              <div className="navbar-link">
-                <Link to="/login">Connexion</Link>
-              </div>
-              <div className="navbar-link">
-                <Link to="/sign-in">Inscription</Link>
-              </div>
-              <div className="navbar-social">
-                <a rel="noreferrer" target="_blank" href="https://discord.com/"><Icon name="youtube play" /></a>
-              </div>
-              <div className="navbar-social">
-                <a rel="noreferrer" target="_blank" href="https://twitter.com/home"><Icon name="twitter" /></a>
-              </div>
-              <div className="navbar-social">
-                <a rel="noreferrer" target="_blank" href="https://discord.gg/SXhDhU6nNg"><Icon name="discord" /></a>
-              </div>
-            </div>
-          </nav>
+          <NavigationBar />
 
           <Switch>
-            <Route path="/about">
-              <Accueil />
+            <Route path="/sign-in-as-coach">
+              <InscriptionCoach />
             </Route>
             <Route path="/login">
               <Connexion />
@@ -105,11 +67,12 @@ class App extends Component {
             <Route path="/forgot-my-password">
               <MdpOublie />
             </Route>
-            <Route path="/">
+            <Route exact path="/">
               <Accueil />
             </Route>
           </Switch>
         </div>
+        <Footer />
       </Router>
     );
   }
