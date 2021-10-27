@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import '../App.css';
-import { Container, Header, Form, Input, Image, Icon, Divider } from 'semantic-ui-react'
+import { Container, Header, Form, Input, Image, Icon, Divider, Message } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 
 class Inscription extends Component {
     state = {
         tempPwrd: "",
         isWrongPassword: false,
-        isRightPassword: false,
         isDiscordLoading: false,
+        isFormError: false,
+        userInfos : {}
     }
 
     handleVerifyPassword = (e, { value }) => {
@@ -19,9 +20,19 @@ class Inscription extends Component {
         }
     }
 
+    handleOnSubmit = (e) => {
+        this.setState({ isFormError: false });
+        if (this.state.isWrongPassword) {
+            this.setState({ isFormError: true });
+        } else {
+            console.log("pseudo : ", e.target.pseudo.value);
+        }
+    }
+
     render() {
         const {
             isWrongPassword,
+            isFormError,
         } = this.state;
         return (
             <Container className="form-aiko inscription">
@@ -36,14 +47,16 @@ class Inscription extends Component {
                     <a type="button" href="http://localhost:3001/connexion" className="ui button discord-button"><Icon name='discord' />S'inscrire avec Discord</a>
                 </div>
                 <Divider horizontal>Ou</Divider>
-                <Form size="large">
+                <Form error={isFormError} style={{ maxWidth: "800px", margin: "auto" }} onSubmit={this.handleOnSubmit} size="large">
                     <Form.Group widths='equal'>
                         <Form.Field
+                            name="prenom"
                             control={Input}
                             label="Prénom"
                             placeholder="Prénom"
                         />
                         <Form.Field
+                            name="nom"
                             control={Input}
                             label="Nom"
                             placeholder="Nom"
@@ -51,12 +64,21 @@ class Inscription extends Component {
                     </Form.Group>
                     <Form.Field
                         required
+                        name="pseudo"
+                        control={Input}
+                        label="Pseudo"
+                        placeholder="Pseudo"
+                    />
+                    <Form.Field
+                        required
+                        name="email"
                         type="email"
                         control={Input}
                         label="Email"
                         placeholder="Email"
                     />
                     <Form.Field
+                        name="mdp"
                         required
                         type="password"
                         control={Input}
@@ -73,8 +95,13 @@ class Inscription extends Component {
                         onChange={this.handleVerifyPassword}
                         error={isWrongPassword}
                     />
+                    <Message
+                        error
+                        header='Une erreur est survenue'
+                        content='Il y a un problème !'
+                    />
                     <div style={{ textAlign: "center", marginTop: 30 }}>
-                        <Form.Button>Let's go !</Form.Button>
+                        <Form.Button type="submit">Let's go !</Form.Button>
                     </div>
                 </Form>
             </Container>
