@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import '../App.css';
 import { Container, Header, Form, Input, Image, Icon, Divider, Message } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 class Inscription extends Component {
     state = {
         tempPwrd: "",
         isWrongPassword: false,
-        isDiscordLoading: false,
         isFormError: false,
-        userInfos : {}
+        isFormLoading: false,
+        errorMessage : "Vérifiez bien le mot de passe !"
     }
 
     handleVerifyPassword = (e, { value }) => {
@@ -21,18 +22,46 @@ class Inscription extends Component {
     }
 
     handleOnSubmit = (e) => {
+        let prenom = "", nom = "", pseudo = "", email = "", mdp = "";
         this.setState({ isFormError: false });
         if (this.state.isWrongPassword) {
             this.setState({ isFormError: true });
         } else {
             console.log("pseudo : ", e.target.pseudo.value);
+            prenom = e.target.prenom.value;
+            nom = e.target.nom.value;
+            pseudo = e.target.pseudo.value;
+            email = e.target.email.value;
+            mdp = e.target.mdp.value;
+            this.sendUserInfos(prenom, nom, pseudo, email, mdp);
         }
+    }
+
+    sendUserInfos = async (prenom, nom, pseudo, email, mdp) => {
+        this.setState({ isFormLoading: true });
+        await axios.post("http://localhost:3001/inscription/login/create-user", {
+            prenom: prenom,
+            nom: nom,
+            pseudo: pseudo,
+            email: email,
+            mdp: mdp,
+        })
+            .then(response => {
+                this.setState({ isFormLoading: false });
+                console.log(response);
+            })
+            .catch(error => {
+                this.setState({ isFormLoading: false, isFormError: true, errorMessage : "Cet utilisateur existe déjà ! Changez votre pseudo ou votre adresse mail." });
+                console.log(error)
+            })
     }
 
     render() {
         const {
             isWrongPassword,
             isFormError,
+            errorMessage,
+            isFormLoading,
         } = this.state;
         return (
             <Container className="form-aiko inscription">
@@ -44,10 +73,10 @@ class Inscription extends Component {
                 </div>
 
                 <div style={{ textAlign: "center", marginBottom: 30 }}>
-                    <a type="button" href="http://localhost:3001/connexion" className="ui button discord-button"><Icon name='discord' />S'inscrire avec Discord</a>
+                    <a type="button" href="http://localhost:3001/connexion/" className="ui button discord-button"><Icon name='discord' />S'inscrire avec Discord</a>
                 </div>
                 <Divider horizontal>Ou</Divider>
-                <Form error={isFormError} style={{ maxWidth: "800px", margin: "auto" }} onSubmit={this.handleOnSubmit} size="large">
+                <Form onChange={() => { this.setState({ isFormError: false }) }} loading={isFormLoading} error={isFormError} style={{ maxWidth: "800px", margin: "auto" }} onSubmit={this.handleOnSubmit} size="large">
                     <Form.Group widths='equal'>
                         <Form.Field
                             name="prenom"
@@ -68,6 +97,7 @@ class Inscription extends Component {
                         control={Input}
                         label="Pseudo"
                         placeholder="Pseudo"
+                        maxLength="25"
                     />
                     <Form.Field
                         required
@@ -83,6 +113,7 @@ class Inscription extends Component {
                         type="password"
                         control={Input}
                         label="Mot de passe"
+                        autoComplete="on"
                         placeholder="Mot de passe"
                         onChange={(e, { value }) => { this.setState({ isWrongPassword: false, tempPwrd: value }) }}
                     />
@@ -93,12 +124,13 @@ class Inscription extends Component {
                         label="Confirmation du mot de passe"
                         placeholder="Confirmation du mot de passe"
                         onChange={this.handleVerifyPassword}
+                        autoComplete="on"
                         error={isWrongPassword}
                     />
                     <Message
                         error
-                        header='Une erreur est survenue'
-                        content='Il y a un problème !'
+                        header='Une erreur est survenue !'
+                        content={errorMessage}
                     />
                     <div style={{ textAlign: "center", marginTop: 30 }}>
                         <Form.Button type="submit">Let's go !</Form.Button>

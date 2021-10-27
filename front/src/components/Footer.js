@@ -9,27 +9,27 @@ class Navigation extends Component {
             <footer>
                 <Grid stackable textAlign="center" columns="3">
                     <Grid.Column>
-                        <ul>
-                            <li>Joueurs</li>
-                            <li>Équipes</li>
-                            <li>Évènements</li>
-                            <li>Coaching</li>
-                        </ul>
+                        <div>
+                            <div>Joueurs</div>
+                            <div>Équipes</div>
+                            <div>Évènements</div>
+                            <div>Coaching</div>
+                        </div>
                     </Grid.Column>
                     <Grid.Column>
-                        <ul>
-                            <li>Mentions légales</li>
-                            <li>CGV</li>
-                            <li ><Image style={{ margin: "auto", marginTop: 30 }} size="small" src="images/logo.png" /></li>
-                        </ul>
+                        <div>
+                            <div>Mentions légales</div>
+                            <div>CGV</div>
+                            <div ><Image style={{ margin: "auto", marginTop: 30 }} size="small" src="images/logo.png" /></div>
+                        </div>
                     </Grid.Column>
                     <Grid.Column>
                         <Header>Rejoingnez-nous sur les réseaux</Header>
-                        <ul>
-                            <li>Youtube</li>
-                            <li>Twitter</li>
-                            <li>Discord</li>
-                        </ul>
+                        <div>
+                            <div>Youtube</div>
+                            <div>Twitter</div>
+                            <div>Discord</div>
+                        </div>
                     </Grid.Column>
                 </Grid>
             </footer>
