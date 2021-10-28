@@ -27,7 +27,6 @@ class Inscription extends Component {
         if (this.state.isWrongPassword) {
             this.setState({ isFormError: true });
         } else {
-            console.log("pseudo : ", e.target.pseudo.value);
             prenom = e.target.prenom.value;
             nom = e.target.nom.value;
             pseudo = e.target.pseudo.value;
@@ -39,7 +38,7 @@ class Inscription extends Component {
 
     sendUserInfos = async (prenom, nom, pseudo, email, mdp) => {
         this.setState({ isFormLoading: true });
-        await axios.post("http://localhost:3001/inscription/login/create-user", {
+        await axios.post(`${process.env.REACT_APP_SERVER}/inscription/login/create-user`, {
             prenom: prenom,
             nom: nom,
             pseudo: pseudo,
@@ -48,7 +47,7 @@ class Inscription extends Component {
         })
             .then(response => {
                 this.setState({ isFormLoading: false });
-                console.log(response);
+                this.props.login(email, mdp);
             })
             .catch(error => {
                 this.setState({ isFormLoading: false, isFormError: true, errorMessage: "Cet utilisateur existe déjà ! Changez votre pseudo ou votre adresse mail." });
@@ -73,7 +72,7 @@ class Inscription extends Component {
                 </div>
 
                 <div style={{ textAlign: "center", marginBottom: 30 }}>
-                    <a type="button" href="http://localhost:3001/connexion" className="ui button discord-button"><Icon name='discord' />S'inscrire avec Discord</a>
+                    <a type="button" href={`${process.env.REACT_APP_SERVER}/connexion`} className="ui button discord-button"><Icon name='discord' />S'inscrire avec Discord</a>
                 </div>
                 <Divider horizontal>Ou</Divider>
                 <Form onChange={() => { this.setState({ isFormError: false }) }} loading={isFormLoading} error={isFormError} style={{ maxWidth: "800px", margin: "auto" }} onSubmit={this.handleOnSubmit} size="large">

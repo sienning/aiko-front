@@ -14,26 +14,77 @@ import InscriptionCoach from './components/InscriptionCoach';
 import MdpOublie from './components/MdpOublie';
 import Footer from './components/Footer';
 import NavigationBar from './components/NavigationBar';
+import Profil from './components/Profil';
 
 class App extends Component {
   state = {
+    isConnected: false,
     url: "",
     code: "",
+    userInfos: {},
+    email: "",
+    userId: "",
   }
 
   componentDidMount() {
-    let url = window.location.href;
-    let code = url.replace("http://localhost:3000", "");
-    if (code.length > 0) {
-      code = code.replace("/?code=", "");
+    console.log("APP");
+    console.log(window.localStorage.getItem('email'));
+    if (window.localStorage.getItem('email') !== null) {
+      console.log("userId : ", window.localStorage.getItem('userId'));
+      this.setState({
+        isConnected: true,
+        email: window.localStorage.getItem('email'),
+        userId: window.localStorage.getItem('userId')
+      });
+    } else {
+      this.setState({
+        isConnected: false,
+        email: "",
+        userInfo: {}
+      });
     }
   }
 
+  getUserInfos = (userInfos) => {
+    console.log("===== getUserInfos =====");
+    console.log("userInfos", userInfos);
+    this.setState({ userInfos: userInfos, isConnected: true });
+  }
+
+  getUserInfosLogin = (userInfos, id, email) => {
+    console.log("===== getUserInfos =====");
+    console.log("userInfos", userInfos);
+    this.setState({ userId: id, email: email, userInfos: userInfos, isConnected: true });
+  }
+
+  login = async (email, password) => {
+    await axios.post(`${process.env.REACT_APP_SERVER}/connexion/login`, {
+      email: email,
+      password: password
+    })
+      .then(response => {
+        const res = response.data;
+        let token = res.token, userId = res.userId, userInfos = res.userInfos;
+        localStorage.setItem("email", email);
+        localStorage.setItem("token", token);
+        localStorage.setItem("userId", userId);
+        this.getUserInfos(userInfos);
+        window.location.replace("/");
+      })
+      .catch(err => {
+        this.setState({ isFormLoading: false, isFormError: true });
+        console.log(err)
+      })
+  }
+
+  logout = () => {
+    this.setState({ isConnected: false, userInfos: {}, email: "", userId: "" });
+    localStorage.clear();
+    window.location.replace("/");
+  }
+
   connexionDiscord = async (code) => {
-    // const headers = {
-    //   'Authorization': 
-    //   'Content-Type': 'application/x-www-form-urlencoded'
-    // };
+
     const data = {
       'client_id': "885505998972915724",
       'client_secret': "Kz44FQjQIhkA8GghyUJuL4U0cK5Qvd49",
@@ -49,21 +100,48 @@ class App extends Component {
   }
 
   render() {
+    const {
+      isConnected,
+      userInfos,
+      userId,
+    } = this.state;
     return (
       <Router>
         <div className="App">
-          <NavigationBar />
+          <NavigationBar
+            logout={this.logout}
+            isConnected={isConnected}
+            userId={userId}
+          />
 
           <Switch>
             <Route path="/sign-in-as-coach">
               <InscriptionCoach />
             </Route>
-            <Route path="/login">
-              <Connexion />
-            </Route>
-            <Route path="/sign-in">
-              <Inscription />
-            </Route>
+            {
+              isConnected ? null :
+                <Route path="/login">
+                  <Connexion
+                    getUserInfos={this.getUserInfosLogin}
+                  />
+                </Route>
+            }
+            {
+              isConnected ? null :
+                <Route path="/sign-in">
+                  <Inscription
+                    login={this.login}
+                  />
+                </Route>
+            }
+            {
+              isConnected ?
+                <Route path="/my-profile/:id">
+                  <Profil
+                    userId={userId}
+                  />
+                </Route> : null
+            }
             <Route path="/forgot-my-password">
               <MdpOublie />
             </Route>
