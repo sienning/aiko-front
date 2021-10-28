@@ -26,7 +26,6 @@ class Connexion extends Component {
           .then(response => {
             this.setState({ isFormLoading: false });
             const res = response.data;
-            console.log(res);
             if (res.status === "error") {
               this.setState({ isFormError: true, errorMessage: res.message })
             } else {
@@ -36,7 +35,6 @@ class Connexion extends Component {
                 localStorage.setItem("userId", userId);
                 this.props.getUserInfos(userInfos, userId, email);
             }
-    
           })
           .catch(err => {
             this.setState({ isFormLoading: false, isFormError: true });

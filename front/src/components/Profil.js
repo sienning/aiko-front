@@ -36,13 +36,13 @@ class Profil extends Component {
         return (
             <Container>
                 <div style={{ textAlign: "center", marginBottom: 20 }}>
-                    <Image style={{ margin: "auto" }} alt="Logo-Aiko" src="images/logo.png" size="tiny" />
+                    <Image style={{ margin: "auto" }} alt="Logo-Aiko" src="./images/logo.png" size="tiny" />
                     <Header as="h1">Mon compte</Header>
                     <p>Bienvenu(e), {userInfos.username} !</p>
                 </div>
-                <Grid>
+                <Grid columns={2}>
                     <Grid.Column>
-                        {/* <Image style={{ margin: "auto" }} alt="Logo-Aiko" src={`${process.env.REACT_APP_SERVER}/images/${userInfos.avatar}`} size="small" /> */}
+                        <Image style={{ margin: "auto" }} alt="Logo-Aiko" src={`${process.env.REACT_APP_SERVER}/images/${userInfos.avatar}`} size="small" />
                     </Grid.Column>
                     <Grid.Column>
                         <Form loading={isLoading}>

@@ -72,7 +72,6 @@ class App extends Component {
         window.location.replace("/");
       })
       .catch(err => {
-        this.setState({ isFormLoading: false, isFormError: true });
         console.log(err)
       })
   }
