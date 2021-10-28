@@ -10,7 +10,7 @@ class Inscription extends Component {
         isWrongPassword: false,
         isFormError: false,
         isFormLoading: false,
-        errorMessage : "Vérifiez bien le mot de passe !"
+        errorMessage: "Vérifiez bien le mot de passe !"
     }
 
     handleVerifyPassword = (e, { value }) => {
@@ -51,7 +51,7 @@ class Inscription extends Component {
                 console.log(response);
             })
             .catch(error => {
-                this.setState({ isFormLoading: false, isFormError: true, errorMessage : "Cet utilisateur existe déjà ! Changez votre pseudo ou votre adresse mail." });
+                this.setState({ isFormLoading: false, isFormError: true, errorMessage: "Cet utilisateur existe déjà ! Changez votre pseudo ou votre adresse mail." });
                 console.log(error)
             })
     }
@@ -73,7 +73,7 @@ class Inscription extends Component {
                 </div>
 
                 <div style={{ textAlign: "center", marginBottom: 30 }}>
-                    <a type="button" href="http://localhost:3001/connexion/" className="ui button discord-button"><Icon name='discord' />S'inscrire avec Discord</a>
+                    <a type="button" href="http://localhost:3001/connexion" className="ui button discord-button"><Icon name='discord' />S'inscrire avec Discord</a>
                 </div>
                 <Divider horizontal>Ou</Divider>
                 <Form onChange={() => { this.setState({ isFormError: false }) }} loading={isFormLoading} error={isFormError} style={{ maxWidth: "800px", margin: "auto" }} onSubmit={this.handleOnSubmit} size="large">

@@ -31,7 +31,7 @@ class Connexion extends Component {
                         label="Mot de passe"
                         placeholder="Mot de passe"
                     />
-                    <Link to="/forgot-my-password">Mot de passe oublié ?</Link>
+                    {/* <Link to="/forgot-my-password">Mot de passe oublié ?</Link> */}
                     <div style={{ textAlign: "center", marginTop: 30 }}>
                         <Form.Button>Let's go !</Form.Button>
                     </div>
