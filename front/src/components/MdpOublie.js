@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
-import { Container, Header, Form, Input, Image, Button, Icon, Divider } from 'semantic-ui-react'
-import { Link } from 'react-router-dom';
+import { Container, Header, Form, Input, Image } from 'semantic-ui-react'
 
 class MdpOublie extends Component {
     render() {

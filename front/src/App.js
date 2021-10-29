@@ -15,22 +15,20 @@ import MdpOublie from './components/MdpOublie';
 import Footer from './components/Footer';
 import NavigationBar from './components/NavigationBar';
 import Profil from './components/Profil';
+import Joueurs from './components/Joueurs';
+import Equipes from './components/Equipes';
+import Evenements from './components/Evenements';
 
 class App extends Component {
   state = {
     isConnected: false,
-    url: "",
-    code: "",
     userInfos: {},
     email: "",
     userId: "",
   }
 
   componentDidMount() {
-    console.log("APP");
-    console.log(window.localStorage.getItem('email'));
     if (window.localStorage.getItem('email') !== null) {
-      console.log("userId : ", window.localStorage.getItem('userId'));
       this.setState({
         isConnected: true,
         email: window.localStorage.getItem('email'),
@@ -42,7 +40,26 @@ class App extends Component {
         email: "",
         userInfo: {}
       });
+      this.getProfil();
     }
+  }
+
+  getProfil = async () => {
+    await axios.get(`${process.env.REACT_APP_SERVER}/profil/get-profile`)
+      .then(response => {
+        console.log(response);
+        const res = response.data;
+        localStorage.setItem("email", res.userInfos.email);
+        localStorage.setItem("token", res.token);
+        localStorage.setItem("userId", res.userId);
+        this.setState({
+          isConnected: true,
+          userInfos: res.userInfos,
+          email: res.userInfos.email,
+          userId: res.userId,
+        })
+      })
+      .catch(err => { console.log(err) })
   }
 
   getUserInfos = (userInfos) => {
@@ -78,25 +95,24 @@ class App extends Component {
   }
 
   logout = () => {
+    this.logoutDiscord();
     this.setState({ isConnected: false, userInfos: {}, email: "", userId: "" });
     localStorage.clear();
-    window.location.replace("/");
   }
 
-  connexionDiscord = async (code) => {
-
-    const data = {
-      'client_id': "885505998972915724",
-      'client_secret': "Kz44FQjQIhkA8GghyUJuL4U0cK5Qvd49",
-      'grant_type': 'authorization_code',
-      'code': code,
-      'redirect_uri': "http://localhost:3000"
-    }
-    await axios.post("https://discord.com/api/v8/oauth2/token", data)
+  logoutDiscord = async () => {
+    console.log("logoutDiscord");
+    await axios.get(`${process.env.REACT_APP_SERVER}/profil/empty-profile`, {
+      headers: {
+        Authorization: window.localStorage.getItem('token')
+      }
+    })
       .then(response => {
         console.log(response.data);
+        window.location.replace("/");
       })
       .catch(err => { console.log(err) })
+
   }
 
   render() {
@@ -115,38 +131,51 @@ class App extends Component {
           />
 
           <Switch>
+            <Route exact path="/">
+              <Accueil />
+            </Route>
             <Route path="/sign-in-as-coach">
               <InscriptionCoach />
             </Route>
             {
               isConnected ? null :
-                <Route path="/login">
-                  <Connexion
-                    getUserInfos={this.getUserInfosLogin}
-                  />
-                </Route>
-            }
-            {
-              isConnected ? null :
-                <Route path="/sign-in">
-                  <Inscription
-                    login={this.login}
-                  />
-                </Route>
+                <>
+                  <Route path="/login">
+                    <Connexion
+                      getUserInfos={this.getUserInfosLogin}
+                    />
+                  </Route>
+                  <Route path="/sign-up">
+                    <Inscription
+                      login={this.login}
+                    />
+                  </Route>
+                </>
             }
             {
               isConnected ?
-                <Route path="/my-profile/:id">
-                  <Profil
-                    userId={userId}
-                  />
-                </Route> : null
+                <>
+                  <Route path="/my-profile/:id">
+                    <Profil
+                      userId={userId}
+                    />
+                  </Route>
+                  <Route path="/players">
+                    <Joueurs
+                    />
+                  </Route>
+                  <Route path="/teams">
+                    <Equipes
+                    />
+                  </Route>
+                  <Route path="/events">
+                    <Evenements
+                    />
+                  </Route>
+                </> : null
             }
             <Route path="/forgot-my-password">
               <MdpOublie />
-            </Route>
-            <Route exact path="/">
-              <Accueil />
             </Route>
           </Switch>
         </div>

@@ -20,7 +20,7 @@ class Navigation extends Component {
                         <div>
                             <div>Mentions légales</div>
                             <div>CGV</div>
-                            <div ><Image style={{ margin: "auto", marginTop: 30 }} size="small" src="images/logo.png" /></div>
+                            <div ><Image style={{ margin: "auto", marginTop: 30 }} size="small" src="/images/logo.png" /></div>
                         </div>
                     </Grid.Column>
                     <Grid.Column>

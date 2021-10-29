@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { Container, Image } from 'semantic-ui-react'
 
-class Accueil extends Component {
+class Coachs extends Component {
     render() {
         return (
-            <div  className="accueil-body">
+            <div>
                 <Container textAlign="center" >
-                    <Image style={{ margin: "auto" }} src="/images/logo.png" size="large" />
+                    <Image style={{ margin: "auto" }} src="images/logo.png" size="large" />
                 </Container >
             </div>
         );
     }
 }
 
-export default Accueil;
+export default Coachs;
