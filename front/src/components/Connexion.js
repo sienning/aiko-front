@@ -20,27 +20,36 @@ class Connexion extends Component {
     login = async (email, password) => {
         this.setState({ isFormLoading: true });
         await axios.post(`${process.env.REACT_APP_SERVER}/connexion/login`, {
-          email: email,
-          password: password
+            email: email,
+            password: password
         })
-          .then(response => {
-            this.setState({ isFormLoading: false });
-            const res = response.data;
-            if (res.status === "error") {
-              this.setState({ isFormError: true, errorMessage: res.message })
-            } else {
-                let token = res.token, userId = res.userId, userInfos = res.userInfos;
-                localStorage.setItem("email", email);
-                localStorage.setItem("token", token);
-                localStorage.setItem("userId", userId);
-                this.props.getUserInfos(userInfos, userId, email);
-            }
-          })
-          .catch(err => {
-            this.setState({ isFormLoading: false, isFormError: true });
-            console.log(err)
-          })
-      }
+            .then(response => {
+                this.setState({ isFormLoading: false });
+                const res = response.data;
+                if (res.status === "error") {
+                    this.setState({ isFormError: true, errorMessage: res.message })
+                } else {
+                    let token = res.token, userId = res.userId, userInfos = res.userInfos;
+                    localStorage.setItem("email", email);
+                    localStorage.setItem("token", token);
+                    localStorage.setItem("userId", userId);
+                    this.props.getUserInfos(userInfos, userId, email);
+                }
+            })
+            .catch(err => {
+                this.setState({ isFormLoading: false, isFormError: true });
+                console.log(err)
+            })
+    }
+    handleLoginDiscord = async () => {
+        await axios.get(`${process.env.REACT_APP_SERVER}/profil`)
+            .then(response => {
+                console.log(response);
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
 
     render() {
         const {
@@ -53,10 +62,10 @@ class Connexion extends Component {
                 <div style={{ textAlign: "center", marginBottom: 20 }}>
                     <Image style={{ margin: "auto" }} alt="Logo-Aiko" src="images/logo.png" size="tiny" />
                     <Header as="h1">Se connecter</Header>
-                    <p>Je n'ai pas de compte Aiko. <Link to="/sign-in">M'inscrire</Link></p>
+                    <p>Je n'ai pas de compte Aiko. <Link to="/sign-up">M'inscrire</Link></p>
                 </div>
                 <div style={{ textAlign: "center", marginBottom: 30 }}>
-                    <a type="button" href={`${process.env.REACT_APP_SERVER}/connexion`} className="ui button discord-button"><Icon name='discord' />Se connecter avec Discord</a>
+                    <a type="button" href={`${process.env.REACT_APP_SERVER}/connexion/`} className="ui button discord-button"><Icon name='discord' />Se connecter avec Discord</a>
                 </div>
                 <Divider horizontal>Ou</Divider>
                 <Form loading={isFormLoading} error={isFormError} onSubmit={this.handleOnSubmit} size="large">
