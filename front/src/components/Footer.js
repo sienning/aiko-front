@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../App.css'
 import { Grid, Header, Image } from 'semantic-ui-react'
 
-class Navigation extends Component {
+class Footer extends Component {
 
     render() {
         return (
@@ -24,7 +24,7 @@ class Navigation extends Component {
                         </div>
                     </Grid.Column>
                     <Grid.Column>
-                        <Header>Rejoingnez-nous sur les réseaux</Header>
+                        <Header>Rejoignez-nous sur les réseaux</Header>
                         <div>
                             <div>Youtube</div>
                             <div>Twitter</div>
@@ -37,4 +37,4 @@ class Navigation extends Component {
     }
 }
 
-export default Navigation;
+export default Footer;

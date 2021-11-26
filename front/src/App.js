@@ -8,16 +8,18 @@ import {
 } from "react-router-dom";
 import './App.css';
 import axios from 'axios';
+import NavigationBar from './components/NavigationBar';
+import Footer from './components/Footer';
 import Connexion from './components/Connexion';
 import Inscription from './components/Inscription';
-import InscriptionCoach from './components/InscriptionCoach';
+import InscriptionCoach from './components/isConnected/InscriptionCoach';
 import MdpOublie from './components/MdpOublie';
-import Footer from './components/Footer';
-import NavigationBar from './components/NavigationBar';
-import Profil from './components/Profil';
-import Joueurs from './components/Joueurs';
-import Equipes from './components/Equipes';
+import Profil from './components/isConnected/Profil';
+import Joueurs from './components/isConnected/Joueurs';
+import Equipes from './components/isConnected/Equipes';
 import Evenements from './components/Evenements';
+import Coaching from './components/Coaching';
+import FAQ from './components/isConnected/FAQ';
 
 class App extends Component {
   state = {
@@ -112,13 +114,12 @@ class App extends Component {
         window.location.replace("/");
       })
       .catch(err => { console.log(err) })
-
   }
 
   render() {
     const {
       isConnected,
-      userInfos,
+      // userInfos,
       userId,
     } = this.state;
     return (
@@ -133,6 +134,9 @@ class App extends Component {
           <Switch>
             <Route exact path="/">
               <Accueil />
+            </Route>
+            <Route path="/coaching">
+              <Coaching />
             </Route>
             <Route path="/sign-in-as-coach">
               <InscriptionCoach />
@@ -150,6 +154,7 @@ class App extends Component {
                       login={this.login}
                     />
                   </Route>
+                  
                 </>
             }
             {
@@ -171,6 +176,9 @@ class App extends Component {
                   <Route path="/events">
                     <Evenements
                     />
+                  </Route>
+                  <Route path="/faq">
+                    <FAQ/>
                   </Route>
                 </> : null
             }

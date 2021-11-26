@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Image } from 'semantic-ui-react'
+import { Image } from 'semantic-ui-react'
 
 class Evenements extends Component {
     render() {

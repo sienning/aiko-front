@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../App.css';
+import '../../App.css';
 import { Container, Header, Image, Grid, Form, Input } from 'semantic-ui-react'
 import axios from 'axios';
 
@@ -17,7 +17,7 @@ class Profil extends Component {
 
     getUserInfos = async (id) => {
         this.setState({ isLoading: true });
-        await axios.get(`${process.env.REACT_APP_SERVER}/users/see-user/${id}`, {
+        await axios.get(`/users/see-user/id_user=${id}`, {
             headers: {
                 Authorization: window.localStorage.getItem('token')
             }
