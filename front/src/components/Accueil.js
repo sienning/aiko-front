@@ -53,6 +53,13 @@ class Accueil extends Component {
                         aute.</p>
                     </div>
                 </section>
+
+                <section>
+
+                </section>
+
+                
+
             </div>
         );
     }
