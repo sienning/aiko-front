@@ -4,7 +4,7 @@ import { Button, Container, Image } from 'semantic-ui-react'
 class Accueil extends Component {
     render() {
         return (
-            <div  className="accueil-body">
+            <div className="accueil-body">
                 <Container textAlign="center" >
                     <Image style={{ margin: "auto" }} src="images/logo.png" size="large" />
                     <h3>JOUEURS <span>●</span> COACHING <span>●</span> EQUIPES</h3>
@@ -20,25 +20,25 @@ class Accueil extends Component {
                 </section>
 
                 <section className="accueil-imgText">
-                    <Image src="https://via.placeholder.com/566x352"/>
+                    <Image src="https://via.placeholder.com/566x352" />
                     <div>
                         <h2>Why</h2>
                         <p>Ullamco esse velit ipsum officia laboris veniam.
-                        Consequat voluptate sit laborum proident laboris duis
-                        minim deserunt veniam labore velit adipisicing eu.
-                        Laboris cillum sit nulla nostrud fugiat nostrud sint ea dolor
-                        aute.Ullamco esse velit ipsum officia laboris veniam.
-                        Consequat voluptate sit laborum proident laboris duis
-                        minim deserunt veniam labore velit adipisicing eu.
-                        Laboris cillum sit nulla nostrud fugiat nostrud sint ea dolor
-                        aute.</p>
+                            Consequat voluptate sit laborum proident laboris duis
+                            minim deserunt veniam labore velit adipisicing eu.
+                            Laboris cillum sit nulla nostrud fugiat nostrud sint ea dolor
+                            aute.Ullamco esse velit ipsum officia laboris veniam.
+                            Consequat voluptate sit laborum proident laboris duis
+                            minim deserunt veniam labore velit adipisicing eu.
+                            Laboris cillum sit nulla nostrud fugiat nostrud sint ea dolor
+                            aute.</p>
                     </div>
                 </section>
 
                 <section className="accueil-commentaire">
                     <h2>Témoignages</h2>
                     <div>
-                        <Image className="img" src="https://via.placeholder.com/100x100"/>
+                        <Image className="img" src="https://via.placeholder.com/100x100" />
                         <div>
                             <div className="title">
                                 <h3>Bananape</h3>
@@ -46,8 +46,8 @@ class Accueil extends Component {
                             </div>
                             <div className="message">
                                 <p>"Ullamco esse velit ipsum officia laboris veniam.
-                        Consequat voluptate sit laborum proident laboris duis
-                        minim deserunt veniam labore velit adipisicing eu."</p>
+                                    Consequat voluptate sit laborum proident laboris duis
+                                    minim deserunt veniam labore velit adipisicing eu."</p>
                             </div>
                         </div>
                     </div>
@@ -57,34 +57,34 @@ class Accueil extends Component {
                     <div>
                         <h2>Who</h2>
                         <p>Ullamco esse velit ipsum officia laboris veniam.
-                        Consequat voluptate sit laborum proident laboris duis
-                        minim deserunt veniam labore velit adipisicing eu.
-                        Laboris cillum sit nulla nostrud fugiat nostrud sint ea dolor
-                        aute.Ullamco esse velit ipsum officia laboris veniam.
-                        Consequat voluptate sit laborum proident laboris duis
-                        minim deserunt veniam labore velit adipisicing eu.
-                        Laboris cillum sit nulla nostrud fugiat nostrud sint ea dolor
-                        aute.</p>
+                            Consequat voluptate sit laborum proident laboris duis
+                            minim deserunt veniam labore velit adipisicing eu.
+                            Laboris cillum sit nulla nostrud fugiat nostrud sint ea dolor
+                            aute.Ullamco esse velit ipsum officia laboris veniam.
+                            Consequat voluptate sit laborum proident laboris duis
+                            minim deserunt veniam labore velit adipisicing eu.
+                            Laboris cillum sit nulla nostrud fugiat nostrud sint ea dolor
+                            aute.</p>
                         <a href="/">
                             <Button className="button">Inscris toi !</Button>
                         </a>
                     </div>
-                    <Image src="https://via.placeholder.com/566x352"/>
+                    <Image src="https://via.placeholder.com/566x352" />
                 </section>
 
                 <section className="accueil-imgText">
-                <Image src="https://via.placeholder.com/566x352"/>
+                    <Image src="https://via.placeholder.com/566x352" />
                     <div>
                         <h2>How</h2>
                         <p>Ullamco esse velit ipsum officia laboris veniam.
-                        Consequat voluptate sit laborum proident laboris duis
-                        minim deserunt veniam labore velit adipisicing eu.
-                        Laboris cillum sit nulla nostrud fugiat nostrud sint ea dolor
-                        aute.Ullamco esse velit ipsum officia laboris veniam.
-                        Consequat voluptate sit laborum proident laboris duis
-                        minim deserunt veniam labore velit adipisicing eu.
-                        Laboris cillum sit nulla nostrud fugiat nostrud sint ea dolor
-                        aute.</p>
+                            Consequat voluptate sit laborum proident laboris duis
+                            minim deserunt veniam labore velit adipisicing eu.
+                            Laboris cillum sit nulla nostrud fugiat nostrud sint ea dolor
+                            aute.Ullamco esse velit ipsum officia laboris veniam.
+                            Consequat voluptate sit laborum proident laboris duis
+                            minim deserunt veniam labore velit adipisicing eu.
+                            Laboris cillum sit nulla nostrud fugiat nostrud sint ea dolor
+                            aute.</p>
                     </div>
                 </section>
 
@@ -92,7 +92,7 @@ class Accueil extends Component {
 
                 </section>
 
-                
+
 
             </div>
         );
