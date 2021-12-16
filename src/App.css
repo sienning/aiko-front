@@ -34,6 +34,23 @@ a:hover {
   color: black !important;
 }
 
+.ui.horizontal.divider {
+  color: #9E47B1 !important;
+  margin: 5px 0;
+}
+.ui.horizontal.divider:before {
+  background: linear-gradient(to left, #9E47B1, transparent) no-repeat;
+  background-size: 90% 1.5px;
+  background-position: center;
+}
+
+.ui.horizontal.divider:after {
+  background: linear-gradient(to right, #9E47B1, transparent) no-repeat;
+  background-size: 90% 1.5px;
+  background-position: center;
+}
+
+
 .ui.form .field .ui.input input, .ui.form .fields .field .ui.input input{
   border-radius: 30px;
 }
@@ -101,13 +118,21 @@ a:hover {
 }
 
 /* FOOTER */
+footer .separator {
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin-bottom: 50px;
+  background: linear-gradient(to right, #9E47B1, transparent);
+}
+
 footer{
-  /* position: absolute; */
+  margin-top: 50px;
   bottom : 0;
   display: block;
   width: 100%;
   height: 100%;
-  margin-bottom: 20px;
+  padding-bottom: 50px;
 }
 
 footer ul {
@@ -136,7 +161,7 @@ font-family: var(--roboto);
   height: 42vh;
   width: 100vw;
   margin: none;
-  background-image: url("images/banniere.png");
+  background-image: url("images/frise-large.png");
   background-repeat: no-repeat;
   background-size: 100%;
   margin: 10px 0 50px;
@@ -251,11 +276,24 @@ img.ui.image {
 
 /* INSCRIPTION CONNEXION */
 
-.form-aiko::before {
+.form-aiko.inscription::before {
   content: " ";
   position: absolute;
   background-size: 100%;
-  background-image: url("images/banniere.png");
+  background-image: url("images/frise-large.png");
+  background-repeat: no-repeat;
+  opacity: 0.4;
+  width: 100%;
+  height:80%;
+  top: 40%;
+  left:0;
+}
+
+.form-aiko.connexion::before {
+  content: " ";
+  position: absolute;
+  background-size: 100%;
+  background-image: url("images/frise-mini.png");
   background-repeat: no-repeat;
   opacity: 0.4;
   width: 100%;
@@ -276,4 +314,40 @@ img.ui.image {
   margin-bottom: 10px !important;
   display: block;
   float: none !important;
+}
+
+.signin-coach {
+  background: url("images/braum50.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+/* FAQ */
+.faq::before {
+  content: " ";
+  position: absolute;
+  background-size: 100%;
+  background-image: url("images/frise-mini.png");
+  background-repeat: no-repeat;
+  opacity: 0.4;
+  width: 100%;
+  height:80%;
+  top: 70%;
+  left:0;
+}
+
+/* COACHING */
+.coaching.bloc3::after {
+  content: " ";
+  position: absolute;
+  background-size: 100%;
+  background-image: url("images/frise-mini.png");
+  background-repeat: no-repeat;
+  opacity: 0.4;
+  width: 100%;
+  height:80%;
+  top: 0;
+  left:0;
 }

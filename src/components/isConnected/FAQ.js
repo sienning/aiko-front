@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import '../../App.css';
-import { Container, Header, Image, Accordion, Button } from 'semantic-ui-react'
+import '../App.css';
+import { Container, Header, Image, Accordion, Button, Divider } from 'semantic-ui-react'
 
 const panels = [
     {
@@ -45,22 +45,29 @@ const panels = [
 class FAQ extends Component {
     render() {
         return (
-            <Container>
-                <div style={{ textAlign: "center", marginBottom: 20 }}>
-                    <Image style={{ margin: "auto" }} alt="Logo-Aiko" src="/images/logo.png" size="tiny" />
-                    <Header as="h1">Une question ?</Header>
-                </div>
-                <Container style={{ width: 500, marginBottom: 100 }}>
-                    <Accordion inverted panels={panels} />
+            <div className='faq'>
+                <Container>
+                    <div style={{ textAlign: "center", marginBottom: 20 }}>
+                        <Image style={{ margin: "auto" }} alt="Logo-Aiko" src="/images/logo.png" size="tiny" />
+                        <Header as="h1">Une question ?</Header>
+                    </div>
+                    <Divider horizontal>Thème</Divider>
+                    <Container style={{ width: 500, marginBottom: 100 }}>
+                        <Accordion inverted panels={panels} />
+                    </Container>
+                    <Divider horizontal>Thème</Divider>
+                    <Container style={{ width: 500, marginBottom: 100 }}>
+                        <Accordion inverted panels={panels} />
+                    </Container>
+                    <Container style={{ width: 600, marginBottom: 60 }} textAlign="justify">
+                        <p>Vous n'avez pas trouvé la réponse à votre question ?</p>
+                        <p>Venez nous la poser sur Discord</p>
+                    </Container>
+                    <Container textAlign="center">
+                        <Button onClick={() => window.open("https://discord.gg/SXhDhU6nNg", '_blank')} icon="discord" content="Rejoignez-nous" />
+                    </Container>
                 </Container>
-                <Container style={{ width: 600, marginBottom: 60 }} textAlign="justify">
-                    <p>Vous n'avez pas trouvé la réponse à votre question ?</p>
-                    <p>Venez nous la poser sur Discord</p>
-                </Container>
-                <Container textAlign="center">
-                    <Button icon="discord" content="Rejoignez-nous" />
-                </Container>
-            </Container>
+            </div>
         );
     }
 }
