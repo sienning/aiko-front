@@ -148,12 +148,12 @@ footer ul {
   font-family: var(--coda);
 }
 .accueil-body h3 {
-  font-size: 64px;
+  font-size: 50px;
   font-family: var(--darker);
   margin-bottom: 25px;
 }
 .accueil-body p{
-font-size: 24px;
+font-size: 20px;
 font-family: var(--roboto);
 }
 
@@ -161,7 +161,7 @@ font-family: var(--roboto);
   height: 42vh;
   width: 100vw;
   margin: none;
-  background-image: url("images/frise-large.png");
+  background-image: url("images/banniere.png");
   background-repeat: no-repeat;
   background-size: 100%;
   margin: 10px 0 50px;
@@ -174,7 +174,7 @@ font-family: var(--roboto);
   margin-top: 100px;
 }
 .accueil-banBack a .ui{
-  font-size: 24px;
+  font-size: 20px;
   font-family: var(--roboto);
   width: 100%;
 }
@@ -189,20 +189,29 @@ font-family: var(--roboto);
 .accueil-imgText div{
   display: flex;
   flex-direction: column;
-  margin: 0 50px;
+  margin: 0 10% 0 50px;
   justify-content: center;
 }
 
-img.ui.image {
-  margin: 40px;
+.accueil-imgText.imgTextSwap div{
+  margin: 0 50px 0 10%;
+}
+
+.accueil-imgText img.ui.image {
+  margin: 40px 40px 40px 0px;
+  max-width: 566px;
+}
+
+.accueil-imgText.imgTextSwap img.ui.image {
+  margin: 40px 0 40px 40px;
 }
 
 .accueil-imgText div p{
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .accueil-imgText div h2{
-  font-size: 54px;
+  font-size: 40px;
   font-family: var(--roboto);
 }
 
@@ -211,8 +220,8 @@ img.ui.image {
 }
 
 .accueil-imgText div a .button {
-  font-size: 24px;
-  width: 326px;
+  font-size: 20px;
+  width: 320px;
   font-family: var(--roboto);
 }
 
@@ -271,6 +280,53 @@ img.ui.image {
 .accueil-commentaire div div .message p {
   color: black;
   font-size: 14px;
+  font-family: var(--roboto);
+}
+
+.accueil-purpleDiv {
+  width: 100%;
+}
+.accueil-purpleDiv img.ui.image{
+  width: 100%;
+}
+
+.accueil-car {
+  margin: 100px 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.accueil-car h1{
+  font-size: 64px;
+  font-family: var(--darker);
+  margin-bottom: 25px;
+  margin-bottom: 0;
+}
+
+.accueil-car .carousel-caption-bottom{
+  position: relative;
+  width: auto;
+  text-align: start;
+  margin-left: 20px;
+}
+
+.accueil-car a.prev{
+  left: -150px;
+}
+
+.accueil-car a.next{
+  right: -150px;
+}
+
+.accueil-car a {
+  margin: 40px auto 0;
+}
+
+.accueil-car a .button {
+  font-size: 20px;
+  width: 320px;
   font-family: var(--roboto);
 }
 
