@@ -1,7 +1,20 @@
 import React, { Component } from 'react';
-import { Button, Container, Image } from 'semantic-ui-react'
+import { Button, Container, Image } from 'semantic-ui-react';
+import { Carousel } from 'react-carousel-minimal';
 
 class Accueil extends Component {
+    data = [
+        {
+            image : "images/evenement.png",
+            caption : "Open World Event",
+        }
+    ];
+
+    captionStyle = {
+        fontSize: '2em',
+        fontWeight: 'bold',
+    }
+
     render() {
         return (
             <div  className="accueil-body">
@@ -20,7 +33,7 @@ class Accueil extends Component {
                 </section>
 
                 <section className="accueil-imgText">
-                    <Image src="https://via.placeholder.com/566x352"/>
+                    <Image src="images/why-min.png"/>
                     <div>
                         <h2>Why</h2>
                         <p>Ullamco esse velit ipsum officia laboris veniam.
@@ -53,7 +66,7 @@ class Accueil extends Component {
                     </div>
                 </section>
 
-                <section className="accueil-imgText">
+                <section className="accueil-imgText imgTextSwap">
                     <div>
                         <h2>Who</h2>
                         <p>Ullamco esse velit ipsum officia laboris veniam.
@@ -69,11 +82,11 @@ class Accueil extends Component {
                             <Button className="button">Inscris toi !</Button>
                         </a>
                     </div>
-                    <Image src="https://via.placeholder.com/566x352"/>
+                    <Image src="images/who-min.png"/>
                 </section>
 
                 <section className="accueil-imgText">
-                <Image src="https://via.placeholder.com/566x352"/>
+                <Image src="images/how-min.png"/>
                     <div>
                         <h2>How</h2>
                         <p>Ullamco esse velit ipsum officia laboris veniam.
@@ -88,8 +101,26 @@ class Accueil extends Component {
                     </div>
                 </section>
 
-                <section>
+                <div className="accueil-purpleDiv">
+                    <Image src="images/banniereSeule.png"/>
+                </div>
 
+                <section className='accueil-car'>
+                    <h1>Les évènement Aiko</h1>
+                <Carousel
+                    data = {this.data}
+                    time={10000} automatic={false} pauseIconColor="white" pauseIconSize="40px"
+                    width="800px" height="300px" radius="0"
+                    captionStyle={this.captionStyle}
+                    slideNumber={false} 
+                    dots={true}
+                    slideNumberStyle={this.slideNumberStyle}
+                    captionPosition="bottom"  
+                    slideBackgroundColor="darkgrey"
+                    slideImageFit="cover"
+                    thumbnails={false}
+                    thumbnailWidth="100px"
+                />
                 </section>
 
                 
