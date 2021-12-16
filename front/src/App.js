@@ -19,7 +19,7 @@ import Joueurs from './components/isConnected/Joueurs';
 import Equipes from './components/isConnected/Equipes';
 import Evenements from './components/Evenements';
 import Coaching from './components/Coaching';
-import FAQ from './components/isConnected/FAQ';
+import FAQ from './components/FAQ';
 
 class App extends Component {
   state = {
@@ -140,6 +140,9 @@ class App extends Component {
             <Route path="/sign-in-as-coach">
               <InscriptionCoach />
             </Route>
+            <Route path="/faq">
+              <FAQ />
+            </Route>
             {
               isConnected ? null :
                 <>
@@ -153,7 +156,6 @@ class App extends Component {
                       login={this.login}
                     />
                   </Route>
-                  
                 </>
             }
             {
@@ -177,7 +179,7 @@ class App extends Component {
                     />
                   </Route>
                   <Route path="/faq">
-                    <FAQ/>
+                    <FAQ />
                   </Route>
                 </> : null
             }

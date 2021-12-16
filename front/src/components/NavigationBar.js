@@ -36,6 +36,9 @@ const NavigationBar = ({ isConnected, logout, userId }) => {
               <div className="navbar-link">
                 <Link to="/evenements">Évènements</Link>
               </div>
+              <div className="navbar-link">
+                <Link to="/faq">F.A.Q.</Link>
+              </div>
             </>
         }
       </div>
@@ -62,7 +65,7 @@ const NavigationBar = ({ isConnected, logout, userId }) => {
         }
 
         <div className="navbar-social">
-          <a rel="noreferrer" target="_blank" href="https://discord.com/"><Icon name="youtube play" /></a>
+          <a rel="noreferrer" target="_blank" href="https://www.youtube.com/"><Icon name="youtube" /></a>
         </div>
         <div className="navbar-social">
           <a rel="noreferrer" target="_blank" href="https://twitter.com/home"><Icon name="twitter" /></a>
