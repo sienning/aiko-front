@@ -45,7 +45,7 @@ class Profil extends Component {
                         {
                             userInfos.discordId ?
                             <Image circular style={{ margin: "auto" }} alt="Logo-Aiko" src={`https://cdn.discordapp.com/avatars/${userInfos.discordId}/${userInfos.avatar}`} size="small" />
-                            : <Image circular style={{ margin: "auto" }} alt="Logo-Aiko" src={`${process.env.REACT_APP_SERVER}/images/${userInfos.avatar}`} size="small" />
+                            : <Image circular style={{ margin: "auto" }} alt="Logo-Aiko" src={`${process.env.REACT_APP_SERVER}images/${userInfos.avatar}`} size="small" />
                         }
                     </Grid.Column>
                     <Grid.Column width={11}>
