@@ -339,9 +339,9 @@ font-family: var(--roboto);
   background-image: url("images/frise-large.png");
   background-repeat: no-repeat;
   opacity: 0.4;
-  width: 100%;
-  height:80%;
-  top: 40%;
+  width: 170%;
+  height:70%;
+  top: 50%;
   left:0;
 }
 
@@ -351,19 +351,6 @@ font-family: var(--roboto);
   opacity: 0.4;
   
 }
-/* .form-aiko.connexion::before {
-  content: " ";
-  position: absolute;
-  background-size: 100%;
-  background-image: url("images/frise-mini.png");
-  background-repeat: no-repeat;
-  opacity: 0.4;
-  width: 100%;
-  height:80%;
-  top: 40%;
-  left:0;
-} */
-
 /* JOUEURS */
 .player_card {
   color: black;
@@ -401,20 +388,6 @@ font-family: var(--roboto);
     rgba(0,0,0,0) 100%
   );
 }
-
-/* .faq .frise::before {
-  z-index: 1;
-  content: " ";
-  position: absolute;
-  background-size: 100%;
-  background-image: url("images/frise-mini.png");
-  background-repeat: no-repeat;
-  opacity: 0.4;
-  width: 100%;
-  height:5%;
-  top: 70%;
-  left:0;
-} */
 
 .faq .active, .dot:hover {
   background-color: transparent !important;

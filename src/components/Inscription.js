@@ -72,7 +72,7 @@ class Inscription extends Component {
                 </div>
 
                 <div style={{ textAlign: "center", marginBottom: 30 }}>
-                    <a type="button" href={`${process.env.REACT_APP_SERVER}/connexion`} className="ui button discord-button"><Icon name='discord' />S'inscrire avec Discord</a>
+                    <a type="button" href={`${process.env.REACT_APP_SERVER}connexion`} className="ui button discord-button"><Icon name='discord' />S'inscrire avec Discord</a>
                 </div>
                 <Divider horizontal>Ou</Divider>
                 <Form onChange={() => { this.setState({ isFormError: false }) }} loading={isFormLoading} error={isFormError} style={{ maxWidth: "800px", margin: "auto" }} onSubmit={this.handleOnSubmit} size="large">
