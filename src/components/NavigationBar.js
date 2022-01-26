@@ -8,7 +8,7 @@ const NavigationBar = ({ isConnected, logout, userId }) => {
     <nav className="navbar">
       <div className="navbar-site-links">
         <div className="navbar-link navbar-logo" style={{ marginLeft: 100 }}>
-          <Link to="/"><Image src="/images/icon.png" size="mini" /></Link>
+          <Link to="/"><Image src="/images/icon.png" /></Link>
         </div>
         {
           isConnected ?
@@ -34,6 +34,9 @@ const NavigationBar = ({ isConnected, logout, userId }) => {
                 <Link to="/coaching">Le coaching Aiko</Link>
               </div>
               <div className="navbar-link">
+                <Link to="/">Tournois</Link>
+              </div>
+              <div className="navbar-link">
                 <Link to="/evenements">Évènements</Link>
               </div>
               <div className="navbar-link">
@@ -44,6 +47,20 @@ const NavigationBar = ({ isConnected, logout, userId }) => {
       </div>
 
       <div className="navbar-social-links" style={{ marginRight: 100 }}>
+
+        <div className="navbar-social">
+          <a rel="noreferrer" target="_blank" href="https://twitch.tv/"><Icon name="twitch" /></a>
+        </div>
+        <div className="navbar-social">
+          <a rel="noreferrer" target="_blank" href="https://www.youtube.com/"><Icon name="youtube" /></a>
+        </div>
+        <div className="navbar-social">
+          <a rel="noreferrer" target="_blank" href="https://twitter.com/home"><Icon name="twitter" /></a>
+        </div>
+        <div className="navbar-social">
+          <a rel="noreferrer" target="_blank" href="https://discord.gg/SXhDhU6nNg"><Icon name="discord" /></a>
+        </div>
+
         {
           isConnected ?
             <>
@@ -64,15 +81,6 @@ const NavigationBar = ({ isConnected, logout, userId }) => {
             </>
         }
 
-        <div className="navbar-social">
-          <a rel="noreferrer" target="_blank" href="https://www.youtube.com/"><Icon name="youtube" /></a>
-        </div>
-        <div className="navbar-social">
-          <a rel="noreferrer" target="_blank" href="https://twitter.com/home"><Icon name="twitter" /></a>
-        </div>
-        <div className="navbar-social">
-          <a rel="noreferrer" target="_blank" href="https://discord.gg/SXhDhU6nNg"><Icon name="discord" /></a>
-        </div>
       </div>
     </nav >
   );

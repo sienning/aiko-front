@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Button, Container, Image } from 'semantic-ui-react';
-import { Carousel } from 'react-carousel-minimal';
+import { Button, Container, Icon, Image } from 'semantic-ui-react';
+import '../slider.js';
 
 class Accueil extends Component {
     data = [
@@ -15,22 +15,29 @@ class Accueil extends Component {
         fontWeight: 'bold',
     }
 
+    
+
     render() {
         return (
             <div  className="accueil-body">
-                <Container textAlign="center" >
-                    <Image style={{ margin: "auto" }} src="images/logo.png" size="large" />
+                <iframe className='accueil-video'
+                    src='https://www.youtube.com/embed/mDYqT0_9VR4?autoplay=1&mute=1&loop=1&controls=0&disablekb=1&modestbranding=0&showinfo=0&playlist=mDYqT0_9VR4'
+                    frameborder='0'
+                    allow='autoplay; encrypted-media; mute; disablekd; modestbranding; showinfo;'
+                    allowfullscreen
+                    title='League of legends'
+                />
+                <Container textAlign="center" className='accueil-video-hover' >
+                    <Image src="images/logo.png" className='logo-accueil'/>
                     <h3>JOUEURS <span>●</span> COACHING <span>●</span> EQUIPES</h3>
                     <p>Votre plateforme de mise en relation entre joueurs et équipes, qui vous accompagne dans votre évolution grâce à du coaching personnalisé.</p>
-                </Container >
-
-                <section>
                     <div className="accueil-banBack">
                         <a href="/">
                             <Button>Inscris toi</Button>
                         </a>
                     </div>
-                </section>
+                    <div className='accueil-leviathanSide'></div>
+                </Container >
 
                 <section className="accueil-imgText">
                     <Image src="images/why.png"/>
@@ -106,27 +113,48 @@ class Accueil extends Component {
                 </div>
 
                 <section className='accueil-car'>
-                    <h1>Les évènement Aiko</h1>
-                    <Carousel
-                        data = {this.data}
-                        time={10000} automatic={false} pauseIconColor="white" pauseIconSize="40px"
-                        width="800px" height="300px" radius="0"
-                        captionStyle={this.captionStyle}
-                        slideNumber={false} 
-                        dots={true}
-                        slideNumberStyle={this.slideNumberStyle}
-                        captionPosition="bottom"  
-                        slideBackgroundColor="darkgrey"
-                        slideImageFit="cover"
-                        thumbnails={false}
-                        thumbnailWidth="100px"
-                    />
+                    <h1>Les évènements Aiko</h1>
+                    <div id='carousel1'>
+                            <div className='item'>
+                                <div className='carousel-image-event'>
+                                    <a href='/'>
+                                        <div className='carousel-image-text'>
+                                            <h2 className='carousel-image-titre'>
+                                                Open World Event
+                                            </h2>
+                                            <p className='carousel-image-date'>
+                                                Lundi 9 octobre
+                                            </p>
+                                            <p className='carousel-image-participation'>
+                                                Je participe <Icon name='long arrow alternate right' />
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div className='item'>
+                                <div className='carousel-image-event'>
+                                    <a href='/'>
+                                        <div className='carousel-image-text'>
+                                            <h2 className='carousel-image-titre'>
+                                                Open World Event Test
+                                            </h2>
+                                            <p className='carousel-image-date'>
+                                                Lundi 9 octobre
+                                            </p>
+                                            <p className='carousel-image-participation'>
+                                                Je participe <Icon name='long arrow alternate right' />
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>  
+                    </div>
+                    
                     <a href="/">
                         <Button className="button">Inscris toi !</Button>
                     </a>
                 </section>
-
-                
 
             </div>
         );
