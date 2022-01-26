@@ -13,7 +13,7 @@ class Coaching extends Component {
                 <br />
                 <br />
                 <Container className='bloc1'>
-                    <Grid  stackable columns={2}>
+                    <Grid stackable columns={2}>
                         <Grid.Column>
                             <Header as='h1'>Coaching</Header>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nunc sed orci sagittis, ultricies diam consectetur diam. Aliquet tempus placerat feugiat varius mauris congue cras maecenas elementum.</p>
@@ -48,7 +48,7 @@ class Coaching extends Component {
                     <Header.Subheader>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Header.Subheader>
                 </Container>
 
-                <Grid className='bloc3' stackable columns={2}>
+                <Grid style={{ marginBottom: 30 }} className='bloc3' stackable columns={2}>
                     <Grid.Column>
                         <Container style={{ paddingLeft: "80px" }}>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nunc sed orci sagittis, ultricies diam consectetur diam. Aliquet tempus placerat feugiat varius mauris congue cras maecenas elementum.</p>
@@ -64,8 +64,10 @@ class Coaching extends Component {
                         </Container>
                     </Grid.Column>
                 </Grid>
-                <Image  style={{ left: '-100px', width: "150%" }} src="images/frise-mini.png" />
-                <Container className='bloc4' style={{ marginTop: 200, marginBottom: 100 }} textAlign="center">
+
+                <div className='frise'> <Image alt="frise-aiko" src="/images/frise-mini.png" /></div>
+
+                <Container className='bloc4' style={{ marginTop: 30, marginBottom: 100 }} textAlign="center">
                     <Header as="h1">Stats stylées</Header>
                     <Grid stackable columns={3}>
                         <Grid.Column>

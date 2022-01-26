@@ -47,9 +47,8 @@ class App extends Component {
   }
 
   getProfil = async () => {
-    await axios.get(`${process.env.REACT_APP_SERVER}/profil/get-profile`)
+    await axios.get(`/profil/get-profile`)
       .then(response => {
-        console.log(response);
         const res = response.data;
         localStorage.setItem("email", res.userInfos.email);
         localStorage.setItem("token", res.token);
@@ -65,19 +64,15 @@ class App extends Component {
   }
 
   getUserInfos = (userInfos) => {
-    console.log("===== getUserInfos =====");
-    console.log("userInfos", userInfos);
     this.setState({ userInfos: userInfos, isConnected: true });
   }
 
   getUserInfosLogin = (userInfos, id, email) => {
-    console.log("===== getUserInfos =====");
-    console.log("userInfos", userInfos);
     this.setState({ userId: id, email: email, userInfos: userInfos, isConnected: true });
   }
 
   login = async (email, password) => {
-    await axios.post(`${process.env.REACT_APP_SERVER}/connexion/login`, {
+    await axios.post(`/connexion/login`, {
       email: email,
       password: password
     })
@@ -103,7 +98,7 @@ class App extends Component {
 
   logoutDiscord = async () => {
     console.log("logoutDiscord");
-    await axios.get(`${process.env.REACT_APP_SERVER}/profil/empty-profile`, {
+    await axios.get(`/profil/empty-profile`, {
       headers: {
         Authorization: window.localStorage.getItem('token')
       }

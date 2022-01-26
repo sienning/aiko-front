@@ -51,21 +51,23 @@ class FAQ extends Component {
                         <Image style={{ margin: "auto" }} alt="Logo-Aiko" src="/images/logo.png" size="tiny" />
                         <Header as="h1">Une question ?</Header>
                     </div>
-                    <Divider horizontal>Thème</Divider>
-                    <Container style={{ width: 500, marginBottom: 100 }}>
-                        <Accordion inverted panels={panels} />
-                    </Container>
-                    <Divider horizontal>Thème</Divider>
-                    <Container style={{ width: 500, marginBottom: 100 }}>
-                        <Accordion inverted panels={panels} />
-                    </Container>
-                    <Container style={{ width: 600, marginBottom: 60 }} textAlign="justify">
-                        <p>Vous n'avez pas trouvé la réponse à votre question ?</p>
-                        <p>Venez nous la poser sur Discord</p>
-                    </Container>
-                    <Container textAlign="center">
-                        <Button onClick={() => window.open("https://discord.gg/SXhDhU6nNg", '_blank')} icon="discord" content="Rejoignez-nous" />
-                    </Container>
+                </Container>
+
+                <Divider horizontal>Thème</Divider>
+                <Container style={{ width: 500, marginBottom: 100 }}>
+                    <Accordion inverted panels={panels} />
+                </Container>
+                <Divider horizontal>Thème</Divider>
+                <Container style={{ width: 500, marginBottom: 20 }}>
+                    <Accordion inverted panels={panels} />
+                </Container>
+                <div className='frise'> <Image alt="frise-aiko" src="/images/frise-mini.png" /></div>
+                <Container style={{ width: 600, marginBottom: 60, marginTop: 20 }} textAlign="justified">
+                    <p>Vous n'avez pas trouvé la réponse à votre question ?</p>
+                    <p>Venez nous la poser sur Discord</p>
+                </Container>
+                <Container className='join-discord' textAlign="center">
+                    <Button onClick={() => window.open("https://discord.gg/SXhDhU6nNg", '_blank')} icon="discord" content="Rejoignez-nous" />
                 </Container>
             </div>
         );

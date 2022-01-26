@@ -462,7 +462,13 @@ p.carousel-image-date{
   left:0;
 }
 
-.form-aiko.connexion::before {
+.connexion .frise {
+  width: 150%;
+  left: 0;
+  opacity: 0.4;
+  
+}
+/* .form-aiko.connexion::before {
   content: " ";
   position: absolute;
   background-size: 100%;
@@ -473,7 +479,7 @@ p.carousel-image-date{
   height:80%;
   top: 40%;
   left:0;
-}
+} */
 
 /* JOUEURS */
 .player_card {
@@ -498,7 +504,23 @@ p.carousel-image-date{
 
 
 /* FAQ */
-.faq::before {
+.faq .frise {
+  width: 150%;
+  left: 0;
+  opacity: 0.4;
+  
+}
+.faq .frise img {
+  background: linear-gradient(
+    to right, 
+    transparent 0%,
+    transparent 75%,
+    rgba(0,0,0,0) 100%
+  );
+}
+
+/* .faq .frise::before {
+  z-index: 1;
   content: " ";
   position: absolute;
   background-size: 100%;
@@ -506,13 +528,17 @@ p.carousel-image-date{
   background-repeat: no-repeat;
   opacity: 0.4;
   width: 100%;
-  height:80%;
+  height:5%;
   top: 70%;
   left:0;
-}
+} */
 
 .faq .active, .dot:hover {
   background-color: transparent !important;
+}
+
+.faq .join-discord {
+  z-index: 1000000;
 }
 
 /* COACHING */
@@ -527,4 +553,11 @@ p.carousel-image-date{
   height:80%;
   top: 0;
   left:0;
+}
+
+.coaching .frise {
+  width: 150%;
+  left: 0;
+  opacity: 0.4;
+  
 }
