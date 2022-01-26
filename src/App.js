@@ -50,6 +50,7 @@ class App extends Component {
     await axios.get(`/profil/get-profile`)
       .then(response => {
         const res = response.data;
+        console.log(res);
         localStorage.setItem("email", res.userInfos.email);
         localStorage.setItem("token", res.token);
         localStorage.setItem("userId", res.userId);

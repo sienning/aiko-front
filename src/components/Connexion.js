@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css'
-import { Container, Header, Form, Input, Image, Icon, Divider, Message } from 'semantic-ui-react'
+import { Container, Header, Form, Input, Image, Icon, Divider, Message, Button } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -43,7 +43,7 @@ class Connexion extends Component {
             })
     }
     handleLoginDiscord = async () => {
-        await axios.get(`${process.env.REACT_APP_SERVER}/profil`)
+        await axios.get(`/connexion/`)
             .then(response => {
                 console.log(response);
             })
@@ -51,6 +51,8 @@ class Connexion extends Component {
                 console.log(err)
             })
     }
+
+
 
     render() {
         const {
@@ -68,6 +70,7 @@ class Connexion extends Component {
                     </div>
                     <div style={{ textAlign: "center", marginBottom: 30 }}>
                         <a type="button" href={`${process.env.REACT_APP_SERVER}connexion/`} className="ui button discord-button"><Icon name='discord' />Se connecter avec Discord</a>
+                        {/* <Button type="button" onClick={() => { this.handleLoginDiscord() }} className="ui button discord-button"><Icon name='discord' />Se connecter avec Discord</Button> */}
                     </div>
                     <Divider horizontal>Ou</Divider>
                     <Form loading={isFormLoading} error={isFormError} onSubmit={this.handleOnSubmit} size="large">
