@@ -4,6 +4,7 @@ import { Image, Icon, Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 const NavigationBar = ({ isConnected, logout, userId }) => {
+
   return (
     <nav className="navbar">
       <div className="navbar-site-links">
