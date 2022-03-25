@@ -3,27 +3,14 @@ import { Button, Container, Icon, Image } from 'semantic-ui-react';
 import '../slider.js';
 
 class Accueil extends Component {
-    data = [
-        {
-            image : "images/event.png",
-            caption : "Open World Event",
-        }
-    ];
-
-    captionStyle = {
-        fontSize: '2em',
-        fontWeight: 'bold',
-    }
-
-    
-
+   
     render() {
         return (
             <div  className="accueil-body">
                 <iframe className='accueil-video'
                     src='https://www.youtube.com/embed/mDYqT0_9VR4?autoplay=1&mute=1&loop=1&controls=0&disablekb=1&modestbranding=0&showinfo=0&playlist=mDYqT0_9VR4'
                     frameborder='0'
-                    allow='autoplay; encrypted-media; mute; disablekd; modestbranding; showinfo;'
+                    allow='autoplay; encrypted-media;'
                     allowfullscreen
                     title='League of legends'
                 />
@@ -36,7 +23,10 @@ class Accueil extends Component {
                             <Button>Inscris toi</Button>
                         </a>
                     </div>
-                    <div className='accueil-leviathanSide'></div>
+                    <div className='accueil-leviathanSide'>
+                    <Image src="images/leviathan-corps.png"/>
+
+                    </div>
                 </Container >
 
                 <section className="accueil-imgText">
@@ -111,7 +101,6 @@ class Accueil extends Component {
                 <div className="accueil-purpleDiv">
                     <Image src="images/frise-mini.png"/>
                 </div>
-
                 <section className='accueil-car'>
                     <h1>Les évènements Aiko</h1>
                     <div id='carousel1'>

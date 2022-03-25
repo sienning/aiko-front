@@ -48,21 +48,22 @@ class FAQ extends Component {
             <div className='faq'>
                 <Container>
                     <div style={{ textAlign: "center", marginBottom: 20 }}>
-                        <Image style={{ margin: "auto" }} alt="Logo-Aiko" src="/images/logo.png" size="tiny" />
+                        <Image style={{ margin: "auto" }} alt="Logo-Aiko" src="/images/aiko-leviathan.png" size="small" />
                         <Header as="h1">Une question ?</Header>
                     </div>
                 </Container>
-
-                <Divider horizontal>Thème</Divider>
-                <Container style={{ width: 500, marginBottom: 100 }}>
-                    <Accordion inverted panels={panels} />
+                <Container className='border-faq'>
+                    <Divider horizontal>Thème</Divider>
+                    <Container style={{ width: 500, marginBottom: 100 }}>
+                        <Accordion inverted panels={panels} />
+                    </Container>
+                    <Divider horizontal>Thème</Divider>
+                    <Container style={{ width: 500, marginBottom: 20 }}>
+                        <Accordion inverted panels={panels} />
+                    </Container>
                 </Container>
-                <Divider horizontal>Thème</Divider>
-                <Container style={{ width: 500, marginBottom: 20 }}>
-                    <Accordion inverted panels={panels} />
-                </Container>
-                <div className='frise'> <Image alt="frise-aiko" src="/images/frise-mini.png" /></div>
-                <Container style={{ width: 600, marginBottom: 60, marginTop: 20 }} textAlign="justified">
+                {/* <div className='frise'> <Image alt="frise-aiko" src="/images/frise-mini.png" /></div> */}
+                <Container style={{ fontSize: 15, width: 600, marginBottom: 60, marginTop: 20 }} textAlign="justified">
                     <p>Vous n'avez pas trouvé la réponse à votre question ?</p>
                     <p>Venez nous la poser sur Discord</p>
                 </Container>

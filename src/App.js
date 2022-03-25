@@ -8,18 +8,19 @@ import {
 } from "react-router-dom";
 import './App.css';
 import axios from 'axios';
-import NavigationBar from './components/NavigationBar';
+import NavigationBar from './components/NavBarComponents/NavigationBar';
 import Footer from './components/Footer';
 import Connexion from './components/Connexion';
 import Inscription from './components/Inscription';
-import InscriptionCoach from './components/isConnected/InscriptionCoach';
+import InscriptionCoach from './components/InscriptionCoach';
 import MdpOublie from './components/MdpOublie';
 import Profil from './components/isConnected/Profil';
 import Joueurs from './components/isConnected/Joueurs';
 import Equipes from './components/isConnected/Equipes';
-import Evenements from './components/Evenements';
 import Coaching from './components/Coaching';
 import FAQ from './components/FAQ';
+import NotFound from './components/NotFound';
+import Tournois from './components/Tournois';
 
 class App extends Component {
   state = {
@@ -114,7 +115,6 @@ class App extends Component {
   render() {
     const {
       isConnected,
-      // userInfos,
       userId,
     } = this.state;
     return (
@@ -130,6 +130,7 @@ class App extends Component {
             <Route exact path="/">
               <Accueil />
             </Route>
+
             <Route path="/coaching">
               <Coaching />
             </Route>
@@ -139,49 +140,69 @@ class App extends Component {
             <Route path="/faq">
               <FAQ />
             </Route>
-            {
-              isConnected ? null :
-                <>
-                  <Route path="/login">
-                    <Connexion
-                      getUserInfos={this.getUserInfosLogin}
-                    />
-                  </Route>
-                  <Route path="/sign-up">
-                    <Inscription
-                      login={this.login}
-                    />
-                  </Route>
-                </>
-            }
-            {
-              isConnected ?
-                <>
-                  <Route path="/my-profile/:id">
-                    <Profil
-                      userId={userId}
-                    />
-                  </Route>
-                  <Route path="/players">
-                    <Joueurs
-                    />
-                  </Route>
-                  <Route path="/teams">
-                    <Equipes
-                    />
-                  </Route>
-                  <Route path="/events">
-                    <Evenements
-                    />
-                  </Route>
-                  <Route path="/faq">
-                    <FAQ />
-                  </Route>
-                </> : null
-            }
+            <Route path="/team">
+            </Route>
             <Route path="/forgot-my-password">
               <MdpOublie />
             </Route>
+
+            <Route path="/tournaments">
+              <Tournois
+              />
+            </Route>
+
+            {
+              isConnected ? null :
+
+                <Route path="/login">
+                  <Connexion
+                    getUserInfos={this.getUserInfosLogin}
+                  />
+                </Route>
+            }
+            {
+              isConnected ? null :
+                <Route path="/sign-up">
+                  <Inscription
+                    login={this.login}
+                  />
+                </Route>
+            }
+            {
+              isConnected ?
+                <Route path="/my-profile/:id">
+                  <Profil
+                    userId={userId}
+                  />
+                </Route>
+                : null
+            }
+            {
+              isConnected ?
+                <Route path="/players">
+                  <Joueurs />
+                </Route>
+                : null
+            }
+            {
+              isConnected ?
+                <Route path="/teams">
+                  <Equipes />
+                </Route>
+                : null
+            }
+
+            {
+              isConnected ?
+                <Route path="/faq">
+                  <FAQ />
+                </Route>
+                : null
+            }
+            <Route>
+              <NotFound />
+            </Route>
+
           </Switch>
         </div>
         <Footer />

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css'
-import { Container, Header, Form, Input, Image, Icon, Divider, Message, Button } from 'semantic-ui-react'
+import { Container, Header, Form, Input, Image, Icon, Divider, Message } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -90,7 +90,9 @@ class Connexion extends Component {
                             label="Mot de passe"
                             placeholder="Mot de passe"
                         />
-                        {/* <Link to="/forgot-my-password">Mot de passe oublié ?</Link> */}
+                        <div>
+                            <Link to="/forgot-my-password">Mot de passe oublié ?</Link>
+                        </div>
                         <Message
                             error
                             header='Une erreur est survenue !'
@@ -101,6 +103,7 @@ class Connexion extends Component {
                         </div>
 
                     </Form>
+
                 </Container>
                 <div className='frise'> <Image alt="frise-aiko" src="/images/frise-mini.png" /></div>
             </div>

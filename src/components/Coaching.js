@@ -39,12 +39,9 @@ class Coaching extends Component {
                     </Grid>
 
                 </Container>
-                <Image style={{ left: '-400px', width: "150%" }} src="images/frise-mini.png" />
-                <Image style={{ left: '-100px', width: "150%", top: "-40px" }} src="images/frise-mini.png" />
-
 
                 <Container className='bloc2' style={{ marginTop: 200, marginBottom: 100 }} textAlign="center">
-                    <Header as='h1'>Déja coach ?</Header>
+                    <Header as='h1'>Déjà coach ?</Header>
                     <Header.Subheader>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Header.Subheader>
                 </Container>
 
@@ -65,7 +62,6 @@ class Coaching extends Component {
                     </Grid.Column>
                 </Grid>
 
-                <div className='frise'> <Image alt="frise-aiko" src="/images/frise-mini.png" /></div>
 
                 <Container className='bloc4' style={{ marginTop: 30, marginBottom: 100 }} textAlign="center">
                     <Header as="h1">Stats stylées</Header>

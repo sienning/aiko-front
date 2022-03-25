@@ -13,7 +13,7 @@ class Footer extends Component {
                     <Grid.Column>
                         <div>
                             <div><Link to="coaching">Le coaching Aiko</Link></div>
-                            <div><Link to="evenements">Évènements</Link></div>
+                            <div><Link to="tournaments">Tournois</Link></div>
                             <div>Mon équipe</div>
                             <div><Link to="faq">F.A.Q</Link></div>
                         </div>
@@ -28,9 +28,9 @@ class Footer extends Component {
                     <Grid.Column>
                         <Header>Rejoignez-nous sur les réseaux</Header>
                         <div style={{ display: "inline-flex", margin: "auto" }}>
-                            <div><a target="_blank" href="https://www.youtube.com/"><Icon name="youtube" /></a></div>
-                            <div><a target="_blank" href="https://twitter.com/home"><Icon name="twitter" /></a></div>
-                            <div><a target="_blank" target="_blank" href="https://discord.gg/SXhDhU6nNg"><Icon name="discord" /></a></div>
+                            <div><a target="_blank" rel="noreferrer" href="https://www.youtube.com/"><Icon name="youtube" /></a></div>
+                            <div><a target="_blank" rel="noreferrer" href="https://twitter.com/home"><Icon name="twitter" /></a></div>
+                            <div><a target="_blank" rel="noreferrer" href="https://discord.gg/SXhDhU6nNg"><Icon name="discord" /></a></div>
                         </div>
                     </Grid.Column>
                 </Grid>

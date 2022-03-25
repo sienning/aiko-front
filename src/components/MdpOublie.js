@@ -3,16 +3,22 @@ import '../App.css';
 import { Container, Header, Form, Input, Image } from 'semantic-ui-react'
 
 class MdpOublie extends Component {
+
+    handleSubmit = e => {
+        e.preventDefault();
+    }
+
     render() {
         return (
-            <Container className="form-aiko">
+            <Container style={{ marginTop: 20 }} className="form-aiko">
                 <div style={{ textAlign: "center", marginBottom: 20 }}>
-                    <Image style={{ margin: "auto" }} alt="Logo-Aiko" src="images/logo.png" size="tiny" />
+                    <Image style={{ margin: "auto" }} alt="Logo-Aiko" src="images/aiko-leviathan.png" size="small" />
                     <Header as="h1">Mot de passe oublié ?</Header>
-                    <p>Un mail te sera envoyé afin que tu puisses réinitialiser ton mot de passe</p>
+                    <p>Un mail te sera envoyé afin que tu puisses réinitialiser ton mot de passe.</p>
                 </div>
-                <Form size="large">
+                <Form onSubmit={e => {this.handleSubmit(e)}} style={{ margin: "auto", width: "600px" }}>
                     <Form.Field
+                        name="email"
                         required
                         type="email"
                         control={Input}

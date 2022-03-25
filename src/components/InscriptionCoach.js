@@ -1,8 +1,19 @@
 import React, { Component } from 'react';
-import '../../App.css';
+// import '../../App.css';
 import { Container, Header, Form, Grid, Button } from 'semantic-ui-react'
 
 class InscriptionCoach extends Component {
+
+    /**
+     * Quand le bouton "Envoyer" est cliqué
+     */
+    handleSubmit = async (e) => {
+        e.preventDefault();
+        const experience = e.target.experience.value;
+        const description = e.target.description.value;
+        console.log(experience);
+        console.log(description);
+    }
 
     render() {
         return (
@@ -11,7 +22,7 @@ class InscriptionCoach extends Component {
                     <br />
                     <br />
                     <br />
-                    <Header as='h1' style={{ fontSize: "55px" }}>Aikoaching</Header>
+                    <Header as='h1' style={{ fontSize: "55px" }}>Aikoaching</Header>
                     <Container>
                         <Grid columns='2'>
                             <Grid.Column >
@@ -21,12 +32,13 @@ class InscriptionCoach extends Component {
                                 </div>
                             </Grid.Column>
                             <Grid.Column>
-                                <Form>
+                                <Form onSubmit={e => {this.handleSubmit(e)}}>
                                     <Form.Input
+                                        name="experience"
                                         label="Expérience"
                                     />
                                     <Form.TextArea
-                                        onChange={e => console.log(e.target.value)}
+                                        name="description"
                                         label="Décris-toi et tes motivations"
                                         style={{ height: 300, borderRadius: "30px" }}
                                     />
