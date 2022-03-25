@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import { Button, Container, Icon, Image } from 'semantic-ui-react';
-import '../slider.js';
+import { Button, Container, Image } from 'semantic-ui-react';
+// import Carousel from '../components/Slider';
 
 class Accueil extends Component {
-   
     render() {
         return (
             <div  className="accueil-body">
                 <iframe className='accueil-video'
                     src='https://www.youtube.com/embed/mDYqT0_9VR4?autoplay=1&mute=1&loop=1&controls=0&disablekb=1&modestbranding=0&showinfo=0&playlist=mDYqT0_9VR4'
-                    frameborder='0'
+                    frameBorder='0'
                     allow='autoplay; encrypted-media;'
                     allowfullscreen
                     title='League of legends'
@@ -45,7 +44,7 @@ class Accueil extends Component {
                     </div>
                 </section>
 
-                <section className="accueil-commentaire">
+                <section className="accueil-commentaire" id="desktop">
                     <h2>Témoignages</h2>
                     <div>
                         <Image className="img" src="https://via.placeholder.com/100x100"/>
@@ -63,7 +62,25 @@ class Accueil extends Component {
                     </div>
                 </section>
 
-                <section className="accueil-imgText imgTextSwap">
+                <section className="accueil-commentaire" id="mobile">
+                    <h2>Témoignages</h2>
+                    <div>
+                        <div>
+                            <Image className="img" src="https://via.placeholder.com/100x100"/>
+                            <div className="title">
+                                <h3>Bananape</h3>
+                                <p>★ ★ ★ ★</p>
+                            </div>
+                        </div>
+                        <div className="message">
+                                <p>"Ullamco esse velit ipsum officia laboris veniam.
+                        Consequat voluptate sit laborum proident laboris duis
+                        minim deserunt veniam labore velit adipisicing eu."</p>
+                            </div>
+                    </div>
+                </section>
+
+                <section className="accueil-imgText imgTextSwap" id="desktop">
                     <div>
                         <h2>Who</h2>
                         <p>Ullamco esse velit ipsum officia laboris veniam.
@@ -80,6 +97,25 @@ class Accueil extends Component {
                         </a>
                     </div>
                     <Image src="images/who.png"/>
+                </section>
+
+                <section className="accueil-imgText imgTextSwap" id="mobile">
+                    <Image src="images/who.png"/>
+                    <div>
+                        <h2>Who</h2>
+                        <p>Ullamco esse velit ipsum officia laboris veniam.
+                        Consequat voluptate sit laborum proident laboris duis
+                        minim deserunt veniam labore velit adipisicing eu.
+                        Laboris cillum sit nulla nostrud fugiat nostrud sint ea dolor
+                        aute.Ullamco esse velit ipsum officia laboris veniam.
+                        Consequat voluptate sit laborum proident laboris duis
+                        minim deserunt veniam labore velit adipisicing eu.
+                        Laboris cillum sit nulla nostrud fugiat nostrud sint ea dolor
+                        aute.</p>
+                        <a href="/">
+                            <Button className="button">Inscris toi !</Button>
+                        </a>
+                    </div>
                 </section>
 
                 <section className="accueil-imgText">
@@ -101,49 +137,18 @@ class Accueil extends Component {
                 <div className="accueil-purpleDiv">
                     <Image src="images/frise-mini.png"/>
                 </div>
-                <section className='accueil-car'>
-                    <h1>Les évènements Aiko</h1>
-                    <div id='carousel1'>
-                            <div className='item'>
-                                <div className='carousel-image-event'>
-                                    <a href='/'>
-                                        <div className='carousel-image-text'>
-                                            <h2 className='carousel-image-titre'>
-                                                Open World Event
-                                            </h2>
-                                            <p className='carousel-image-date'>
-                                                Lundi 9 octobre
-                                            </p>
-                                            <p className='carousel-image-participation'>
-                                                Je participe <Icon name='long arrow alternate right' />
-                                            </p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div className='item'>
-                                <div className='carousel-image-event'>
-                                    <a href='/'>
-                                        <div className='carousel-image-text'>
-                                            <h2 className='carousel-image-titre'>
-                                                Open World Event Test
-                                            </h2>
-                                            <p className='carousel-image-date'>
-                                                Lundi 9 octobre
-                                            </p>
-                                            <p className='carousel-image-participation'>
-                                                Je participe <Icon name='long arrow alternate right' />
-                                            </p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>  
-                    </div>
-                    
-                    <a href="/">
-                        <Button className="button">Inscris toi !</Button>
+
+                <div className="accueil-carrou">
+                    <a href='/'>
+                        <div className='carrou'>
+                            <p className='title'>World Event Tournament</p>
+                            <small className='subtitle'>25 avril</small>
+                            <small className='subtitle'>Je participe ➜</small>
+                        </div>
                     </a>
-                </section>
+                </div>
+
+                {/* <Carousel></Carousel> */}
 
             </div>
         );
