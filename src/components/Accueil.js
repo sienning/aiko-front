@@ -23,7 +23,7 @@ class Accueil extends Component {
                         </a>
                     </div>
                     <div className='accueil-leviathanSide'>
-                    <Image src="images/leviathan-corps.png"/>
+                    {/* <Image src="images/leviathan-corps.png"/> */}
 
                     </div>
                 </Container >

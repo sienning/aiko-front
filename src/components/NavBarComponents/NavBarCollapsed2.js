@@ -10,8 +10,12 @@ const NavBarCollapsed2 = ({ isConnected, logout, userId }) => {
         let bg = document.getElementById('black-bg-2');
         if (bg.style.display === "flex") {
             bg.style.display = "none";
-        } else
+            document.getElementsByTagName('body')[0].style.overflow = "none";
+        } else {
             bg.style.display = "flex";
+            console.log(document.getElementsByTagName('body')[0]);
+            document.getElementsByTagName('body')[0].style.overflow = "hidden";
+        }
     }
 
     const handleBgClick = e => {
@@ -20,6 +24,7 @@ const NavBarCollapsed2 = ({ isConnected, logout, userId }) => {
         if (input.checked) {
             bg.style.display = "none";
             input.checked = false;
+            document.getElementsByTagName('body')[0].style.overflow = "none";
         }
     }
 
@@ -34,7 +39,7 @@ const NavBarCollapsed2 = ({ isConnected, logout, userId }) => {
                     <span className="line line3"></span>
                 </div>
                 <div className="logo">
-                    <Image src="/images/logo.png" size="tiny" />
+                    <Link to="/"><Image src="/images/logo.png" size="tiny" /></Link>
                 </div>
 
                 <div className="menu-items">
