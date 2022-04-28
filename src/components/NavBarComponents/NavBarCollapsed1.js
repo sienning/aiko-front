@@ -52,7 +52,7 @@ const NavBarCollapsed1 = ({ isConnected, logout, userId }) => {
                             isConnected ?
                                 <>
                                     <li className='purple-link'>
-                                        <Link to={`/my-profile/${userId}`}>Mon compte</Link>
+                                        <Link onClick={handleBgClick} to={`/my-profile/${userId}`}>Mon compte</Link>
                                     </li>
                                     <li className='purple-link'>
                                         <Button onClick={() => logout()}>Déconnexion</Button>
@@ -61,10 +61,10 @@ const NavBarCollapsed1 = ({ isConnected, logout, userId }) => {
                                 :
                                 <>
                                     <li className='purple-link'>
-                                        <Link to="/login">Connexion</Link>
+                                        <Link onClick={handleBgClick} to="/login">Connexion</Link>
                                     </li>
                                     <li className='purple-link'>
-                                        <Link to="/sign-up">Inscription</Link>
+                                        <Link onClick={handleBgClick} to="/sign-up">Inscription</Link>
                                     </li>
                                 </>
                         }

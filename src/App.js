@@ -20,7 +20,8 @@ import Equipes from './components/isConnected/Equipes';
 import Coaching from './components/Coaching';
 import FAQ from './components/FAQ';
 import NotFound from './components/NotFound';
-import Tournois from './components/Tournois';
+import Tournois from './components/Tournois/Tournois';
+import SeeEvent from './components/Tournois/SeeEvent';
 
 class App extends Component {
   state = {
@@ -148,6 +149,11 @@ class App extends Component {
 
             <Route path="/tournaments">
               <Tournois
+              />
+            </Route>
+
+            <Route path="/event/:id">
+              <SeeEvent
               />
             </Route>
 

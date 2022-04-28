@@ -31,7 +31,7 @@ class Coaching extends Component {
                                 </div>
                                 <div>
                                     <blockquote>
-                                        "Bananape est très professionnel blablablablablablablablabla blablablablabla blablablablablabla blablabla blablablablablablablablablablablablablablablablabla"
+                                        "Bananape est très professionnel blablablablablablablablabla blablablablabla blablablablablabla blablabla blablablablablablablablablablablablla"
                                     </blockquote>
                                 </div>
                             </Segment>
@@ -47,7 +47,7 @@ class Coaching extends Component {
 
                 <Grid style={{ marginBottom: 30 }} className='bloc3' stackable columns={2}>
                     <Grid.Column>
-                        <Container style={{ paddingLeft: "80px" }}>
+                        <Container className='coaching-deja-coach' >
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nunc sed orci sagittis, ultricies diam consectetur diam. Aliquet tempus placerat feugiat varius mauris congue cras maecenas elementum.</p>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nunc sed orci sagittis, ultricies diam consectetur diam. Aliquet tempus placerat feugiat varius mauris congue cras maecenas elementum.</p>
                             <Container textAlign='center'>
@@ -56,7 +56,7 @@ class Coaching extends Component {
                         </Container>
                     </Grid.Column>
                     <Grid.Column>
-                        <Container textAlign='right'>
+                        <Container className='coaching-deja-coach-img' textAlign='right'>
                             <Image style={{ margin: 0 }} floated="right" size="large" src="images/dejacoach.png" />
                         </Container>
                     </Grid.Column>

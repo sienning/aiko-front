@@ -1,0 +1,24 @@
+[
+    {
+        "titleEvent": "Open World Event",
+        "img": "/images/event.png",
+        "format": "1v1",
+        "map": "ARAM",
+        "serveur": "EUW",
+        "cashPrize": "",
+        "dateEvent": "Lundi 20 Octobre 2022",
+        "timeEvent": "20h",
+        "over": false
+    },
+    {
+        "titleEvent": "Closed World Event",
+        "img": "/images/event.png",
+        "format": "1v2",
+        "map": "ARAMIS",
+        "serveur": "EUK",
+        "cashPrize": "4000",
+        "dateEvent": "Lundi 10 Octobre 2021",
+        "timeEvent": "21h",
+        "over": true
+    }
+]

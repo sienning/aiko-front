@@ -24,7 +24,7 @@ class InscriptionCoach extends Component {
                     <br />
                     <Header as='h1' style={{ fontSize: "55px" }}>Aikoaching</Header>
                     <Container>
-                        <Grid columns='2'>
+                        <Grid stackable columns='2'>
                             <Grid.Column >
                                 <div>
                                     <Header as="h5">Rejoins les rangs des big boss</Header>

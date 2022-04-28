@@ -10,7 +10,7 @@ const NavBarCollapsed2 = ({ isConnected, logout, userId }) => {
         let bg = document.getElementById('black-bg-2');
         if (bg.style.display === "flex") {
             bg.style.display = "none";
-            document.getElementsByTagName('body')[0].style.overflow = "none";
+            document.getElementsByTagName('body')[0].style.overflow = "";
         } else {
             bg.style.display = "flex";
             console.log(document.getElementsByTagName('body')[0]);
@@ -24,9 +24,10 @@ const NavBarCollapsed2 = ({ isConnected, logout, userId }) => {
         if (input.checked) {
             bg.style.display = "none";
             input.checked = false;
-            document.getElementsByTagName('body')[0].style.overflow = "none";
+            document.getElementsByTagName('body')[0].style.overflow = "";
         }
     }
+
 
     return (
         <div className='navbar-responsive-2'>
@@ -74,7 +75,7 @@ const NavBarCollapsed2 = ({ isConnected, logout, userId }) => {
                 isConnected ?
                     <div className='navbar-login-links'>
                         <div className="navbar-link">
-                            <Link to={`/my-profile/${userId}`}>Mon compte</Link>
+                            <Link  onClick={handleBgClick} to={`/my-profile/${userId}`}>Mon compte</Link>
                         </div>
                         <div className="navbar-link">
                             <Button onClick={() => logout()}>Déconnexion</Button>
@@ -82,10 +83,10 @@ const NavBarCollapsed2 = ({ isConnected, logout, userId }) => {
                     </div> :
                     <div className='navbar-login-links'>
                         <div className="navbar-link">
-                            <Link to="/login">Connexion</Link>
+                            <Link onClick={handleBgClick} to="/login">Connexion</Link>
                         </div>
                         <div className="navbar-link">
-                            <Link to="/sign-up">Inscription</Link>
+                            <Link onClick={handleBgClick} to="/sign-up">Inscription</Link>
                         </div>
                     </div>
             }
