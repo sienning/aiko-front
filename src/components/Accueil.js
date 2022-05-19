@@ -18,7 +18,7 @@ class Accueil extends Component {
                     <h3>JOUEURS <span>●</span> COACHING <span>●</span> EQUIPES</h3>
                     <p>Votre plateforme de mise en relation entre joueurs et équipes, qui vous accompagne dans votre évolution grâce à du coaching personnalisé.</p>
                     <div className="accueil-banBack">
-                        <a href="/">
+                        <a href="/inscription">
                             <Button>Inscris toi</Button>
                         </a>
                     </div>
@@ -29,20 +29,14 @@ class Accueil extends Component {
                 <section className="accueil-imgText">
                     <Image src="images/why.png"/>
                     <div>
-                        <h2>Why</h2>
-                        <p>Ullamco esse velit ipsum officia laboris veniam.
-                        Consequat voluptate sit laborum proident laboris duis
-                        minim deserunt veniam labore velit adipisicing eu.
-                        Laboris cillum sit nulla nostrud fugiat nostrud sint ea dolor
-                        aute.Ullamco esse velit ipsum officia laboris veniam.
-                        Consequat voluptate sit laborum proident laboris duis
-                        minim deserunt veniam labore velit adipisicing eu.
-                        Laboris cillum sit nulla nostrud fugiat nostrud sint ea dolor
-                        aute.</p>
+                        <h2>Qui sommes nous?</h2>
+                        <p>Aiko est une équipe composé de plusieurs étudiants. 
+                        Nous avons décidé de créer Aiko afin d’aider les joueurs à s’intégrer dans l’Esport !
+                        Nous mettons en relation les joueurs et coach afin qu’ils puissent se développer personnelement afin d’atteindre leurs objectifs.</p>
                     </div>
                 </section>
 
-                <section className="accueil-commentaire" id="desktop">
+                {/* <section className="accueil-commentaire" id="desktop">
                     <h2>Témoignages</h2>
                     <div>
                         <Image className="img" src="https://via.placeholder.com/100x100"/>
@@ -58,9 +52,9 @@ class Accueil extends Component {
                             </div>
                         </div>
                     </div>
-                </section>
+                </section> */}
 
-                <section className="accueil-commentaire" id="mobile">
+                {/* <section className="accueil-commentaire" id="mobile">
                     <h2>Témoignages</h2>
                     <div>
                         <div>
@@ -76,50 +70,35 @@ class Accueil extends Component {
                         minim deserunt veniam labore velit adipisicing eu."</p>
                             </div>
                     </div>
-                </section>
+                </section> */}
 
                 <section className="accueil-imgText imgTextSwap" id="desktop">
                     <div>
-                        <h2>Who</h2>
-                        <p>Ullamco esse velit ipsum officia laboris veniam.
-                        Consequat voluptate sit laborum proident laboris duis
-                        minim deserunt veniam labore velit adipisicing eu.
-                        Laboris cillum sit nulla nostrud fugiat nostrud sint ea dolor
-                        aute.Ullamco esse velit ipsum officia laboris veniam.
-                        Consequat voluptate sit laborum proident laboris duis
-                        minim deserunt veniam labore velit adipisicing eu.
-                        Laboris cillum sit nulla nostrud fugiat nostrud sint ea dolor
-                        aute.</p>
-                        <a href="/">
-                            <Button className="button">Inscris toi !</Button>
-                        </a>
+                        <h2>Les Coachs</h2>
+                        <p>Les Aikoach ont pour but de vous faire atteindre vos objectifs personnels en s’adaptant à votre profil.
+                             Ensemble, nous allons vous faire découvrir l’experience que vis un joueur Esport !
+                             Coach Mental ou Coach Technique sont les prestations que nous mettons en avant pour réaliser vos objectifs.</p>
                     </div>
                     <Image src="images/who.png"/>
+                    <div className='accueil-leviathanSide2'>
+                    </div>
                 </section>
+
 
                 <section className="accueil-imgText imgTextSwap" id="mobile">
                     <Image src="images/who.png"/>
                     <div>
-                        <h2>Who</h2>
-                        <p>Ullamco esse velit ipsum officia laboris veniam.
-                        Consequat voluptate sit laborum proident laboris duis
-                        minim deserunt veniam labore velit adipisicing eu.
-                        Laboris cillum sit nulla nostrud fugiat nostrud sint ea dolor
-                        aute.Ullamco esse velit ipsum officia laboris veniam.
-                        Consequat voluptate sit laborum proident laboris duis
-                        minim deserunt veniam labore velit adipisicing eu.
-                        Laboris cillum sit nulla nostrud fugiat nostrud sint ea dolor
-                        aute.</p>
-                        <a href="/">
-                            <Button className="button">Inscris toi !</Button>
-                        </a>
+                        <h2>Les Coachs</h2>
+                        <p>Les Aikoach ont pour but de vous faire atteindre vos objectifs personnels en s’adaptant à votre profil.
+                             Ensemble, nous allons vous faire découvrir l’experience que vis un joueur Esport !
+                             Coach Mental ou Coach Technique sont les prestations que nous mettons en avant pour réaliser vos objectifs.</p>
                     </div>
                 </section>
 
                 <section className="accueil-imgText">
                 <Image src="images/how.png"/>
                     <div>
-                        <h2>How</h2>
+                        <h2>Section équipe</h2>
                         <p>Ullamco esse velit ipsum officia laboris veniam.
                         Consequat voluptate sit laborum proident laboris duis
                         minim deserunt veniam labore velit adipisicing eu.
@@ -129,14 +108,17 @@ class Accueil extends Component {
                         minim deserunt veniam labore velit adipisicing eu.
                         Laboris cillum sit nulla nostrud fugiat nostrud sint ea dolor
                         aute.</p>
+                        <a href="/teams">
+                            <Button className="button">Mon équipe</Button>
+                        </a>
+                    </div>
+                    <div className="accueil-leviathanSide3">
                     </div>
                 </section>
 
-                <div className="accueil-purpleDiv">
-                    <Image src="images/frise-mini.png"/>
-                </div>
-
                 <div className="accueil-carrou">
+                    <div className='accueil-leviathanSide4'>
+                    </div>
                     <a href='/'>
                         <div className='carrou'>
                             <p className='title'>World Event Tournament</p>
