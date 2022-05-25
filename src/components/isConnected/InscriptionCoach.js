@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import '../../App.css';
 import { Container, Header, Form, Grid, Button } from 'semantic-ui-react'
+import RedirectionConnexion from '../RedirectionConnexion';
 
 class InscriptionCoach extends Component {
 
@@ -18,6 +19,7 @@ class InscriptionCoach extends Component {
     render() {
         return (
             <div className="signin-coach">
+                { !this.props.isConnected && <RedirectionConnexion/> }
                 <Container>
                     <br />
                     <br />

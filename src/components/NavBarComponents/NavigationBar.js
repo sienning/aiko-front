@@ -37,7 +37,7 @@ const NavigationBar = ({ isConnected, logout, userId }) => {
                   <Link to="/tournaments">Tournois</Link>
                 </div>
                 <div className="navbar-link">
-                  <Link to="/evenements">Équipe</Link>
+                  <Link to="/teams">Équipes</Link>
                 </div>
               </>
           }

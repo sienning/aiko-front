@@ -901,6 +901,30 @@ p.carousel-image-date {
   }
 }
 
+/* RESERVATION COACH */
+.reservation-coach {
+  width: 100%;
+  height: 100vh;
+  background-image: url("images/background-coach.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.reservation-coach h1.ui.header .sub.header {
+  color: white;
+}
+
+.reservation-coach .header {
+  padding-top: 30px;
+}
+
+.reservation-coach .grid-coach {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: rgb(183 84 165 / 60%);
+}
+
 /* TOURNOIS */
 .tournois .event-over {
   position: absolute;
@@ -960,17 +984,148 @@ p.carousel-image-date {
   .event-component .event-img {
     display: flex;
   }
+
   .event-component .title {
     position: absolute;
     margin-top: -100px !important;
   }
 }
 
+/* EQUIPES */
+.equipe-card {
+  margin: auto !important;
+}
+
+.ui.rating .active.icon:before {
+  color: #9E47B1 !important;
+}
+
+.equipe-card .img-icon {
+  width: 80px !important;
+}
+
+.equipe-card.ui.card {
+  background: transparent !important;
+  color: white !important;
+  box-shadow: 0 0.5px 3px 0 #4603B8;
+
+}
+
+.equipe-card.ui.feed>.event>.content .summary {
+  color: white !important;
+}
+
+.equipe-card .ui.feed>.event>.content .summary {
+  color: white !important;
+}
+
+.equipe-card .ui.rating .icon {
+  color: rgb(255 255 255 / 15%) !important;
+}
+
+.equipe-card .content {
+  padding: 10px 30px !important;
+}
+
+.equipe-card .criterias {
+  display: flex;
+}
+
+.equipe-card .criterias div {
+  margin-left: 10px;
+}
+
+.equipe-card .meta {
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.ui.card .meta>a:not(.ui) {
+  color: white !important;
+}
+
+/* EQUIPES FILTRE */
+
+.filtre-equipe .buttons {
+  display: inline-block;
+}
+
+.filtre-equipe .reinitialiser-button, .filtre-equipe .appliquer-button .ui.button {
+  border-radius: 30px !important;
+  margin-top: 10px;
+}
+
+.filtre-equipe .reinitialiser-button {
+  background-color: transparent;
+  border: 1px solid #9E47B1;
+  color: #9E47B1;
+}
+
+.filtre-equipe .appliquer-button .ui.button {
+  color: rgba(16, 0, 43, 1) !important;
+}
+
+.filtre-equipe .reinitialiser-button:hover {
+  background-color: transparent !important;
+  border: 1px solid #8f2d7d !important;
+  color: #8f2d7d !important;
+}
+
+.filtre-equipe .creer-button {
+  width: 100%;
+  margin-top: 30px;
+}
+
+/* MODAL */
+.ui.modal, .ui.modal>.content {
+  background: #1E0052 !important;
+  padding: 3rem
+}
+
+.ui.modal>.icon:first-child+*, .ui.modal>:first-child:not(.icon) {
+  border-radius: 25px !important;
+}
+
+
+.modal-savoir-plus .modal-header {
+  display: inline-flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.modal-savoir-plusconnexion .modal-header .reseaux {
+  float: right;
+  right : 0;
+}
+
+.modal-savoir-plus .button-candidature {
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* REDIRECTION CONNEXION */
+.redirection-connexion {
+  position: absolute;
+  width: 100vmax;
+  height: calc(100vw - 65px);
+  z-index: 1;
+  top: 65px;
+  bottom: 0;
+  background: rgb(24 23 23 / 80%) !important;
+}
+
+.redirection-connexion .content {
+  margin-top: 10% !important;
+}
+
+.redirection-connexion img {
+  margin: auto;
+}
+
 /* ----------------- RESPONSIVE ----------------- */
 /* NAVBAR */
 /* MOYEN */
 @media screen and (max-width: 1135px) {
-
   .navbar,
   .navbar-responsive-1 {
     display: none;
