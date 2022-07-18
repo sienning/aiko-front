@@ -4,7 +4,7 @@ import { Container, Header, Image, Grid, GridColumn } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-class Profil extends Component {
+class ProfilEdit extends Component {
     state = {
         isLoading: false,
         userId: "",
@@ -98,13 +98,13 @@ class Profil extends Component {
             <Container>
                 <div style={{ textAlign: "center", marginBottom: 20, marginTop: 50 }}>
                     <Image style={{ margin: "auto" }} alt={`Logo-${userInfos.avatar}`} src={`${process.env.REACT_APP_FRONT}/images/${userInfos.avatar}`} size="tiny" />
-                    <Header as="h1">Mon compte</Header>
+                    <Header as="h1">Mon super compte de la mort qui tue</Header>
                     <h2>Bienvenu(e), {userInfos.username} !</h2>
                 </div>
 
-                <div style={{ textAlign: "center", display: "flex"}}>
-                    <p>Profil</p>
-                    <Link to={`/edit-profile/${userInfos._id}`}>Edition de profil</Link>
+                <div style={{ textAlign: "center"}}>
+                    <Link to={`/my-profile/${userInfos.id}`}>Profil</Link>
+                    <p>Edition de profil</p>
                 </div>
 
                 <Grid>
@@ -134,7 +134,7 @@ class Profil extends Component {
                             </GridColumn>
                             <GridColumn width={6}>
                                 <h3>Rangs</h3>
-                                <span>{userInfos.rang}</span>
+                                <span>{userInfos.division}</span>
                                 <Image src={`${process.env.REACT_APP_FRONT}/images/rang/${userInfos.rang}.png`} alt={`Logo ${userInfos.rang}`}/>
                             </GridColumn>
                         </Grid>
@@ -175,4 +175,4 @@ class Profil extends Component {
     }
 }
 
-export default Profil;
+export default ProfilEdit;

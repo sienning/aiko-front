@@ -30,9 +30,9 @@ class Accueil extends Component {
                     <Image src="images/why.png"/>
                     <div>
                         <h2>Qui sommes nous?</h2>
-                        <p>Aiko est une équipe composé de plusieurs étudiants. 
+                        <p>Aiko est une équipe composée de plusieurs étudiants. 
                         Nous avons décidé de créer Aiko afin d’aider les joueurs à s’intégrer dans l’Esport !
-                        Nous mettons en relation les joueurs et coach afin qu’ils puissent se développer personnelement afin d’atteindre leurs objectifs.</p>
+                        Nous mettons en relation les joueurs et coachs afin qu’ils puissent se développer personnelement afin d’atteindre leurs objectifs.</p>
                     </div>
                 </section>
 
@@ -76,7 +76,7 @@ class Accueil extends Component {
                     <div>
                         <h2>Les Coachs</h2>
                         <p>Les Aikoach ont pour but de vous faire atteindre vos objectifs personnels en s’adaptant à votre profil.
-                             Ensemble, nous allons vous faire découvrir l’experience que vis un joueur Esport !
+                             Ensemble, nous allons vous faire découvrir l’experience que vit un joueur Esport !
                              Coach Mental ou Coach Technique sont les prestations que nous mettons en avant pour réaliser vos objectifs.</p>
                     </div>
                     <Image src="images/who.png"/>
@@ -90,7 +90,7 @@ class Accueil extends Component {
                     <div>
                         <h2>Les Coachs</h2>
                         <p>Les Aikoach ont pour but de vous faire atteindre vos objectifs personnels en s’adaptant à votre profil.
-                             Ensemble, nous allons vous faire découvrir l’experience que vis un joueur Esport !
+                             Ensemble, nous allons vous faire découvrir l’experience que vit un joueur Esport !
                              Coach Mental ou Coach Technique sont les prestations que nous mettons en avant pour réaliser vos objectifs.</p>
                     </div>
                 </section>
@@ -99,15 +99,9 @@ class Accueil extends Component {
                 <Image src="images/how.png"/>
                     <div>
                         <h2>Section équipe</h2>
-                        <p>Ullamco esse velit ipsum officia laboris veniam.
-                        Consequat voluptate sit laborum proident laboris duis
-                        minim deserunt veniam labore velit adipisicing eu.
-                        Laboris cillum sit nulla nostrud fugiat nostrud sint ea dolor
-                        aute.Ullamco esse velit ipsum officia laboris veniam.
-                        Consequat voluptate sit laborum proident laboris duis
-                        minim deserunt veniam labore velit adipisicing eu.
-                        Laboris cillum sit nulla nostrud fugiat nostrud sint ea dolor
-                        aute.</p>
+                        <p>Tu représentes une équipe ou voudrais en rejoindre une ?
+                             Fini les messages dans des canaux discord qui n’en finissent plus.
+                             AIKO te permet de trouver l’équipe qui te correspond grâce à des filtres spécifiques et un entrainement de coaching pour atteindre le niveau requis si tu ne l’as pas déjà ! </p>
                         <a href="/teams">
                             <Button className="button">Mon équipe</Button>
                         </a>

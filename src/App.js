@@ -22,6 +22,7 @@ import FAQ from './components/FAQ';
 import NotFound from './components/NotFound';
 import Tournois from './components/Tournois/Tournois';
 import SeeEvent from './components/Tournois/SeeEvent';
+import ProfilEdit from './components/isConnected/ProfilEdit';
 
 class App extends Component {
   state = {
@@ -182,6 +183,15 @@ class App extends Component {
                   />
                 </Route>
                 : null
+            }
+            {
+              isConnected ?
+              <Route path="/edit-profile/:id">
+                <ProfilEdit
+                  userId={userId}
+                />
+              </Route>
+              : null
             }
             {
               isConnected ?
