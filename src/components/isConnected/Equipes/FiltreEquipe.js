@@ -38,7 +38,7 @@ const FiltreEquipe = () => {
                     <Form.Button size='small' className='appliquer-button'>Appliquer</Form.Button>
                 </div>
             </Form>
-            <Link to="/create-team" className='ui button creer-button'>Créer mon équipe</Link>
+            <Link to="/edit-team" className='ui button creer-button'>Créer mon équipe</Link>
         </div>
     );
 }

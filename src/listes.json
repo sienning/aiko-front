@@ -1,0 +1,2197 @@
+{
+    "jeux": {
+        "name": "Jeux",
+        "single": "un jeu",
+        "plural": "jeux",
+        "results": [
+            {
+                "name": "League of Legends",
+                "keys": [
+                    "lol",
+                    "league of legends",
+                    "League of Legends"
+                ],
+                "icon": "/images/jeux/lol.png"
+            }
+        ]
+    },
+    "reseaux": {
+        "name": "Réseaux sociaux",
+        "single": "un réseau social",
+        "plural": "réseaux sociaux",
+        "results": [
+            {
+                "name": "Instagram",
+                "keys": [
+                    "insta",
+                    "ig",
+                    "instagram",
+                    "Instagram"
+                ],
+                "icon": "instagram",
+                "link": "https://www.instagram.com/",
+                "linkAddress": ""
+            },
+            {
+                "name": "Twitter",
+                "keys": [
+                    "twitter",
+                    "twt",
+                    "Twitter"
+                ],
+                "icon": "twitter",
+                "link": "https://twitter.com/",
+                "linkAddress": ""
+            },
+            {
+                "name": "Twitch",
+                "keys": [
+                    "twitch",
+                    "Twitch"
+                ],
+                "icon": "twitch",
+                "link": "https://www.twitch.tv/",
+                "linkAddress": ""
+            },
+            {
+                "name": "Discord",
+                "keys": [
+                    "discord",
+                    "Discord"
+                ],
+                "icon": "discord",
+                "link": "https://discord.gg/",
+                "linkAddress": ""
+            },
+            {
+                "name": "YouTube",
+                "keys": [
+                    "youtube",
+                    "yt",
+                    "YouTube"
+                ],
+                "icon": "youtube",
+                "link": "https://www.youtube.com/channel/",
+                "linkAddress": ""
+            }
+        ]
+    },
+    "rangs": {
+        "name": "Rangs",
+        "single": "un rang",
+        "plural": "rangs",
+        "results": [
+            {
+                "keys": "argent",
+                "text": "Argent",
+                "value": "argent",
+                "image": {
+                    "avatar": true,
+                    "src": "/images/rangs/argent.png"
+                }
+            },
+            {
+                "keys": "bronze",
+                "text": "Bronze",
+                "value": "bronze",
+                "image": {
+                    "avatar": true,
+                    "src": "/images/rangs/bronze.png"
+                }
+            },
+            {
+                "keys": "challenger",
+                "text": "Challenger",
+                "value": "challenger",
+                "image": {
+                    "avatar": true,
+                    "src": "/images/rangs/challenger.png"
+                }
+            },
+            {
+                "keys": "diamant",
+                "text": "Diamant",
+                "value": "diamant",
+                "image": {
+                    "avatar": true,
+                    "src": "/images/rangs/diamant.png"
+                }
+            },
+            {
+                "keys": "fer",
+                "text": "Fer",
+                "value": "fer",
+                "image": {
+                    "avatar": true,
+                    "src": "/images/rangs/fer.png"
+                }
+            },
+            {
+                "keys": "maitre",
+                "text": "Maître",
+                "value": "maitre",
+                "image": {
+                    "avatar": true,
+                    "src": "/images/rangs/master.png"
+                }
+            },
+            {
+                "keys": "grand maitre",
+                "text": "Grand Maître",
+                "value": "grand maitre",
+                "image": {
+                    "avatar": true,
+                    "src": "/images/rangs/grandmaster.png"
+                }
+            },
+            {
+                "keys": "or",
+                "text": "Or",
+                "value": "or",
+                "image": {
+                    "avatar": true,
+                    "src": "/images/rangs/or.png"
+                }
+            },
+            {
+                "keys": "platine",
+                "text": "Platine",
+                "value": "platine",
+                "image": {
+                    "avatar": true,
+                    "src": "/images/rangs/platine.png"
+                }
+            }
+        ]
+    },
+    "roles": {
+        "name": "Roles",
+        "single": "un role",
+        "plural": "roles",
+        "results": [
+            {
+                "keys": "adc",
+                "text": "Adc",
+                "value": "adc",
+                "image": {
+                    "avatar": true,
+                    "src": "/images/lanes/adc.png"
+                }
+            },
+            {
+                "keys": "jungle",
+                "text": "Jungle",
+                "value": "jungle",
+                "image": {
+                    "avatar": true,
+                    "src": "/images/lanes/jungle.png"
+                }
+            },
+            {
+                "keys": "mid",
+                "text": "Mid",
+                "value": "mid",
+                "image": {
+                    "avatar": true,
+                    "src": "/images/lanes/mid.png"
+                }
+            },
+            {
+                "keys": "support",
+                "text": "Support",
+                "value": "support",
+                "image": {
+                    "avatar": true,
+                    "src": "/images/lanes/support.png"
+                }
+            },
+            {
+                "keys": "top",
+                "text": "Top",
+                "value": "top",
+                "image": {
+                    "avatar": true,
+                    "src": "/images/lanes/top.png"
+                }
+            }
+        ]
+    },
+    "langues": {
+        "name": "Langues",
+        "single": "une langue",
+        "plural": "langues",
+        "results": [
+            {
+                "name": "Afghanistan",
+                "keys": [
+                    "af",
+                    "Afghanistan"
+                ],
+                "countryCode": "af"
+            },
+            {
+                "name": "Aland Islands",
+                "keys": [
+                    "ax",
+                    "Aland Islands"
+                ],
+                "countryCode": "ax"
+            },
+            {
+                "name": "Albania",
+                "keys": [
+                    "al",
+                    "Albania"
+                ],
+                "countryCode": "al"
+            },
+            {
+                "name": "Algeria",
+                "keys": [
+                    "dz",
+                    "Algeria"
+                ],
+                "countryCode": "dz"
+            },
+            {
+                "name": "American Samoa",
+                "keys": [
+                    "as",
+                    "American"
+                ],
+                "countryCode": "as"
+            },
+            {
+                "name": "Andorra",
+                "keys": [
+                    "ad",
+                    "Andorra"
+                ],
+                "countryCode": "ad"
+            },
+            {
+                "name": "Angola",
+                "keys": [
+                    "ao",
+                    "Angola"
+                ],
+                "countryCode": "ao"
+            },
+            {
+                "name": "Anguilla",
+                "keys": [
+                    "ai",
+                    "Anguilla"
+                ],
+                "countryCode": "ai"
+            },
+            {
+                "name": "Antigua",
+                "keys": [
+                    "ag",
+                    "Antigua"
+                ],
+                "countryCode": "ag"
+            },
+            {
+                "name": "Argentina",
+                "keys": [
+                    "ar",
+                    "Argentina"
+                ],
+                "countryCode": "ar"
+            },
+            {
+                "name": "Armenia",
+                "keys": [
+                    "am",
+                    "Armenia"
+                ],
+                "countryCode": "am"
+            },
+            {
+                "name": "Aruba",
+                "keys": [
+                    "aw",
+                    "Aruba"
+                ],
+                "countryCode": "aw"
+            },
+            {
+                "name": "Australia",
+                "keys": [
+                    "au",
+                    "Australia"
+                ],
+                "countryCode": "au"
+            },
+            {
+                "name": "Austria",
+                "keys": [
+                    "at",
+                    "Austria"
+                ],
+                "countryCode": "at"
+            },
+            {
+                "name": "Azerbaijan",
+                "keys": [
+                    "az",
+                    "Azerbaijan"
+                ],
+                "countryCode": "az"
+            },
+            {
+                "name": "Bahamas",
+                "keys": [
+                    "bs",
+                    "Bahamas"
+                ],
+                "countryCode": "bs"
+            },
+            {
+                "name": "Bahrain",
+                "keys": [
+                    "bh",
+                    "Bahrain"
+                ],
+                "countryCode": "bh"
+            },
+            {
+                "name": "Bangladesh",
+                "keys": [
+                    "bd",
+                    "Bangladesh"
+                ],
+                "countryCode": "bd"
+            },
+            {
+                "name": "Barbados",
+                "keys": [
+                    "bb",
+                    "Barbados"
+                ],
+                "countryCode": "bb"
+            },
+            {
+                "name": "Belarus",
+                "keys": [
+                    "by",
+                    "Belarus"
+                ],
+                "countryCode": "by"
+            },
+            {
+                "name": "Belgium",
+                "keys": [
+                    "be",
+                    "Belgium"
+                ],
+                "countryCode": "be"
+            },
+            {
+                "name": "Belize",
+                "keys": [
+                    "bz",
+                    "Belize"
+                ],
+                "countryCode": "bz"
+            },
+            {
+                "name": "Benin",
+                "keys": [
+                    "bj",
+                    "Benin"
+                ],
+                "countryCode": "bj"
+            },
+            {
+                "name": "Bermuda",
+                "keys": [
+                    "bm",
+                    "Bermuda"
+                ],
+                "countryCode": "bm"
+            },
+            {
+                "name": "Bhutan",
+                "keys": [
+                    "bt",
+                    "Bhutan"
+                ],
+                "countryCode": "bt"
+            },
+            {
+                "name": "Bolivia",
+                "keys": [
+                    "bo",
+                    "Bolivia"
+                ],
+                "countryCode": "bo"
+            },
+            {
+                "name": "Bosnia",
+                "keys": [
+                    "ba",
+                    "Bosnia"
+                ],
+                "countryCode": "ba"
+            },
+            {
+                "name": "Botswana",
+                "keys": [
+                    "bw",
+                    "Botswana"
+                ],
+                "countryCode": "bw"
+            },
+            {
+                "name": "Bouvet Island",
+                "keys": [
+                    "bv",
+                    "Bouvet"
+                ],
+                "countryCode": "bv"
+            },
+            {
+                "name": "Brazil",
+                "keys": [
+                    "br",
+                    "Brazil"
+                ],
+                "countryCode": "br"
+            },
+            {
+                "name": "British Virgin Islands",
+                "keys": [
+                    "vg",
+                    "British Virgin Islands"
+                ],
+                "countryCode": "vg"
+            },
+            {
+                "name": "Brunei",
+                "keys": [
+                    "bn",
+                    "Brunei"
+                ],
+                "countryCode": "bn"
+            },
+            {
+                "name": "Bulgaria",
+                "keys": [
+                    "bg",
+                    "Bulgaria"
+                ],
+                "countryCode": "bg"
+            },
+            {
+                "name": "Burkina Faso",
+                "keys": [
+                    "bf",
+                    "Burkina Faso"
+                ],
+                "countryCode": "bf"
+            },
+            {
+                "name": "Burma",
+                "keys": [
+                    "mm",
+                    "Burma",
+                    "Myanmar"
+                ],
+                "countryCode": "mm",
+                "alias": "Myanmar"
+            },
+            {
+                "name": "Burundi",
+                "keys": [
+                    "bi",
+                    "Burundi"
+                ],
+                "countryCode": "bi"
+            },
+            {
+                "name": "Caicos Islands",
+                "keys": [
+                    "tc",
+                    "Caicos Islands"
+                ],
+                "countryCode": "tc"
+            },
+            {
+                "name": "Cambodia",
+                "keys": [
+                    "kh",
+                    "Cambodia"
+                ],
+                "countryCode": "kh"
+            },
+            {
+                "name": "Cameroon",
+                "keys": [
+                    "cm",
+                    "Cameroon"
+                ],
+                "countryCode": "cm"
+            },
+            {
+                "name": "Canada",
+                "keys": [
+                    "ca",
+                    "Canada"
+                ],
+                "countryCode": "ca"
+            },
+            {
+                "name": "Cape Verde",
+                "keys": [
+                    "cv",
+                    "Cape Verde"
+                ],
+                "countryCode": "cv"
+            },
+            {
+                "name": "Cayman Islands",
+                "keys": [
+                    "ky",
+                    "Cayman Islands"
+                ],
+                "countryCode": "ky"
+            },
+            {
+                "name": "Central African Republic",
+                "keys": [
+                    "cf",
+                    "Central African Republic"
+                ],
+                "countryCode": "cf"
+            },
+            {
+                "name": "Chad",
+                "keys": [
+                    "td",
+                    "Chad"
+                ],
+                "countryCode": "td"
+            },
+            {
+                "name": "Chile",
+                "keys": [
+                    "cl",
+                    "Chile"
+                ],
+                "countryCode": "cl"
+            },
+            {
+                "name": "China",
+                "keys": [
+                    "cn",
+                    "China"
+                ],
+                "countryCode": "cn"
+            },
+            {
+                "name": "Christmas Island",
+                "keys": [
+                    "cx",
+                    "Christmas Island"
+                ],
+                "countryCode": "cx"
+            },
+            {
+                "name": "Cocos Islands",
+                "keys": [
+                    "cc",
+                    "Cocos Islands"
+                ],
+                "countryCode": "cc"
+            },
+            {
+                "name": "Colombia",
+                "keys": [
+                    "co",
+                    "Colombia"
+                ],
+                "countryCode": "co"
+            },
+            {
+                "name": "Comoros",
+                "keys": [
+                    "km",
+                    "Comoros"
+                ],
+                "countryCode": "km"
+            },
+            {
+                "name": "Congo",
+                "keys": [
+                    "cd",
+                    "Congo"
+                ],
+                "countryCode": "cd"
+            },
+            {
+                "name": "Congo Brazzaville",
+                "keys": [
+                    "cg",
+                    "Congo Brazzaville"
+                ],
+                "countryCode": "cg"
+            },
+            {
+                "name": "Cook Islands",
+                "keys": [
+                    "ck",
+                    "Cook Islands"
+                ],
+                "countryCode": "ck"
+            },
+            {
+                "name": "Costa Rica",
+                "keys": [
+                    "cr",
+                    "Costa"
+                ],
+                "countryCode": "cr"
+            },
+            {
+                "name": "Cote Divoire",
+                "keys": [
+                    "ci",
+                    "Cote Divoire"
+                ],
+                "countryCode": "ci"
+            },
+            {
+                "name": "Croatia",
+                "keys": [
+                    "hr",
+                    "Croatia"
+                ],
+                "countryCode": "hr"
+            },
+            {
+                "name": "Cuba",
+                "keys": [
+                    "cu",
+                    "Cuba"
+                ],
+                "countryCode": "cu"
+            },
+            {
+                "name": "Cyprus",
+                "keys": [
+                    "cy",
+                    "Cyprus"
+                ],
+                "countryCode": "cy"
+            },
+            {
+                "name": "Czech Republic",
+                "keys": [
+                    "cz",
+                    "Czech Republic"
+                ],
+                "countryCode": "cz"
+            },
+            {
+                "name": "Denmark",
+                "keys": [
+                    "dk",
+                    "Denmark"
+                ],
+                "countryCode": "dk"
+            },
+            {
+                "name": "Djibouti",
+                "keys": [
+                    "dj",
+                    "Djibouti"
+                ],
+                "countryCode": "dj"
+            },
+            {
+                "name": "Dominica",
+                "keys": [
+                    "dm",
+                    "Dominica"
+                ],
+                "countryCode": "dm"
+            },
+            {
+                "name": "Dominican Republic",
+                "keys": [
+                    "do",
+                    "Dominican Republic"
+                ],
+                "countryCode": "do"
+            },
+            {
+                "name": "Ecuador",
+                "keys": [
+                    "ec",
+                    "Ecuador"
+                ],
+                "countryCode": "ec"
+            },
+            {
+                "name": "Egypt",
+                "keys": [
+                    "eg",
+                    "Egypt"
+                ],
+                "countryCode": "eg"
+            },
+            {
+                "name": "El Salvador",
+                "keys": [
+                    "sv",
+                    "El Salvador"
+                ],
+                "countryCode": "sv"
+            },
+            {
+                "name": "England",
+                "keys": [
+                    "gb eng",
+                    "England"
+                ],
+                "countryCode": "gb eng"
+            },
+            {
+                "name": "Equatorial Guinea",
+                "keys": [
+                    "gq",
+                    "Equatorial Guinea"
+                ],
+                "countryCode": "gq"
+            },
+            {
+                "name": "Eritrea",
+                "keys": [
+                    "er",
+                    "Eritrea"
+                ],
+                "countryCode": "er"
+            },
+            {
+                "name": "Estonia",
+                "keys": [
+                    "ee",
+                    "Estonia"
+                ],
+                "countryCode": "ee"
+            },
+            {
+                "name": "Ethiopia",
+                "keys": [
+                    "et",
+                    "Ethiopia"
+                ],
+                "countryCode": "et"
+            },
+            {
+                "name": "Europeanunion",
+                "keys": [
+                    "eu",
+                    "Europeanunion"
+                ],
+                "countryCode": "eu"
+            },
+            {
+                "name": "Falkland Islands",
+                "keys": [
+                    "fk",
+                    "Falkland Islands"
+                ],
+                "countryCode": "fk"
+            },
+            {
+                "name": "Faroe Islands",
+                "keys": [
+                    "fo",
+                    "Faroe Islands"
+                ],
+                "countryCode": "fo"
+            },
+            {
+                "name": "Fiji",
+                "keys": [
+                    "fj",
+                    "Fiji"
+                ],
+                "countryCode": "fj"
+            },
+            {
+                "name": "Finland",
+                "keys": [
+                    "fi",
+                    "Finland"
+                ],
+                "countryCode": "fi"
+            },
+            {
+                "name": "France",
+                "keys": [
+                    "fr",
+                    "France"
+                ],
+                "countryCode": "fr"
+            },
+            {
+                "name": "French Guiana",
+                "keys": [
+                    "gf",
+                    "French Guiana"
+                ],
+                "countryCode": "gf"
+            },
+            {
+                "name": "French Polynesia",
+                "keys": [
+                    "pf",
+                    "French Polynesia"
+                ],
+                "countryCode": "pf"
+            },
+            {
+                "name": "French Territories",
+                "keys": [
+                    "tf",
+                    "French Territories"
+                ],
+                "countryCode": "tf"
+            },
+            {
+                "name": "Gabon",
+                "keys": [
+                    "ga",
+                    "Gabon"
+                ],
+                "countryCode": "ga"
+            },
+            {
+                "name": "Gambia",
+                "keys": [
+                    "gm",
+                    "Gambia"
+                ],
+                "countryCode": "gm"
+            },
+            {
+                "name": "Georgia",
+                "keys": [
+                    "ge",
+                    "Georgia"
+                ],
+                "countryCode": "ge"
+            },
+            {
+                "name": "Germany",
+                "keys": [
+                    "de",
+                    "Germany"
+                ],
+                "countryCode": "de"
+            },
+            {
+                "name": "Ghana",
+                "keys": [
+                    "gh",
+                    "Ghana"
+                ],
+                "countryCode": "gh"
+            },
+            {
+                "name": "Gibraltar",
+                "keys": [
+                    "gi",
+                    "Gibraltar"
+                ],
+                "countryCode": "gi"
+            },
+            {
+                "name": "Greece",
+                "keys": [
+                    "gr",
+                    "Greece"
+                ],
+                "countryCode": "gr"
+            },
+            {
+                "name": "Greenland",
+                "keys": [
+                    "gl",
+                    "Greenland"
+                ],
+                "countryCode": "gl"
+            },
+            {
+                "name": "Grenada",
+                "keys": [
+                    "gd",
+                    "Grenada"
+                ],
+                "countryCode": "gd"
+            },
+            {
+                "name": "Guadeloupe",
+                "keys": [
+                    "gp",
+                    "Guadeloupe"
+                ],
+                "countryCode": "gp"
+            },
+            {
+                "name": "Guam",
+                "keys": [
+                    "gu",
+                    "Guam"
+                ],
+                "countryCode": "gu"
+            },
+            {
+                "name": "Guatemala",
+                "keys": [
+                    "gt",
+                    "Guatemala"
+                ],
+                "countryCode": "gt"
+            },
+            {
+                "name": "Guinea",
+                "keys": [
+                    "gn",
+                    "Guinea"
+                ],
+                "countryCode": "gn"
+            },
+            {
+                "name": "Guinea-Bissau",
+                "keys": [
+                    "gw",
+                    "Guinea-Bissau"
+                ],
+                "countryCode": "gw"
+            },
+            {
+                "name": "Guyana",
+                "keys": [
+                    "gy",
+                    "Guyana"
+                ],
+                "countryCode": "gy"
+            },
+            {
+                "name": "Haiti",
+                "keys": [
+                    "ht",
+                    "Haiti"
+                ],
+                "countryCode": "ht"
+            },
+            {
+                "name": "Heard Island",
+                "keys": [
+                    "hm",
+                    "Heard Island"
+                ],
+                "countryCode": "hm"
+            },
+            {
+                "name": "Honduras",
+                "keys": [
+                    "hn",
+                    "Honduras"
+                ],
+                "countryCode": "hn"
+            },
+            {
+                "name": "Hong Kong",
+                "keys": [
+                    "hk",
+                    "Hong Kong"
+                ],
+                "countryCode": "hk"
+            },
+            {
+                "name": "Hungary",
+                "keys": [
+                    "hu",
+                    "Hungary"
+                ],
+                "countryCode": "hu"
+            },
+            {
+                "name": "Iceland",
+                "keys": [
+                    "is",
+                    "Iceland"
+                ],
+                "countryCode": "is"
+            },
+            {
+                "name": "India",
+                "keys": [
+                    "in",
+                    "India"
+                ],
+                "countryCode": "in"
+            },
+            {
+                "name": "Indian Ocean Territory",
+                "keys": [
+                    "io",
+                    "Indian Ocean Territory"
+                ],
+                "countryCode": "io"
+            },
+            {
+                "name": "Indonesia",
+                "keys": [
+                    "id",
+                    "Indonesia"
+                ],
+                "countryCode": "id"
+            },
+            {
+                "name": "Iran",
+                "keys": [
+                    "ir",
+                    "Iran"
+                ],
+                "countryCode": "ir"
+            },
+            {
+                "name": "Iraq",
+                "keys": [
+                    "iq",
+                    "Iraq"
+                ],
+                "countryCode": "iq"
+            },
+            {
+                "name": "Ireland",
+                "keys": [
+                    "ie",
+                    "Ireland"
+                ],
+                "countryCode": "ie"
+            },
+            {
+                "name": "Israel",
+                "keys": [
+                    "il",
+                    "Israel"
+                ],
+                "countryCode": "il"
+            },
+            {
+                "name": "Italy",
+                "keys": [
+                    "it",
+                    "Italy"
+                ],
+                "countryCode": "it"
+            },
+            {
+                "name": "Jamaica",
+                "keys": [
+                    "jm",
+                    "Jamaica"
+                ],
+                "countryCode": "jm"
+            },
+            {
+                "name": "Jan Mayen",
+                "keys": [
+                    "sj",
+                    "Jan Mayen",
+                    "Svalbard"
+                ],
+                "countryCode": "sj",
+                "alias": "Svalbard"
+            },
+            {
+                "name": "Japan",
+                "keys": [
+                    "jp",
+                    "Japan"
+                ],
+                "countryCode": "jp"
+            },
+            {
+                "name": "Jordan",
+                "keys": [
+                    "jo",
+                    "Jordan"
+                ],
+                "countryCode": "jo"
+            },
+            {
+                "name": "Kazakhstan",
+                "keys": [
+                    "kz",
+                    "Kazakhstan"
+                ],
+                "countryCode": "kz"
+            },
+            {
+                "name": "Kenya",
+                "keys": [
+                    "ke",
+                    "Kenya"
+                ],
+                "countryCode": "ke"
+            },
+            {
+                "name": "Kiribati",
+                "keys": [
+                    "ki",
+                    "Kiribati"
+                ],
+                "countryCode": "ki"
+            },
+            {
+                "name": "Kuwait",
+                "keys": [
+                    "kw",
+                    "Kuwait"
+                ],
+                "countryCode": "kw"
+            },
+            {
+                "name": "Kyrgyzstan",
+                "keys": [
+                    "kg",
+                    "Kyrgyzstan"
+                ],
+                "countryCode": "kg"
+            },
+            {
+                "name": "Laos",
+                "keys": [
+                    "la",
+                    "Laos"
+                ],
+                "countryCode": "la"
+            },
+            {
+                "name": "Latvia",
+                "keys": [
+                    "lv",
+                    "Latvia"
+                ],
+                "countryCode": "lv"
+            },
+            {
+                "name": "Lebanon",
+                "keys": [
+                    "lb",
+                    "Lebanon"
+                ],
+                "countryCode": "lb"
+            },
+            {
+                "name": "Lesotho",
+                "keys": [
+                    "ls",
+                    "Lesotho"
+                ],
+                "countryCode": "ls"
+            },
+            {
+                "name": "Liberia",
+                "keys": [
+                    "lr",
+                    "Liberia"
+                ],
+                "countryCode": "lr"
+            },
+            {
+                "name": "Libya",
+                "keys": [
+                    "ly",
+                    "Libya"
+                ],
+                "countryCode": "ly"
+            },
+            {
+                "name": "Liechtenstein",
+                "keys": [
+                    "li",
+                    "Liechtenstein"
+                ],
+                "countryCode": "li"
+            },
+            {
+                "name": "Lithuania",
+                "keys": [
+                    "lt",
+                    "Lithuania"
+                ],
+                "countryCode": "lt"
+            },
+            {
+                "name": "Luxembourg",
+                "keys": [
+                    "lu",
+                    "Luxembourg"
+                ],
+                "countryCode": "lu"
+            },
+            {
+                "name": "Macau",
+                "keys": [
+                    "mo",
+                    "Macau"
+                ],
+                "countryCode": "mo"
+            },
+            {
+                "name": "Macedonia",
+                "keys": [
+                    "mk",
+                    "Macedonia"
+                ],
+                "countryCode": "mk"
+            },
+            {
+                "name": "Madagascar",
+                "keys": [
+                    "mg",
+                    "Madagascar"
+                ],
+                "countryCode": "mg"
+            },
+            {
+                "name": "Malawi",
+                "keys": [
+                    "mw",
+                    "Malawi"
+                ],
+                "countryCode": "mw"
+            },
+            {
+                "name": "Malaysia",
+                "keys": [
+                    "my",
+                    "Malaysia"
+                ],
+                "countryCode": "my"
+            },
+            {
+                "name": "Maldives",
+                "keys": [
+                    "mv",
+                    "Maldives"
+                ],
+                "countryCode": "mv"
+            },
+            {
+                "name": "Mali",
+                "keys": [
+                    "ml",
+                    "Mali"
+                ],
+                "countryCode": "ml"
+            },
+            {
+                "name": "Malta",
+                "keys": [
+                    "mt",
+                    "Malta"
+                ],
+                "countryCode": "mt"
+            },
+            {
+                "name": "Marshall Islands",
+                "keys": [
+                    "mh",
+                    "Marshall Islands"
+                ],
+                "countryCode": "mh"
+            },
+            {
+                "name": "Martinique",
+                "keys": [
+                    "mq",
+                    "Martinique"
+                ],
+                "countryCode": "mq"
+            },
+            {
+                "name": "Mauritania",
+                "keys": [
+                    "mr",
+                    "Mauritania"
+                ],
+                "countryCode": "mr"
+            },
+            {
+                "name": "Mauritius",
+                "keys": [
+                    "mu",
+                    "Mauritius"
+                ],
+                "countryCode": "mu"
+            },
+            {
+                "name": "Mayotte",
+                "keys": [
+                    "yt",
+                    "Mayotte"
+                ],
+                "countryCode": "yt"
+            },
+            {
+                "name": "Mexico",
+                "keys": [
+                    "mx",
+                    "Mexico"
+                ],
+                "countryCode": "mx"
+            },
+            {
+                "name": "Micronesia",
+                "keys": [
+                    "fm",
+                    "Micronesia"
+                ],
+                "countryCode": "fm"
+            },
+            {
+                "name": "Moldova",
+                "keys": [
+                    "md",
+                    "Moldova"
+                ],
+                "countryCode": "md"
+            },
+            {
+                "name": "Monaco",
+                "keys": [
+                    "mc",
+                    "Monaco"
+                ],
+                "countryCode": "mc"
+            },
+            {
+                "name": "Mongolia",
+                "keys": [
+                    "mn",
+                    "Mongolia"
+                ],
+                "countryCode": "mn"
+            },
+            {
+                "name": "Montenegro",
+                "keys": [
+                    "me",
+                    "Montenegro"
+                ],
+                "countryCode": "me"
+            },
+            {
+                "name": "Montserrat",
+                "keys": [
+                    "ms",
+                    "Montserrat"
+                ],
+                "countryCode": "ms"
+            },
+            {
+                "name": "Morocco",
+                "keys": [
+                    "ma",
+                    "Morocco"
+                ],
+                "countryCode": "ma"
+            },
+            {
+                "name": "Mozambique",
+                "keys": [
+                    "mz",
+                    "Mozambique"
+                ],
+                "countryCode": "mz"
+            },
+            {
+                "name": "Namibia",
+                "keys": [
+                    "na",
+                    "Namibia"
+                ],
+                "countryCode": "na"
+            },
+            {
+                "name": "Nauru",
+                "keys": [
+                    "nr",
+                    "Nauru"
+                ],
+                "countryCode": "nr"
+            },
+            {
+                "name": "Nepal",
+                "keys": [
+                    "np",
+                    "Nepal"
+                ],
+                "countryCode": "np"
+            },
+            {
+                "name": "Netherlands",
+                "keys": [
+                    "nl",
+                    "Netherlands"
+                ],
+                "countryCode": "nl"
+            },
+            {
+                "name": "Netherlandsantilles",
+                "keys": [
+                    "an",
+                    "Netherlandsantilles"
+                ],
+                "countryCode": "an"
+            },
+            {
+                "name": "New Caledonia",
+                "keys": [
+                    "nc",
+                    "New Caledonia"
+                ],
+                "countryCode": "nc"
+            },
+            {
+                "name": "New Guinea",
+                "keys": [
+                    "pg",
+                    "New Guinea"
+                ],
+                "countryCode": "pg"
+            },
+            {
+                "name": "New Zealand",
+                "keys": [
+                    "nz",
+                    "New Zealand"
+                ],
+                "countryCode": "nz"
+            },
+            {
+                "name": "Nicaragua",
+                "keys": [
+                    "ni",
+                    "Nicaragua"
+                ],
+                "countryCode": "ni"
+            },
+            {
+                "name": "Niger",
+                "keys": [
+                    "ne",
+                    "Niger"
+                ],
+                "countryCode": "ne"
+            },
+            {
+                "name": "Nigeria",
+                "keys": [
+                    "ng",
+                    "Nigeria"
+                ],
+                "countryCode": "ng"
+            },
+            {
+                "name": "Niue",
+                "keys": [
+                    "nu",
+                    "Niue"
+                ],
+                "countryCode": "nu"
+            },
+            {
+                "name": "Norfolk Island",
+                "keys": [
+                    "nf",
+                    "Norfolk Island"
+                ],
+                "countryCode": "nf"
+            },
+            {
+                "name": "North Korea",
+                "keys": [
+                    "kp",
+                    "North Korea"
+                ],
+                "countryCode": "kp"
+            },
+            {
+                "name": "Northern Mariana Islands",
+                "keys": [
+                    "mp",
+                    "Northern Mariana Islands"
+                ],
+                "countryCode": "mp"
+            },
+            {
+                "name": "Norway",
+                "keys": [
+                    "no",
+                    "Norway"
+                ],
+                "countryCode": "no"
+            },
+            {
+                "name": "Oman",
+                "keys": [
+                    "om",
+                    "Oman"
+                ],
+                "countryCode": "om"
+            },
+            {
+                "name": "Pakistan",
+                "keys": [
+                    "pk",
+                    "Pakistan"
+                ],
+                "countryCode": "pk"
+            },
+            {
+                "name": "Palau",
+                "keys": [
+                    "pw",
+                    "Palau"
+                ],
+                "countryCode": "pw"
+            },
+            {
+                "name": "Palestine",
+                "keys": [
+                    "ps",
+                    "Palestine"
+                ],
+                "countryCode": "ps"
+            },
+            {
+                "name": "Panama",
+                "keys": [
+                    "pa",
+                    "Panama"
+                ],
+                "countryCode": "pa"
+            },
+            {
+                "name": "Paraguay",
+                "keys": [
+                    "py",
+                    "Paraguay"
+                ],
+                "countryCode": "py"
+            },
+            {
+                "name": "Peru",
+                "keys": [
+                    "pe",
+                    "Peru"
+                ],
+                "countryCode": "pe"
+            },
+            {
+                "name": "Philippines",
+                "keys": [
+                    "ph",
+                    "Philippines"
+                ],
+                "countryCode": "ph"
+            },
+            {
+                "name": "Pitcairn Islands",
+                "keys": [
+                    "pn",
+                    "Pitcairn Islands"
+                ],
+                "countryCode": "pn"
+            },
+            {
+                "name": "Poland",
+                "keys": [
+                    "pl",
+                    "Poland"
+                ],
+                "countryCode": "pl"
+            },
+            {
+                "name": "Portugal",
+                "keys": [
+                    "pt",
+                    "Portugal"
+                ],
+                "countryCode": "pt"
+            },
+            {
+                "name": "Puerto Rico",
+                "keys": [
+                    "pr",
+                    "Puerto"
+                ],
+                "countryCode": "pr"
+            },
+            {
+                "name": "Qatar",
+                "keys": [
+                    "qa",
+                    "Qatar"
+                ],
+                "countryCode": "qa"
+            },
+            {
+                "name": "Reunion",
+                "keys": [
+                    "re",
+                    "Reunion"
+                ],
+                "countryCode": "re"
+            },
+            {
+                "name": "Romania",
+                "keys": [
+                    "ro",
+                    "Romania"
+                ],
+                "countryCode": "ro"
+            },
+            {
+                "name": "Russia",
+                "keys": [
+                    "ru",
+                    "Russia"
+                ],
+                "countryCode": "ru"
+            },
+            {
+                "name": "Rwanda",
+                "keys": [
+                    "rw",
+                    "Rwanda"
+                ],
+                "countryCode": "rw"
+            },
+            {
+                "name": "Saint Helena",
+                "keys": [
+                    "sh",
+                    "Saint Helena"
+                ],
+                "countryCode": "sh"
+            },
+            {
+                "name": "Saint Kitts and Nevis",
+                "keys": [
+                    "kn",
+                    "Saint Kitts and Nevis"
+                ],
+                "countryCode": "kn"
+            },
+            {
+                "name": "Saint Lucia",
+                "keys": [
+                    "lc",
+                    "Saint Lucia"
+                ],
+                "countryCode": "lc"
+            },
+            {
+                "name": "Saint Pierre",
+                "keys": [
+                    "pm",
+                    "Saint Pierre"
+                ],
+                "countryCode": "pm"
+            },
+            {
+                "name": "Saint Vincent",
+                "keys": [
+                    "vc",
+                    "Saint Vincent"
+                ],
+                "countryCode": "vc"
+            },
+            {
+                "name": "Samoa",
+                "keys": [
+                    "ws",
+                    "Samoa"
+                ],
+                "countryCode": "ws"
+            },
+            {
+                "name": "San Marino",
+                "keys": [
+                    "sm",
+                    "San"
+                ],
+                "countryCode": "sm"
+            },
+            {
+                "name": "Sandwich Islands",
+                "keys": [
+                    "gs",
+                    "Sandwich Islands"
+                ],
+                "countryCode": "gs"
+            },
+            {
+                "name": "Sao Tome",
+                "keys": [
+                    "st",
+                    "Sao Tome"
+                ],
+                "countryCode": "st"
+            },
+            {
+                "name": "Saudi Arabia",
+                "keys": [
+                    "sa",
+                    "Saudi Arabia"
+                ],
+                "countryCode": "sa"
+            },
+            {
+                "name": "Scotland",
+                "keys": [
+                    "gb sct",
+                    "Scotland"
+                ],
+                "countryCode": "gb sct"
+            },
+            {
+                "name": "Senegal",
+                "keys": [
+                    "sn",
+                    "Senegal"
+                ],
+                "countryCode": "sn"
+            },
+            {
+                "name": "Serbia",
+                "keys": [
+                    "cs",
+                    "Serbia"
+                ],
+                "countryCode": "cs"
+            },
+            {
+                "name": "Serbia",
+                "keys": [
+                    "rs",
+                    "Serbia"
+                ],
+                "countryCode": "rs"
+            },
+            {
+                "name": "Seychelles",
+                "keys": [
+                    "sc",
+                    "Seychelles"
+                ],
+                "countryCode": "sc"
+            },
+            {
+                "name": "Sierra Leone",
+                "keys": [
+                    "sl",
+                    "Sierra Leone"
+                ],
+                "countryCode": "sl"
+            },
+            {
+                "name": "Singapore",
+                "keys": [
+                    "sg",
+                    "Singapore"
+                ],
+                "countryCode": "sg"
+            },
+            {
+                "name": "Slovakia",
+                "keys": [
+                    "sk",
+                    "Slovakia"
+                ],
+                "countryCode": "sk"
+            },
+            {
+                "name": "Slovenia",
+                "keys": [
+                    "si",
+                    "Slovenia"
+                ],
+                "countryCode": "si"
+            },
+            {
+                "name": "Solomon Islands",
+                "keys": [
+                    "sb",
+                    "Solomon Islands"
+                ],
+                "countryCode": "sb"
+            },
+            {
+                "name": "Somalia",
+                "keys": [
+                    "so",
+                    "Somalia"
+                ],
+                "countryCode": "so"
+            },
+            {
+                "name": "South Africa",
+                "keys": [
+                    "za",
+                    "South Africa"
+                ],
+                "countryCode": "za"
+            },
+            {
+                "name": "South Korea",
+                "keys": [
+                    "kr",
+                    "South Korea"
+                ],
+                "countryCode": "kr"
+            },
+            {
+                "name": "Spain",
+                "keys": [
+                    "es",
+                    "Spain"
+                ],
+                "countryCode": "es"
+            },
+            {
+                "name": "Sri Lanka",
+                "keys": [
+                    "lk",
+                    "Sri Lanka"
+                ],
+                "countryCode": "lk"
+            },
+            {
+                "name": "Sudan",
+                "keys": [
+                    "sd",
+                    "Sudan"
+                ],
+                "countryCode": "sd"
+            },
+            {
+                "name": "Suriname",
+                "keys": [
+                    "sr",
+                    "Suriname"
+                ],
+                "countryCode": "sr"
+            },
+            {
+                "name": "Swaziland",
+                "keys": [
+                    "sz",
+                    "Swaziland"
+                ],
+                "countryCode": "sz"
+            },
+            {
+                "name": "Sweden",
+                "keys": [
+                    "se",
+                    "Sweden"
+                ],
+                "countryCode": "se"
+            },
+            {
+                "name": "Switzerland",
+                "keys": [
+                    "ch",
+                    "Switzerland"
+                ],
+                "countryCode": "ch"
+            },
+            {
+                "name": "Syria",
+                "keys": [
+                    "sy",
+                    "Syria"
+                ],
+                "countryCode": "sy"
+            },
+            {
+                "name": "Taiwan",
+                "keys": [
+                    "tw",
+                    "Taiwan"
+                ],
+                "countryCode": "tw"
+            },
+            {
+                "name": "Tajikistan",
+                "keys": [
+                    "tj",
+                    "Tajikistan"
+                ],
+                "countryCode": "tj"
+            },
+            {
+                "name": "Tanzania",
+                "keys": [
+                    "tz",
+                    "Tanzania"
+                ],
+                "countryCode": "tz"
+            },
+            {
+                "name": "Thailand",
+                "keys": [
+                    "th",
+                    "Thailand"
+                ],
+                "countryCode": "th"
+            },
+            {
+                "name": "Timorleste",
+                "keys": [
+                    "tl",
+                    "Timorleste"
+                ],
+                "countryCode": "tl"
+            },
+            {
+                "name": "Togo",
+                "keys": [
+                    "tg",
+                    "Togo"
+                ],
+                "countryCode": "tg"
+            },
+            {
+                "name": "Tokelau",
+                "keys": [
+                    "tk",
+                    "Tokelau"
+                ],
+                "countryCode": "tk"
+            },
+            {
+                "name": "Tonga",
+                "keys": [
+                    "to",
+                    "Tonga"
+                ],
+                "countryCode": "to"
+            },
+            {
+                "name": "Trinidad",
+                "keys": [
+                    "tt",
+                    "Trinidad"
+                ],
+                "countryCode": "tt"
+            },
+            {
+                "name": "Tunisia",
+                "keys": [
+                    "tn",
+                    "Tunisia"
+                ],
+                "countryCode": "tn"
+            },
+            {
+                "name": "Turkey",
+                "keys": [
+                    "tr",
+                    "Turkey"
+                ],
+                "countryCode": "tr"
+            },
+            {
+                "name": "Turkmenistan",
+                "keys": [
+                    "tm",
+                    "Turkmenistan"
+                ],
+                "countryCode": "tm"
+            },
+            {
+                "name": "Tuvalu",
+                "keys": [
+                    "tv",
+                    "Tuvalu"
+                ],
+                "countryCode": "tv"
+            },
+            {
+                "name": "U.A.E.",
+                "keys": [
+                    "ae",
+                    "U.A.E.",
+                    "United Arab Emirates"
+                ],
+                "countryCode": "ae",
+                "alias": "United Arab Emirates"
+            },
+            {
+                "name": "Uganda",
+                "keys": [
+                    "ug",
+                    "Uganda"
+                ],
+                "countryCode": "ug"
+            },
+            {
+                "name": "Ukraine",
+                "keys": [
+                    "ua",
+                    "Ukraine"
+                ],
+                "countryCode": "ua"
+            },
+            {
+                "name": "United Kingdom",
+                "keys": [
+                    "gb",
+                    "uk",
+                    "United Kingdom"
+                ],
+                "countryCode": "gb",
+                "alias": "uk"
+            },
+            {
+                "name": "United States",
+                "keys": [
+                    "us",
+                    "United States",
+                    "America"
+                ],
+                "countryCode": "us",
+                "alias": "America"
+            },
+            {
+                "name": "Uruguay",
+                "keys": [
+                    "uy",
+                    "Uruguay"
+                ],
+                "countryCode": "uy"
+            },
+            {
+                "name": "US Minor Islands",
+                "keys": [
+                    "um",
+                    "US Minor Islands"
+                ],
+                "countryCode": "um"
+            },
+            {
+                "name": "US Virgin Islands",
+                "keys": [
+                    "vi",
+                    "US Virgin Islands"
+                ],
+                "countryCode": "vi"
+            },
+            {
+                "name": "Uzbekistan",
+                "keys": [
+                    "uz",
+                    "Uzbekistan"
+                ],
+                "countryCode": "uz"
+            },
+            {
+                "name": "Vanuatu",
+                "keys": [
+                    "vu",
+                    "Vanuatu"
+                ],
+                "countryCode": "vu"
+            },
+            {
+                "name": "Vatican City",
+                "keys": [
+                    "va",
+                    "Vatican"
+                ],
+                "countryCode": "va"
+            },
+            {
+                "name": "Venezuela",
+                "keys": [
+                    "ve",
+                    "Venezuela"
+                ],
+                "countryCode": "ve"
+            },
+            {
+                "name": "Vietnam",
+                "keys": [
+                    "vn",
+                    "Vietnam"
+                ],
+                "countryCode": "vn"
+            },
+            {
+                "name": "Wales",
+                "keys": [
+                    "gb wls",
+                    "Wales"
+                ],
+                "countryCode": "gb wls"
+            },
+            {
+                "name": "Wallis and Futuna",
+                "keys": [
+                    "wf",
+                    "Wallis and Futuna",
+                    "Wallis et Futuna"
+                ],
+                "countryCode": "wf"
+            },
+            {
+                "name": "Western Sahara",
+                "keys": [
+                    "eh",
+                    "Western"
+                ],
+                "countryCode": "eh"
+            },
+            {
+                "name": "Yemen",
+                "keys": [
+                    "ye",
+                    "Yemen"
+                ],
+                "countryCode": "ye"
+            },
+            {
+                "name": "Zambia",
+                "keys": [
+                    "zm",
+                    "Zambia"
+                ],
+                "countryCode": "zm"
+            },
+            {
+                "name": "Zimbabwe",
+                "keys": [
+                    "zw",
+                    "Zimbabwe"
+                ],
+                "countryCode": "zw"
+            }
+        ]
+    }
+}

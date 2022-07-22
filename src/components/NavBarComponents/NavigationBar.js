@@ -82,10 +82,10 @@ const NavigationBar = ({ isConnected, logout, userId }) => {
       </nav>
 
       {/* PETIT */}
-      <NavBarCollapsed1 />
+      <NavBarCollapsed1 isConnected={isConnected} logout={logout} userId={userId} />
 
       {/* MOYEN */}
-      <NavBarCollapsed2 />
+      <NavBarCollapsed2 isConnected={isConnected} logout={logout} userId={userId} />
 
 
     </div >

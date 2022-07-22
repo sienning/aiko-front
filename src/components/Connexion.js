@@ -35,6 +35,7 @@ class Connexion extends Component {
                     localStorage.setItem("token", token);
                     localStorage.setItem("userId", userId);
                     this.props.getUserInfos(userInfos, userId, email);
+                    window.location.replace("/");
                 }
             })
             .catch(err => {

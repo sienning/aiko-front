@@ -991,6 +991,59 @@ p.carousel-image-date {
   }
 }
 
+/* EQUIPE EDIT */
+.top-equipe {
+  margin-bottom: 100px;
+}
+
+.nom-icon {
+  display: inline-flex;
+  margin-top: -100px;
+  margin-left: 20%;
+  position: absolute;
+}
+
+.nom-icon .edit-nom input {
+  width: 100%;
+}
+.nom-icon .edit-nom input {
+  margin-top: 40px;
+  margin-left: 30px;
+}
+
+.edit-equipe .ui.input>input {
+  border-radius: 30px;
+}
+
+.banniere-equipe {
+  width: 100%;
+  object-fit: cover;
+  height: 300px;
+}
+
+.equipe-fade-icon {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  z-index: 10;
+}
+
+.equipe-fade-image {
+  display: block;
+  opacity: 0.5;
+}
+
+.equipe-fade-image-not-selected:hover {
+  cursor: pointer;
+}
+
+.equipe-fade:hover {
+  cursor: pointer;
+}
+
+
+
 /* EQUIPES */
 .equipe-card {
   margin: auto !important;
@@ -1125,7 +1178,7 @@ p.carousel-image-date {
 /* ----------------- RESPONSIVE ----------------- */
 /* NAVBAR */
 /* MOYEN */
-@media screen and (max-width: 1135px) {
+@media screen and (max-width: 1280px) {
   .navbar,
   .navbar-responsive-1 {
     display: none;

@@ -45,10 +45,22 @@ const NavBarCollapsed2 = ({ isConnected, logout, userId }) => {
 
                 <div className="menu-items">
                     <ul>
-                        <li><Link onClick={handleBgClick} to="/">Accueil</Link></li>
-                        <li><Link onClick={handleBgClick} to="/coaching">Le coaching Aiko</Link></li>
-                        <li><Link onClick={handleBgClick} to="/tournaments">Tournois</Link></li>
-                        <li><Link onClick={handleBgClick} to="/teams">Équipes</Link></li>
+                        {
+                            isConnected ?
+                                <>
+                                    <li><Link onClick={handleBgClick} to="/players">Joueurs</Link></li>
+                                    <li><Link onClick={handleBgClick} to="/teams">Équipes</Link></li>
+                                    <li><Link onClick={handleBgClick} to="/coaching">Coaching</Link></li>
+                                    <li><Link onClick={handleBgClick} to="/tournaments">Évènements</Link></li>
+                                </>
+                                :
+                                <>
+                                    <li><Link onClick={handleBgClick} to="/">Accueil</Link></li>
+                                    <li><Link onClick={handleBgClick} to="/coaching">Le coaching Aiko</Link></li>
+                                    <li><Link onClick={handleBgClick} to="/tournaments">Tournois</Link></li>
+                                    <li><Link onClick={handleBgClick} to="/teams">Équipes</Link></li>
+                                </>
+                        }
                     </ul>
                     <div className="navbar-right-links">
                         <div className="navbar-social-links">
@@ -75,7 +87,7 @@ const NavBarCollapsed2 = ({ isConnected, logout, userId }) => {
                 isConnected ?
                     <div className='navbar-login-links'>
                         <div className="navbar-link">
-                            <Link  onClick={handleBgClick} to={`/my-profile/${userId}`}>Mon compte</Link>
+                            <Link onClick={handleBgClick} to={`/my-profile/${userId}`}>Mon compte</Link>
                         </div>
                         <div className="navbar-link">
                             <Button onClick={() => logout()}>Déconnexion</Button>

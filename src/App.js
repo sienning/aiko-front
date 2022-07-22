@@ -23,7 +23,7 @@ import NotFound from './components/NotFound';
 import Tournois from './components/Tournois/Tournois';
 import SeeEvent from './components/Tournois/SeeEvent';
 import ReservationCoach from './components/isConnected/Coach/ReservationCoach';
-import CreationEquipe from './components/isConnected/Equipes/CreationEquipe';
+import EditEquipe from './components/isConnected/Equipes/EditEquipe';
 
 class App extends Component {
   state = {
@@ -34,6 +34,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    console.log("APPs");
     if (window.localStorage.getItem('email') !== null) {
       this.setState({
         isConnected: true,
@@ -51,6 +52,7 @@ class App extends Component {
   }
 
   getProfil = async () => {
+    console.log("getProfil");
     await axios.get(`/profil/get-profile`)
       .then(response => {
         const res = response.data;
@@ -110,9 +112,9 @@ class App extends Component {
     })
       .then(response => {
         console.log(response.data);
-        window.location.replace("/");
       })
       .catch(err => { console.log(err) })
+    window.location.replace("/");
   }
 
   render() {
@@ -169,7 +171,7 @@ class App extends Component {
                 isConnected={isConnected}
               />
             </Route>
-            
+
             {/* IL FAUT NE PAS ÊTRE CONNECTÉ */}
             {
               isConnected ? null :
@@ -214,8 +216,8 @@ class App extends Component {
             }
             {
               isConnected ?
-                <Route path="/create-team">
-                  <CreationEquipe userId={userId} />
+                <Route path="/edit-team">
+                  <EditEquipe logout={this.logout} userId={userId} />
                 </Route> : null
             }
             <Route>

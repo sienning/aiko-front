@@ -10,7 +10,7 @@ class Accueil extends Component {
                     src='https://www.youtube.com/embed/mDYqT0_9VR4?autoplay=1&mute=1&loop=1&controls=0&disablekb=1&modestbranding=0&showinfo=0&playlist=mDYqT0_9VR4'
                     frameBorder='0'
                     allow='autoplay; encrypted-media;'
-                    allowfullscreen
+                    allowFullScreen
                     title='League of legends'
                 />
                 <Container textAlign="center" className='accueil-video-hover' >
