@@ -47,7 +47,7 @@ const NavBarCollapsed1 = ({ isConnected, logout, userId }) => {
                         <li><Link onClick={handleBgClick} to="/">Accueil</Link></li>
                         <li><Link onClick={handleBgClick} to="/coaching">Le coaching Aiko</Link></li>
                         <li><Link onClick={handleBgClick} to="/tournaments">Tournois</Link></li>
-                        <li><Link onClick={handleBgClick} to="/my-team">Mon équipe</Link></li>
+                        <li><Link onClick={handleBgClick} to="/teams">Équipes</Link></li>
                         {
                             isConnected ?
                                 <>

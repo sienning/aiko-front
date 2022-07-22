@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../../App.css';
-import { Container, Header, Image, Grid, GridColumn } from 'semantic-ui-react'
+import { Container, Header, Image, Grid, GridColumn, Button } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -102,9 +102,8 @@ class Profil extends Component {
                     <h2>Bienvenu(e), {userInfos.username} !</h2>
                 </div>
 
-                <div style={{ textAlign: "center", display: "flex"}}>
-                    <p>Profil</p>
-                    <Link to={`/edit-profile/${userInfos._id}`}>Edition de profil</Link>
+                <div style={{ textAlign: "center"}}>
+                    <span><p>Profil</p></span>
                 </div>
 
                 <Grid>
@@ -169,6 +168,12 @@ class Profil extends Component {
                         </div>
                     </GridColumn>
                 </Grid>
+
+                <div style={{ textAlign: "center"}}>
+                    <a href={`/edit-profile/${userInfos._id}`}>
+                        <Button>Modifier</Button>
+                    </a>
+                </div>
 
             </Container>
         );

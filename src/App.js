@@ -12,17 +12,19 @@ import NavigationBar from './components/NavBarComponents/NavigationBar';
 import Footer from './components/Footer';
 import Connexion from './components/Connexion';
 import Inscription from './components/Inscription';
-import InscriptionCoach from './components/InscriptionCoach';
+import InscriptionCoach from './components/isConnected/InscriptionCoach';
 import MdpOublie from './components/MdpOublie';
 import Profil from './components/isConnected/Profil';
 import Joueurs from './components/isConnected/Joueurs';
-import Equipes from './components/isConnected/Equipes';
+import Equipes from './components/isConnected/Equipes/Equipes';
 import Coaching from './components/Coaching';
 import FAQ from './components/FAQ';
 import NotFound from './components/NotFound';
 import Tournois from './components/Tournois/Tournois';
 import SeeEvent from './components/Tournois/SeeEvent';
 import ProfilEdit from './components/isConnected/ProfilEdit';
+import ReservationCoach from './components/isConnected/Coach/ReservationCoach';
+import CreationEquipe from './components/isConnected/Equipes/CreationEquipe';
 
 class App extends Component {
   state = {
@@ -137,8 +139,13 @@ class App extends Component {
               <Coaching />
             </Route>
             <Route path="/sign-in-as-coach">
-              <InscriptionCoach />
+              <InscriptionCoach isConnected={isConnected} />
             </Route>
+
+            <Route path="/find-a-coach">
+              <ReservationCoach isConnected={isConnected} />
+            </Route>
+
             <Route path="/faq">
               <FAQ />
             </Route>
@@ -158,9 +165,15 @@ class App extends Component {
               />
             </Route>
 
+            <Route path="/teams">
+              <Equipes
+                isConnected={isConnected}
+              />
+            </Route>
+            
+            {/* IL FAUT NE PAS ÊTRE CONNECTÉ */}
             {
               isConnected ? null :
-
                 <Route path="/login">
                   <Connexion
                     getUserInfos={this.getUserInfosLogin}
@@ -175,6 +188,8 @@ class App extends Component {
                   />
                 </Route>
             }
+
+            {/* IL FAUT ÊTRE CONNECTÉ */}
             {
               isConnected ?
                 <Route path="/my-profile/:id">
@@ -202,18 +217,16 @@ class App extends Component {
             }
             {
               isConnected ?
-                <Route path="/teams">
-                  <Equipes />
-                </Route>
-                : null
-            }
-
-            {
-              isConnected ?
                 <Route path="/faq">
                   <FAQ />
                 </Route>
                 : null
+            }
+            {
+              isConnected ?
+                <Route path="/create-team">
+                  <CreationEquipe userId={userId} />
+                </Route> : null
             }
             <Route>
               <NotFound />
