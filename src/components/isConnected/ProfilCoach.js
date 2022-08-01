@@ -3,16 +3,22 @@ import '../../App.css';
 import { Container, Header, Image, Grid, GridColumn, Button } from 'semantic-ui-react'
 import axios from 'axios';
 
-class Profil extends Component {
+class ProfilCoach extends Component {
     state = {
         isLoading: false,
         userId: "",
         userInfos: {},
+        coachId: "",
+        coachInfos: {},
     }
 
     componentDidMount() {
-        this.setState({ userInfos: this.props.userId });
+        this.setState({ 
+            userInfos: this.props.userId,
+            coachInfos: this.props.coachId
+        });
         this.getUserInfos(this.props.userId);
+        this.getCoachInfos(this.props.userId);
     }
 
     getUserInfos = async (id) => {
@@ -27,11 +33,20 @@ class Profil extends Component {
                 this.setState({ userInfos: response.data, isLoading: false });
             })  
             .catch(err => console.log(err))
-
     }
+
+    getCoachInfos = async (id) => {
+        this.setState({ isLoading: true });
+        await axios.get(`/coachs/see-coach/idUser=${id}`, {
+        })
+            .then(response => {
+                this.setState({ coachInfos: response.data, isLoading: false });
+            })
+            .catch(err => console.log(err))
+    }
+
     render() {
         const {
-            isLoading,
             userInfos,
         } = this.state;
 
@@ -179,4 +194,4 @@ class Profil extends Component {
     }
 }
 
-export default Profil;
+export default ProfilCoach;

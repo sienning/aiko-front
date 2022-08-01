@@ -120,8 +120,8 @@ class ProfilEdit extends Component {
             },
             {
                 key: 8,
-                text: "Challengeur",
-                value: "challengeur"
+                text: "Challenger",
+                value: "challenger"
             },
         ],
         divisions: [
