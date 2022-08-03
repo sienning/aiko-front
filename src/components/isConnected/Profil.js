@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../../App.css';
-import { Container, Header, Image, Grid, GridColumn, Button } from 'semantic-ui-react'
+import { Container, Header, Image, Grid, GridColumn, Button} from 'semantic-ui-react'
 import axios from 'axios';
 
 class Profil extends Component {
@@ -102,7 +102,12 @@ class Profil extends Component {
                 </div>
 
                 <div style={{ textAlign: "center"}}>
-                    <span><p>Profil</p></span>
+                    <span>Profil | </span>
+                    <span>
+                        <a href={`/my-coach/${userInfos._id}`}>
+                            Coach
+                        </a>
+                    </span>
                 </div>
 
                 <Grid>

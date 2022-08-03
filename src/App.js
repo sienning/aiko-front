@@ -25,6 +25,8 @@ import SeeEvent from './components/Tournois/SeeEvent';
 import ProfilEdit from './components/isConnected/ProfilEdit';
 import ReservationCoach from './components/isConnected/Coach/ReservationCoach';
 import CreationEquipe from './components/isConnected/Equipes/CreationEquipe';
+import ProfilCoach from './components/isConnected/ProfilCoach';
+import CoachEdit from './components/isConnected/CoachEdit';
 
 class App extends Component {
   state = {
@@ -207,6 +209,33 @@ class App extends Component {
                 />
               </Route>
               : null
+            }
+            {
+              isConnected ?
+              <Route path="/my-coach/:id">
+                <ProfilCoach
+                  userId={userId}
+                />
+              </Route>
+              : null
+            }
+            {
+              isConnected ?
+                <Route path="/edit-coach/:id">
+                  <CoachEdit
+                    userId={userId}
+                  />
+                </Route>
+                : null
+            }
+            {
+              isConnected ?
+                <Route path="/edit-coach/:id">
+                  <Profil
+                    userId={userId}
+                  />
+                </Route>
+                : null
             }
             {
               isConnected ?

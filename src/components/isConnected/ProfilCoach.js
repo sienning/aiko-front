@@ -112,7 +112,7 @@ class ProfilCoach extends Component {
             <Container>
                 <div style={{ textAlign: "center", marginBottom: 20, marginTop: 50 }}>
                     <Image style={{ margin: "auto" }} alt={`Logo-${userInfos.avatar}`} src={`${process.env.REACT_APP_FRONT}/images/${userInfos.avatar}`} size="tiny" />
-                    <Header as="h1">Mon compte</Header>
+                    <Header as="h1">Mon compte Coach</Header>
                     <h2>Bienvenu(e), {userInfos.username} !</h2>
                 </div>
 
@@ -153,12 +153,6 @@ class ProfilCoach extends Component {
                         </Grid>
                     </GridColumn>
                 </Grid>
-                {/* <Grid>
-                    <GridColumn width={12}>
-                        <h3>Description</h3>
-                        <p>{userInfos.description}</p>
-                    </GridColumn>
-                </Grid> */}
                 <Grid>
                     <GridColumn width={2} floated={'right'}>
                         <Image circular style={{ margin: "auto" }} alt="Logo-Aiko" src={`${process.env.REACT_APP_FRONT}/images/${userInfos.avatar}`} size="small" />
@@ -184,7 +178,7 @@ class ProfilCoach extends Component {
                 </Grid>
 
                 <div style={{ textAlign: "center"}}>
-                    <a href={`/edit-profile/${userInfos._id}`}>
+                    <a href={`/edit-coach/${userInfos._id}`}>
                         <Button>Modifier</Button>
                     </a>
                 </div>
