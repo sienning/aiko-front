@@ -37,7 +37,7 @@ class ProfilCoach extends Component {
 
     getCoachInfos = async (id) => {
         this.setState({ isLoading: true });
-        await axios.get(`/coachs/see-coach/idUser=${id}`, {
+        await axios.get(`/coachs/see-coach/id-user=${id}`, {
         })
             .then(response => {
                 this.setState({ coachInfos: response.data, isLoading: false });

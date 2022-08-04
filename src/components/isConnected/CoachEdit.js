@@ -152,6 +152,7 @@ class CoachEdit extends Component {
         this.setState({ userInfos: this.props.userId });
         this.getUserInfos(this.props.userId);
         this.handleUpdate(this.props.userId);
+        this.getCoachInfos(this.props.userId);
     }
 
     handleChange = (e, { name, value }) => this.setState({ [name]: value })
@@ -179,7 +180,6 @@ class CoachEdit extends Component {
                 Authorization: window.localStorage.getItem('token')
             }
         })
-
             .then(response => {
                 console.log("user : ", response.data);
                 const userData = response.data;
@@ -195,25 +195,50 @@ class CoachEdit extends Component {
                 });
             })
             .catch(err => console.log(err))
+    }
 
+    getCoachInfos = async (id) => {
+        this.setState({ isLoading: true });
+        await axios.get(`/coachs/see-coach/id_user=${id}`, {
+            headers: {
+                Authorization: window.localStorage.getItem('token')
+            }
+        })
+            .then(response => {
+                console.log("coach : ", response.data);
+                const coachData = response.data;
+                this.setState({
+                    userInfos: response.data,
+                    isLoading: false,
+                    idGame: coachData.idGame,
+                    mainRole: coachData.mainRole,
+                    subRole: coachData.subRole,
+                    rang: coachData.rang,
+                    division: coachData.division,
+                    calendly: coachData.calendly,
+                    description: coachData.description
+                });
+            })
+            .catch(err => console.log(err))
     }
 
     handleUpdate = async (id) => {
         console.log("id : ", id);
-        const { pseudo, idGame, rang, division, mainRole, subRole } = this.state;
+        const {idGame, rang, division, mainRole, subRole, description, calendly } = this.state;
 
-        const userUpdated = {
-            username: { pseudo },
+        const coachUpdate = {
             idGame: { idGame },
             rang: { rang },
             division: { division },
             mainRole: { mainRole },
-            subRole: { subRole }
+            subRole: { subRole },
+            description: { description },
+            calendly: { calendly }
         }
 
-        console.log("userUpdated : ", userUpdated);
+        console.log("coachUpdate : ", coachUpdate);
 
-        await axios.put(`/users/see-user/id_user=${id}`, { user: userUpdated }, {
+        await axios.put(`/coachs/see-coach/id_user=${id}`, { user: coachUpdate }, {
             headers: {
                 Authorization: window.localStorage.getItem('token')
             }
@@ -227,7 +252,6 @@ class CoachEdit extends Component {
     render() {
         const {
             userInfos,
-            pseudo,
             idGame,
             jeux,
             mainRole,
@@ -248,7 +272,7 @@ class CoachEdit extends Component {
                 </div>
 
                 <div style={{ textAlign: "center" }}>
-                    <p>Edition de profil</p>
+                    <p>Edition de profil Coach</p>
                 </div>
 
                 <Form onSubmit={() => this.handleUpdate(this.props.userId)}>
@@ -257,16 +281,6 @@ class CoachEdit extends Component {
                             <ProfilModal userInfos={userInfos}></ProfilModal>
                         </GridColumn>
                         <GridColumn width={10}>
-                            <Form.Field
-                                required
-                                onChange={this.handleChange}
-                                name="pseudo"
-                                type="text"
-                                control={Input}
-                                label="Pseudo"
-                                value={pseudo}
-                                placeholder={userInfos.username}
-                            />
                             <div>
                                 <Header>Jeu</Header>
                                 <Form.Dropdown
