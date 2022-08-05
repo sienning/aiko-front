@@ -4,41 +4,67 @@ import { Container, Header, Image, Accordion, Button, Divider } from 'semantic-u
 
 const panels = [
     {
-        key: 'what-is-dog',
-        title: 'What is a dog?',
+        key: 'qui-sommes-nous',
+        title: 'Qui sommes-nous?',
         content: [
-            'A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome',
-            'guest in many households across the world.',
+            'Nous sommes une équipe qui souhaite cultiver la passion de la compétition et du développement personnel à travers l\'esport.',
         ].join(' '),
     },
     {
-        key: 'kinds-of-dogs',
-        title: 'What kinds of dogs are there?',
+        key: 'inscription-tournoi',
+        title: 'Comment s’inscrire à un tournoi ?',
         content: [
-            'There are many breeds of dogs. Each breed varies in size and temperament. Owners often select a breed of dog',
-            'that they find to be compatible with their own lifestyle and desires from a companion.',
+            'Nous t’invitons à rejoindre le serveur discord Aiko (lien) pour pouvoir t’inscrire au prochain tournoi.',
+            'Tu y trouveras aussi le règlement, le déroulé du tournois et le cashprize!',
         ].join(' '),
     },
     {
-        key: 'acquire-dog',
-        title: 'How do you acquire a dog?',
+        key: 'coaching',
+        title: 'Comment se passe une séance de coaching ?',
         content: {
             content: (
                 <div>
                     <p>
-                        Three common ways for a prospective owner to acquire a dog is from
-                        pet shops, private owners, or shelters.
+                        Il faut commencer par prendre rendez-vous avec un coach. Tu as le choix entre deux types de coach, ceux certifiés Aiko et ceux non certifiés.
                     </p>
                     <p>
-                        A pet shop may be the most convenient way to buy a dog. Buying a dog
-                        from a private owner allows you to assess the pedigree and
-                        upbringing of your dog before choosing to take it home. Lastly,
-                        finding your dog from a shelter, helps give a good home to a dog who
-                        may not find one so readily.
+                        Ensuite, tout se passe entre toi et le coach. Vous organisez votre rendez-vous en fonction des disponibilités de chacun.
+                         Si tu es satisfait, tu peux renouveler l’expérience avec ton coach ou alors opter pour un autre coach. 
                     </p>
                 </div>
             ),
         },
+    },
+    {
+        key: 'coach-certifié',
+        title: 'Qu’est ce qu’un coach certifié Aiko ? / Comment devenir coach certifié ?',
+        content: {
+            content: (
+                <div>
+                    <p>
+                        Les coachs certifiés Aiko ont passé et réussi un entretien de compétence et motivation avec nos équipes.
+                         Chez Aiko nous cherchons à réunir des passionnés bienveillants et pédagogue,
+                          c’est pour cela que nous avons créé un processus de certification.
+                           N’aies pas peur de tenter ta chance, chez Aiko, la motivation prime sur l’expérience et nous serons ravis d’échanger avec toi.
+                    </p>
+                </div>
+            ),
+        },
+    },
+    {
+        key: 'inscription-connexion',
+        title: 'Je n’arrive pas à m’inscrire/ me connecter ',
+        content: [
+            'Tu as un problème pour t’inscrire / te connecter ? Envoie un mail à help@aiko.fr et nos équipes t’aideront à résoudre ton problème.',
+        ].join(' '),
+    },
+    {
+        key: 'suppresion',
+        title: 'Comment supprimer mon compte ?',
+        content: [
+            'Tu nous quittes ? :(',
+            'Envoie un mail à help@aiko.fr et nos équipes t’aideront à supprimer ton compte',
+        ].join(' '),
     },
 ]
 
@@ -53,16 +79,11 @@ class FAQ extends Component {
                     </div>
                 </Container>
                 <Container className='border-faq'>
-                    <Divider horizontal>Thème</Divider>
-                    <Container style={{ width: 500, marginBottom: 100 }}>
-                        <Accordion inverted panels={panels} />
-                    </Container>
-                    <Divider horizontal>Thème</Divider>
-                    <Container style={{ width: 500, marginBottom: 20 }}>
+                    <Divider horizontal>Questions fréquentes</Divider>
+                    <Container style={{ width: 500 }}>
                         <Accordion inverted panels={panels} />
                     </Container>
                 </Container>
-                {/* <div className='frise'> <Image alt="frise-aiko" src="/images/frise-mini.png" /></div> */}
                 <Container style={{ fontSize: 15, width: 600, marginBottom: 60, marginTop: 20 }} textAlign="justified">
                     <p>Vous n'avez pas trouvé la réponse à votre question ?</p>
                     <p>Venez nous la poser sur Discord</p>

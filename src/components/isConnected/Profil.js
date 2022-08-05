@@ -31,7 +31,6 @@ class Profil extends Component {
     }
     render() {
         const {
-            isLoading,
             userInfos,
         } = this.state;
 
@@ -97,17 +96,17 @@ class Profil extends Component {
             <Container>
                 <div style={{ textAlign: "center", marginBottom: 20, marginTop: 50 }}>
                     <Image style={{ margin: "auto" }} alt={`Logo-${userInfos.avatar}`} src={`${process.env.REACT_APP_FRONT}/images/${userInfos.avatar}`} size="tiny" />
-                    <Header as="h1">Mon compte</Header>
+                    <Header as="h1">Profil Joueur</Header>
                     <h2>Bienvenu(e), {userInfos.username} !</h2>
-                </div>
-
-                <div style={{ textAlign: "center"}}>
-                    <span>Profil | </span>
-                    <span>
-                        <a href={`/my-coach/${userInfos._id}`}>
-                            Coach
-                        </a>
-                    </span>
+                    <div>
+                        <span>Profil Joueur</span>
+                        <span> | </span>
+                        <span>
+                            <a href={`/my-coach/${userInfos._id}`}>
+                                Profil Coach
+                            </a>
+                        </span>
+                    </div>
                 </div>
 
                 <Grid>

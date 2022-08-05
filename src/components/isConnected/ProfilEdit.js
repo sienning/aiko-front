@@ -243,12 +243,19 @@ class ProfilEdit extends Component {
             <Container>
                 <div style={{ textAlign: "center", marginBottom: 20, marginTop: 50 }}>
                     <Image style={{ margin: "auto" }} alt={`Logo-${userInfos.avatar}`} src={`${process.env.REACT_APP_FRONT}/images/${userInfos.avatar}`} size="tiny" />
-                    <Header as="h1">Mon super compte de la mort qui tue</Header>
+                    <Header as="h1">Modification Joueur</Header>
                     <h2>Bienvenu(e), {userInfos.username} !</h2>
-                </div>
 
-                <div style={{ textAlign: "center" }}>
-                    <p>Edition de profil</p>
+                    <div>
+                        <a href={`/my-profile/${userInfos._id}`}>
+                            <span>Profil Joueur</span>
+                        </a>
+                        <span> | </span>
+                        <span>
+                            Modification Joueur
+                        </span>
+                    </div>
+
                 </div>
 
                 <Form onSubmit={() => this.handleUpdate(this.props.userId)}>

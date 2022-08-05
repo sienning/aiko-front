@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../../App.css';
 import { Container, Header, Image, Grid, GridColumn, Button } from 'semantic-ui-react'
 import axios from 'axios';
+import { InlineWidget } from "react-calendly";
 
 class ProfilCoach extends Component {
     state = {
@@ -15,10 +16,8 @@ class ProfilCoach extends Component {
     componentDidMount() {
         this.setState({ 
             userInfos: this.props.userId,
-            coachInfos: this.props.coachId
         });
         this.getUserInfos(this.props.userId);
-        this.getCoachInfos(this.props.userId);
     }
 
     getUserInfos = async (id) => {
@@ -32,16 +31,6 @@ class ProfilCoach extends Component {
             .then(response => {
                 this.setState({ userInfos: response.data, isLoading: false });
             })  
-            .catch(err => console.log(err))
-    }
-
-    getCoachInfos = async (id) => {
-        this.setState({ isLoading: true });
-        await axios.get(`/coachs/see-coach/id-user=${id}`, {
-        })
-            .then(response => {
-                this.setState({ coachInfos: response.data, isLoading: false });
-            })
             .catch(err => console.log(err))
     }
 
@@ -112,12 +101,15 @@ class ProfilCoach extends Component {
             <Container>
                 <div style={{ textAlign: "center", marginBottom: 20, marginTop: 50 }}>
                     <Image style={{ margin: "auto" }} alt={`Logo-${userInfos.avatar}`} src={`${process.env.REACT_APP_FRONT}/images/${userInfos.avatar}`} size="tiny" />
-                    <Header as="h1">Mon compte Coach</Header>
+                    <Header as="h1">Profil Coach</Header>
                     <h2>Bienvenu(e), {userInfos.username} !</h2>
-                </div>
-
-                <div style={{ textAlign: "center"}}>
-                    <span><p>Profil</p></span>
+                    <div>
+                        <a href={`/my-profile/${userInfos._id}`}>
+                            <span>Profil Joueur</span>
+                        </a>
+                        <span> | </span>
+                        <span>Profil Coach</span>
+                    </div>
                 </div>
 
                 <Grid>
@@ -151,6 +143,8 @@ class ProfilCoach extends Component {
                                 <Image src={`${process.env.REACT_APP_FRONT}/images/rang/${userInfos.rang}.png`} alt={`Logo ${userInfos.rang}`}/>
                             </GridColumn>
                         </Grid>
+                        <h3>Description</h3>
+                        <p >${userInfos.description}</p>
                     </GridColumn>
                 </Grid>
                 <Grid>
@@ -176,6 +170,13 @@ class ProfilCoach extends Component {
                         </div>
                     </GridColumn>
                 </Grid>
+
+                {
+                    userInfos.calendlyCoach ?
+                        <InlineWidget url={`https://${userInfos.calendlyCoach}`} style={{ overflowY: "hidden" }} />
+                    :
+                    <div></div>
+                }
 
                 <div style={{ textAlign: "center"}}>
                     <a href={`/edit-coach/${userInfos._id}`}>
