@@ -321,7 +321,8 @@ const EditEquipe = ({ userId, logout }) => {
     })
 
     useEffect(() => {
-        if (params.id !== null) {
+        console.log(params.id);
+        if (params.id !== undefined) {
             getTeamContent(params.id);
         }
     }, [])
