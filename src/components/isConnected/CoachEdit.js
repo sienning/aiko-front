@@ -246,7 +246,7 @@ class CoachEdit extends Component {
 
         console.log("userUpdated : ", userUpdated);
 
-        await axios.put(`/users/see-user/id_user=${id}`, { user: userUpdated }, {
+        await axios.post(`/users/update-user/id_user=${id}`, { user: userUpdated }, {
             headers: {
                 Authorization: window.localStorage.getItem('token')
             }
