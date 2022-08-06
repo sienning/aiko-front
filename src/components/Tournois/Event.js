@@ -28,7 +28,7 @@ const Event = ({ titleEvent, img, id, format, map, serveur, cashPrize, dateEvent
                     <p>
                         {
                             over ?
-                                <Link> Voir les résultats</Link> :
+                                <a href='www.google.com'> Voir les résultats</a> :
                                 <Link to={`/event/${id}`}>En savoir plus</Link>
                         }
                     </p>

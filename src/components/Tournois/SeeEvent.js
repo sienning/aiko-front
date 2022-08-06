@@ -34,7 +34,7 @@ const SeeEvent = () => {
                     </Grid.Column>
                 </Grid>
                 <Container style={{ marginTop: 60 }} textAlign='center'>
-                    <Link style={{ width: "200px", marginRight: 30 }} className='ui button'>Je participe</Link>
+                    <a href="www.google.com" style={{ width: "200px", marginRight: 30 }} className='ui button'>Je participe</a>
                     <Button
                         className='join-discord'
                         onClick={() => window.open("https://discord.gg/SXhDhU6nNg", '_blank')}

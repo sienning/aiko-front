@@ -86,7 +86,7 @@ const ModalProfil = ({ editProfilRecherche, listeRangs, listeRoles, currentProfi
         >
             <h1> Profil recherché </h1>
             <Modal.Content>
-                <Form onSubmit={handleSubmit}>
+                <Form>
                     <div style={{ marginBottom: 30 }}>
                         <Header>Role</Header>
                         <Dropdown
@@ -113,7 +113,7 @@ const ModalProfil = ({ editProfilRecherche, listeRangs, listeRoles, currentProfi
                     </div>
                     <Form.TextArea value={description} onChange={handleDescription} label='Description' />
                     <Container textAlign="center" >
-                        <Button type="submit" >Valider</Button>
+                        <Button onClick={handleSubmit} type="submit" >Valider</Button>
                     </Container>
                 </Form>
             </Modal.Content>

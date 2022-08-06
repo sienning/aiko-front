@@ -3,7 +3,7 @@ import Accueil from './components/Accueil';
 import 'semantic-ui-css/semantic.min.css';
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route,
 } from "react-router-dom";
 import './App.css';
@@ -34,7 +34,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    console.log("APPs");
+    console.log("APP");
     if (window.localStorage.getItem('email') !== null) {
       this.setState({
         isConnected: true,
@@ -131,100 +131,109 @@ class App extends Component {
             userId={userId}
           />
 
-          <Switch>
-            <Route exact path="/">
-              <Accueil />
-            </Route>
-
-            <Route path="/coaching">
-              <Coaching />
-            </Route>
-            <Route path="/sign-in-as-coach">
-              <InscriptionCoach isConnected={isConnected} />
-            </Route>
-
-            <Route path="/find-a-coach">
-              <ReservationCoach isConnected={isConnected} />
-            </Route>
-
-            <Route path="/faq">
-              <FAQ />
-            </Route>
-            <Route path="/team">
-            </Route>
-            <Route path="/forgot-my-password">
-              <MdpOublie />
-            </Route>
-
-            <Route path="/tournaments">
-              <Tournois
+          <Routes>
+            <Route
+              path="/"
+            // element={<Accueil />}
+            >
+              <Route
+                index
+                element={<Accueil />}
               />
-            </Route>
-
-            <Route path="/event/:id">
-              <SeeEvent
+              <Route
+                path="coaching"
+                element={<Coaching />}
               />
-            </Route>
 
-            <Route path="/teams">
-              <Equipes
-                isConnected={isConnected}
+              <Route
+                path="sign-in-as-coach"
+                element={<InscriptionCoach isConnected={isConnected} />}
               />
+
+              <Route
+                path="find-a-coach"
+                element={<ReservationCoach isConnected={isConnected} />}
+              />
+
+              <Route
+                path="faq"
+                element={<FAQ />}
+              />
+
+              <Route
+                path="tournaments"
+                element={<Tournois />}
+              />
+
+              <Route
+                path="event"
+                element={<SeeEvent />}
+              >
+                <Route path=":id" element={<SeeEvent />} />
+              </Route>
+
+              <Route
+                path="teams"
+                element={<Equipes userId={userId} logout={this.logout} isConnected={isConnected} />}
+              />
+
+              {/* IL FAUT NE PAS ÊTRE CONNECTÉ */}
+              {
+                isConnected ? null :
+                  <Route
+                    path="login"
+                    element={<Connexion getUserInfos={this.getUserInfosLogin} />}
+                  />
+              }
+              {
+                isConnected ? null :
+                  <Route
+                    path="sign-up"
+                    element={<Inscription login={this.login} />}
+                  />
+              }
+
+              {/* IL FAUT ÊTRE CONNECTÉ */}
+              {
+                isConnected ?
+                  <Route
+                    path="my-profile"
+                    element={<Profil userId={userId} />}
+                  >
+                    <Route path=":id" element={<Profil userId={userId} />} />
+                  </Route>
+                  : null
+              }
+              {
+                isConnected ?
+                  <Route
+                    path="players"
+                    element={<Joueurs />}
+                  />
+                  : null
+              }
+              {
+                isConnected ?
+                  <Route
+                    path="faq"
+                    element={<FAQ />}
+                  />
+                  : null
+              }
+              {
+                isConnected ?
+                  <Route
+                    path="edit-team"
+                    element={<EditEquipe logout={this.logout} userId={userId} />}
+                  >
+                    <Route path=":id" element={<EditEquipe logout={this.logout} userId={userId} />} />
+                    <Route path="new" element={<EditEquipe logout={this.logout} userId={userId} />} />
+                  </Route>
+                   : null
+              }
             </Route>
-
-            {/* IL FAUT NE PAS ÊTRE CONNECTÉ */}
-            {
-              isConnected ? null :
-                <Route path="/login">
-                  <Connexion
-                    getUserInfos={this.getUserInfosLogin}
-                  />
-                </Route>
-            }
-            {
-              isConnected ? null :
-                <Route path="/sign-up">
-                  <Inscription
-                    login={this.login}
-                  />
-                </Route>
-            }
-
-            {/* IL FAUT ÊTRE CONNECTÉ */}
-            {
-              isConnected ?
-                <Route path="/my-profile/:id">
-                  <Profil
-                    userId={userId}
-                  />
-                </Route>
-                : null
-            }
-            {
-              isConnected ?
-                <Route path="/players">
-                  <Joueurs />
-                </Route>
-                : null
-            }
-            {
-              isConnected ?
-                <Route path="/faq">
-                  <FAQ />
-                </Route>
-                : null
-            }
-            {
-              isConnected ?
-                <Route path="/edit-team">
-                  <EditEquipe logout={this.logout} userId={userId} />
-                </Route> : null
-            }
-            <Route>
-              <NotFound />
-            </Route>
-
-          </Switch>
+            <Route path="*" element={<NotFound />} />
+          </Routes>
         </div>
         <Footer />
       </Router>

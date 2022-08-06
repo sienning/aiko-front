@@ -1043,6 +1043,9 @@ p.carousel-image-date {
 }
 
 
+.member-card-clickable:hover {
+  cursor: pointer;
+}
 
 /* EQUIPES */
 .equipe-card {
@@ -1127,6 +1130,20 @@ p.carousel-image-date {
 .filtre-equipe .creer-button {
   width: 100%;
   margin-top: 30px;
+}
+
+.filtre-equipe .gerer-button {
+  width: 100%;
+  margin-top: 30px;
+  background-color: transparent;
+  border: 1px solid var(--purple);
+  color: var(--purple);
+}
+
+.filtre-equipe .gerer-button:hover {
+  background-color: transparent !important;
+  border: 1px solid #8f2d7d !important;
+  color: #8f2d7d !important;
 }
 
 /* MODAL */

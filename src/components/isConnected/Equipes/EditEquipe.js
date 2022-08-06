@@ -1,18 +1,35 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Button, Container, Divider, Form, Grid, Header, Icon, Image, Input, List, ListItem, Flag, TextArea, Loader } from 'semantic-ui-react';
+import { Button, Container, Divider, Form, Grid, Header, Icon, Image, List, ListItem, Flag, Loader, Card, Message } from 'semantic-ui-react';
 import listes from '../../../listes.json';
 import MemberCard from './MemberCard';
 import ModalAdd from './Modal/ModalAdd';
 import ModalAddMember from './Modal/ModalAddMember';
 import ModalProfil from './Modal/ModalProfil';
 import ModalSelectIcon from './Modal/ModalSelectIcon';
+import { useNavigate, useParams } from 'react-router-dom';
 // import { InlineWidget } from "react-calendly";
 
 const EditEquipe = ({ userId, logout }) => {
+    const navigate = useNavigate();
+    let params = useParams();
+
+    const [shouldRedirect, setShouldRedirect] = useState(false); // BOOL
+    const [messageSuccess, setMessageSuccess] = useState({
+        isSucess: false,
+        header: "",
+        message: ""
+    }); // BOOL
+    const [messageError, setMessageError] = useState({
+        isError: false,
+        header: "",
+        message: ""
+    }); // BOOL
     const [isLoadingForUsers, setIsLoadingForUsers] = useState(true); // BOOL
+    const [isLoadingForTeam, setIsLoadingForTeam] = useState(false); // BOOL
 
     const [users, setUsers] = useState([]);
+    const [auteur, setAuteur] = useState({});
 
     const [iconSrc, setIconSrc] = useState("equipe-icon.png"); // INPUT
     const [nom, setNom] = useState(""); // INPUT
@@ -33,11 +50,55 @@ const EditEquipe = ({ userId, logout }) => {
         "description": ""
     }); // DROPDOWN + SEARCH
     const [membres, setMembres] = useState([]); // DROPDOWN + SEARCH
+    const [coach, setCoach] = useState([]); // DROPDOWN + SEARCH
+    const [staff, setStaff] = useState([]); // DROPDOWN + SEARCH
+    const [succes, setSucces] = useState([]); // DROPDOWN + SEARCH
 
+    const getTeamContent = async (id) => {
+        setIsLoadingForTeam(true);
+        resetMessage();
+        await axios.get(`/teams/get-content/${id}`, {
+            headers: {
+                Authorization: window.localStorage.getItem('token')
+            }
+        })
+            .then(response => {
+                const res = response.data;
+                setNom(res.nom);
+                setIconSrc(res.iconSrc);
+                setDescription(res.description);
+                setNbLan(res.nbLan);
+                setNbTournois(res.nbTournois);
+                setNbSucces(res.nbSucces);
+                setJeux(res.jeux);
+                setReseaux(res.reseaux);
+                setMembres(res.membres);
+                setCoach(res.coach);
+                setStaff(res.staff);
+                setSucces(res.succes);
+                setRecrutement(res.recrutement);
+                setTarifs(res.tarifs);
+                setLangues(res.langues);
+                setProfilRecherche(res.profilRecherche);
+                setIsLoadingForTeam(false);
+            })
+            .catch(err => {
+                if (err.response.status === 401) {
+                    logout()
+                }
+                setMessageError({
+                    isError: true,
+                    header: "Une erreur s'est produite.",
+                    message: "Le chargement du contenu de l'équipe a rencontré une erreur ..."
+                })
+                console.log(err)
+            })
+    }
 
     const getUsers = async () => {
         setIsLoadingForUsers(true);
-        await axios.get(`/users/see-players/id_user=${userId}`, {
+        resetMessage();
+        await axios.get(`/users/see-all-players`, {
             headers: {
                 Authorization: window.localStorage.getItem('token')
             }
@@ -46,6 +107,85 @@ const EditEquipe = ({ userId, logout }) => {
                 console.log(response.data);
                 setIsLoadingForUsers(false);
                 setUsers(response.data);
+            })
+            .catch(err => {
+                if (err.response.status === 401) {
+                    logout()
+                }
+                setMessageError({
+                    isError: true,
+                    header: "Une erreur s'est produite.",
+                    message: "Le chargement des utilisateurs a rencontré une erreur ..."
+                })
+                console.log(err)
+            })
+    }
+
+    const getAuteur = () => {
+        resetMessage();
+        axios.get(`/users/see-user/id_user=${userId}`, {
+            headers: {
+                Authorization: window.localStorage.getItem('token')
+            }
+        })
+            .then(response => {
+                console.log(response.data);
+                setAuteur(response.data);
+            })
+            .catch(err => {
+                if (err.response.status === 401) {
+                    logout()
+                }
+                setMessageError({
+                    isError: true,
+                    header: "Une erreur s'est produite.",
+                    message: "Le chargement des informations de l'auteur a rencontré une erreur ..."
+                })
+                console.log(err)
+            })
+    }
+
+    const postTeam = async (team) => {
+        setIsLoadingForTeam(true);
+        resetMessage();
+
+        await axios.post(`/teams/create-team`, {
+            team: team
+        }, {
+            headers: {
+                Authorization: window.localStorage.getItem('token')
+            }
+        })
+            .then(response => {
+                console.log(response.data);
+                const res = response.data;
+                if (res.status === 201) {
+                    setMessageSuccess({
+                        isSucess: true,
+                        header: "Votre équipe est créée !",
+                        message: "Amusez-vous bien !"
+                    });
+                    setTimeout(() => {
+                        setMessageSuccess({
+                            isSucess: true,
+                            header: "Votre équipe est créée !",
+                            message: "Amusez-vous bien ! Vous allez être redirigé sur la page des équipes ..."
+                        });
+                        setShouldRedirect(true);
+                    }, 5000)
+                } else {
+                    console.log(response.code);
+                    setMessageSuccess({
+                        isSuccess: false,
+                        header: "",
+                        message: ""
+                    });
+                    setMessageError({
+                        isError: true,
+                        header: "Attention",
+                        message: "Il semblerait que ce nom d'équipe soit déjà pris !"
+                    });
+                }
             })
             .catch(err => {
                 if (err.response.status === 401) {
@@ -93,6 +233,17 @@ const EditEquipe = ({ userId, logout }) => {
         setMembres(selectedUsers)
     }
 
+    const editCoach = (selectedUsers) => {
+        setCoach(selectedUsers)
+    }
+
+    const editStaff = (selectedUsers) => {
+        setStaff(selectedUsers)
+    }
+    const editSucces = (selectedUsers) => {
+        setSucces(selectedUsers)
+    }
+
     const editJeux = (selectedGames) => {
         setJeux(selectedGames)
     }
@@ -118,32 +269,91 @@ const EditEquipe = ({ userId, logout }) => {
     }
 
     const handleSauvegarder = () => {
-        console.log("nom équipe : ", nom);
-        console.log("description équipe : ", description);
-        console.log("nbLan : ", nbLan);
-        console.log("nbTournois : ", nbTournois);
-        console.log("nbSucces : ", nbSucces);
-        console.log("jeux : ", jeux);
-        console.log("recrutement : ", recrutement);
-        console.log("reseaux : ", reseaux);
-        console.log("tarifs : ", tarifs);
-        console.log("langues : ", langues);
+        console.log("===== handleSauvegarder =====");
         console.log("profilRecherche : ", profilRecherche);
-        console.log("membres : ", membres);
+        const newTeam = {
+            auteur: auteur,
+            nom: nom,
+            iconSrc: iconSrc,
+            description: description,
+            nbLan: nbLan,
+            nbTournois: nbTournois,
+            nbSucces: nbSucces,
+            jeux: jeux,
+            reseaux: reseaux,
+            membres: membres,
+            coach: coach,
+            staff: staff,
+            succes: succes,
+            recrutement: recrutement,
+            tarifs: tarifs,
+            langues: langues,
+            profilRecherche: profilRecherche
+        }
+
+        console.log(newTeam);
+        postTeam(newTeam);
+
+    }
+
+    const resetMessage = () => {
+        setMessageError({
+            isError: false,
+            header: "",
+            message: ""
+        })
+        setMessageSuccess({
+            isSuccess: false,
+            header: "",
+            message: ""
+        })
     }
 
     useEffect(() => {
         getUsers();
+        getAuteur();
+    }, [])
+
+    useEffect(() => {
+        if (shouldRedirect) {
+            navigate("/teams");
+        }
+    })
+
+    useEffect(() => {
+        if (params.id !== null) {
+            getTeamContent(params.id);
+        }
     }, [])
 
     return (
         <div className='edit-equipe' style={{ marginTop: 60 }}>
+            {
+                messageSuccess.isSucess &&
+                <Message
+                    style={{ zIndex: 10, position: "sticky", top: 0, margin: 30 }}
+                    floating
+                    success
+                    header={messageSuccess.header}
+                    content={messageSuccess.message}
+                />
+            }
+            {
+                messageError.isError &&
+                <Message
+                    style={{ zIndex: 10, position: "sticky", top: 0, margin: 30 }}
+                    floating
+                    negative
+                    header={messageError.header}
+                    content={messageError.message}
+                />
+            }
             <Form onSubmit={handleSauvegarder}>
                 <Container textAlign='center'>
                     <Header as='h1'>Créer mon équipe</Header>
                 </Container>
                 <div className='top-equipe'>
-                    <Image className='banniere-equipe' src={`images/banniere-equipe.png`} />
+                    <Image className='banniere-equipe' src={`/images/banniere-equipe.png`} />
                     <div className='nom-icon'>
                         <ModalSelectIcon editIconSrc={editIconSrc} />
                         <Form.Input required name="nom" onChange={editNom} className='edit-nom' style={{ display: "block" }} value={nom} placeholder="Nom de l'équipe" />
@@ -212,111 +422,165 @@ const EditEquipe = ({ userId, logout }) => {
                     <div style={{ marginTop: 40 }}>
                         <Header>Membres</Header>
                         <Divider />
+                        {
+                            // CHARGEMENT
+                            isLoadingForUsers ?
+                                <Loader active={isLoadingForUsers} />
+                                :
+                                <Card.Group>
+                                    {
+                                        // AFFICHAGE MEMBRES
+                                        membres.length > 0 &&
+                                        membres.map((membre, i) => (
+                                            <MemberCard
+                                                key={i}
+                                                isSelectable={false}
+                                                member={membre}
+                                            />
+                                        ))
+                                    }
 
-                        <Grid columns={3}>
-                            {
-                                isLoadingForUsers &&
-                                <Grid.Column>
-                                    <Loader active={isLoadingForUsers} />
-                                </Grid.Column>
-                            }
-                            {
-                                membres.length > 0 &&
-                                membres.map((membre, i) => (
-                                    <Grid.Column key={i}>
-                                        <MemberCard
-                                            member={membre}
-                                        />
-                                    </Grid.Column>
-                                ))
-                            }
+                                </Card.Group>
+                        }
+                        <br />
+                        <br />
+                        <Loader active={isLoadingForUsers} />
+                        {
+                            // Icone modale +
+                            users.length > 0 &&
+                            <ModalAddMember
+                                editFunc={editMembres}
+                                list={users}
+                                currentList={membres}
+                            />
+                        }
+                    </div>
+                    {/* <Divider /> */}
+                    <div style={{ marginTop: 40 }}>
+                        <Grid columns={2}>
                             <Grid.Column>
+                                <Header>Coach</Header>
+                                <Divider />
+                                {
+                                    // CHARGEMENT
+                                    isLoadingForUsers ?
+                                        <Loader active={isLoadingForUsers} />
+                                        :
+                                        <Card.Group>
+
+                                            {
+                                                // AFFICHAGE COACHS
+                                                coach.length > 0 &&
+                                                coach.map((membre, i) => (
+                                                    <MemberCard
+                                                        key={i}
+                                                        isSelectable={false}
+                                                        member={membre}
+                                                    />
+                                                ))
+                                            }
+
+                                        </Card.Group>
+                                }
+
+                                <br />
+                                <br />
                                 <Loader active={isLoadingForUsers} />
                                 {
+                                    // Icone modale +
                                     users.length > 0 &&
                                     <ModalAddMember
-                                        editFunc={editMembres}
+                                        editFunc={editCoach}
                                         list={users}
-                                        currentList={membres}
+                                        currentList={coach}
+                                    />
+                                }
+                            </Grid.Column>
+
+                            <Grid.Column>
+                                <Header>Staff</Header>
+                                <Divider />
+                                {
+                                    // CHARGEMENT
+                                    isLoadingForUsers ?
+                                        <Loader active={isLoadingForUsers} />
+                                        :
+                                        <Card.Group>
+
+                                            {
+                                                // AFFICHAGE STAFFS
+                                                staff.length > 0 &&
+                                                staff.map((membre, i) => (
+                                                    <MemberCard
+                                                        key={i}
+                                                        isSelectable={false}
+                                                        member={membre}
+                                                    />
+                                                ))
+                                            }
+
+                                        </Card.Group>
+                                }
+
+                                <br />
+                                <br />
+
+                                {/* CHARGEMENT + */}
+                                <Loader active={isLoadingForUsers} />
+                                {
+                                    // Icon modale +
+                                    users.length > 0 &&
+                                    <ModalAddMember
+                                        editFunc={editStaff}
+                                        list={users}
+                                        currentList={staff}
                                     />
                                 }
                             </Grid.Column>
                         </Grid>
                     </div>
                     <div style={{ marginTop: 40 }}>
-                        {/* <Grid columns={2}>
-                            <Grid.Column>
-                                <Header>Coach</Header>
-                                <Divider />
-                                <Grid columns={3}>
+                        <Header>Succès</Header>
+                        <Divider />
+                        {
+                            // CHARGEMENT
+                            isLoadingForUsers ?
+                                <Loader active={isLoadingForUsers} />
+                                :
+                                <Card.Group>
+
                                     {
-                                        isLoadingForUsers &&
-                                        <Grid.Column>
-                                            <Loader active={isLoadingForUsers} />
-                                        </Grid.Column>
-                                    }
-                                    {
-                                        membres.length > 0 &&
-                                        membres.map((membre, i) => (
-                                            <Grid.Column key={i}>
-                                                <MemberCard
-                                                    member={membre}
-                                                />
-                                            </Grid.Column>
+                                        // AFFICHAGE SUCCES
+                                        succes.length > 0 &&
+                                        succes.map((membre, i) => (
+                                            <MemberCard
+                                                key={i}
+                                                isSelectable={false}
+                                                member={membre}
+                                            />
                                         ))
                                     }
-                                    <Grid.Column>
-                                        <Loader active={isLoadingForUsers} />
-                                        {
-                                            users.length > 0 &&
-                                            <ModalAddMember
-                                                type='membre'
-                                                editFunc={editMembres}
-                                                list={listes.reseaux}
-                                                currentList={reseaux}
-                                            />
-                                        }
-                                    </Grid.Column>
-                                </Grid>
-                            </Grid.Column>
-                            <Grid.Column>
-                                <Header>Staff</Header>
-                                <Divider />
 
-                                <Grid columns={3}>
-                                    {
-                                        isLoadingForUsers &&
-                                        <Grid.Column>
-                                            <Loader active={isLoadingForUsers} />
-                                        </Grid.Column>
-                                    }
-                                    {
+                                </Card.Group>
+                        }
 
-                                        membres.length > 0 &&
-                                        membres.map((membre, i) => (
-                                            <Grid.Column key={i}>
-                                                <MemberCard
-                                                    member={membre}
-                                                />
-                                            </Grid.Column>
-                                        ))
-                                    }
-                                    <Grid.Column>
-                                        <Loader active={isLoadingForUsers} />
-                                        {
-                                            users.length > 0 &&
-                                            <ModalAddMember
-                                                type='membre'
-                                                editFunc={editMembres}
-                                                list={listes.reseaux}
-                                                currentList={reseaux}
-                                            />
-                                        }
-                                    </Grid.Column>
-                                </Grid>
-                            </Grid.Column>
-                        </Grid> */}
+                        <br />
+                        <br />
+
+                        <Loader active={isLoadingForUsers} />
+                        {
+                            users.length > 0 &&
+                            <ModalAddMember
+                                editFunc={editSucces}
+                                list={users}
+                                currentList={succes}
+                            />
+                        }
                     </div>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
                     <Header>Entraînements :</Header>
                     <div>
                         Là, on est censé avoir un calendrier
@@ -402,7 +666,7 @@ const EditEquipe = ({ userId, logout }) => {
                     </Container>
                 </Container>
             </Form>
-        </div>
+        </div >
     );
 }
 

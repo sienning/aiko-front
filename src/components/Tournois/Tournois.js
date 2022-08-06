@@ -10,22 +10,23 @@ class Tournois extends Component {
                 <Container style={{ marginBottom: 60, marginTop: 60 }} textAlign='center'>
                     <Header as={"h1"} >Les tournois AIKO</Header>
                 </Container>
-                {events.map((ev, i) => (
-                    <Event
-                        key={ev.id}
-                        titleEvent={ev.titleEvent}
-                        img={ev.img}
-                        id={i}
-                        format={ev.format}
-                        map={ev.map}
-                        serveur={ev.serveur}
-                        cashPrize={ev.cashPrize}
-                        dateEvent={ev.dateEvent}
-                        timeEvent={ev.timeEvent}
-                        over={ev.over}
-                    />
-
-                ))}
+                {
+                    events.map((ev, i) => (
+                        <Event
+                            key={ev.id}
+                            titleEvent={ev.titleEvent}
+                            img={ev.img}
+                            id={i}
+                            format={ev.format}
+                            map={ev.map}
+                            serveur={ev.serveur}
+                            cashPrize={ev.cashPrize}
+                            dateEvent={ev.dateEvent}
+                            timeEvent={ev.timeEvent}
+                            over={ev.over}
+                        />
+                    ))
+                }
 
             </div>
         );

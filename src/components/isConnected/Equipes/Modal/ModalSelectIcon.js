@@ -32,10 +32,10 @@ const ModalSelectIcon = ({ editIconSrc }) => {
             trigger={
                 <Reveal className="equipe-fade" animated='fade'>
                     <Reveal.Content visible>
-                        <Image style={{ display: "block" }} circular size='small' src={`images/profils/${currentIcon}`} />
+                        <Image style={{ display: "block" }} circular size='small' src={`/images/profils/${currentIcon}`} />
                     </Reveal.Content>
                     <Reveal.Content className="equipe-reveal" hidden>
-                        <Image className="equipe-fade-image" circular size='small' src={`images/profils/${currentIcon}`} />
+                        <Image className="equipe-fade-image" circular size='small' src={`/images/profils/${currentIcon}`} />
                         <Icon size='huge' className='equipe-fade-icon' name="plus" />
                     </Reveal.Content>
                 </Reveal>
@@ -50,7 +50,7 @@ const ModalSelectIcon = ({ editIconSrc }) => {
                                 {
                                     i === selectedIconIndex && <Icon className='equipe-fade-icon' name="check" size='huge' />
                                 }
-                                <Image onClick={() => selectIconIndex(i)} className={ i === selectedIconIndex ? "equipe-fade-image" : "equipe-fade-image-not-selected" } size="large" circular src={`images/profils/${iconName}`}  />
+                                <Image onClick={() => selectIconIndex(i)} className={ i === selectedIconIndex ? "equipe-fade-image" : "equipe-fade-image-not-selected" } size="large" circular src={`/images/profils/${iconName}`}  />
                             </Grid.Column>
                         ))
                     }

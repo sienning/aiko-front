@@ -1,6 +1,5 @@
 import React from "react";
-import { Grid } from 'semantic-ui-react'
-import MemberCard from "../MemberCard";
+import { List, Image } from 'semantic-ui-react'
 
 /**
  * SearchMemberList composant : Affiche la liste des membres à ajouter
@@ -10,19 +9,23 @@ import MemberCard from "../MemberCard";
 const SearchMemberList = ({ availableList, addSelectedItem }) => {
     return (
         <div style={{ marginTop: 30, maxHeight: "500px", overflowY: "scroll" }}>
-            <Grid columns={3} >
+            <List size="large" selection inverted divided >
                 {
                     availableList.length > 0 ?
                         availableList.map((member, i) => (
-                            <Grid.Column key={i}>
-                                <MemberCard
-                                    member={member}
-                                />
-                            </Grid.Column>
+                            <List.Item onClick={() => addSelectedItem(member)} key={i}>
+                                <Image circular size="mini" src={member.discordId !== undefined ? `https://cdn.discordapp.com/avatars/${member.discordId}/${member.avatar}` : `/images/${member.avatar}`} />
+                                <List.Content>
+                                    <List.Header>{member.username}</List.Header>
+                                    <List.Description>
+                                        {member.prenom} {member.nom}
+                                    </List.Description>
+                                </List.Content>
+                            </List.Item>
                         ))
-                        : <Grid.Column>Plus de profil disponible...</Grid.Column>
+                        : <List.Item>Plus de profil disponible...</List.Item>
                 }
-            </Grid>
+            </List>
         </div>
     );
 }

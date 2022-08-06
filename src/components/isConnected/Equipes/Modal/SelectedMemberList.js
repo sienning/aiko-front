@@ -9,19 +9,27 @@ import MemberCard from "../MemberCard";
  */
 const SelectedMemberList = ({ selectedList, removeSelectedItem }) => {
     return (
-        <Grid columns={5} >
+        <div>
             {
-                selectedList.length > 0 ?
-                    selectedList.map((member, i) => (
-                        <Grid.Column key={i}>
-                            <MemberCard
-                                member={member}
-                            />
-                        </Grid.Column>
-                    ))
-                    : <p>C'est bien vide, ici ...</p>
+                selectedList.length > 0 &&
+                <p>Cliquer sur un profil pour le retirer de la liste.</p>
             }
-        </Grid>
+            <Grid columns={3} >
+                {
+                    selectedList.length > 0 ?
+                        selectedList.map((member, i) => (
+                            <Grid.Column key={i}>
+                                <MemberCard
+                                    isSelectable={true}
+                                    removeSelectedItem={removeSelectedItem}
+                                    member={member}
+                                />
+                            </Grid.Column>
+                        ))
+                        : <p>Veuillez sélectionner des profils dans la liste</p>
+                }
+            </Grid>
+        </div>
     );
 }
 

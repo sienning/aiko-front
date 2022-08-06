@@ -1,23 +1,40 @@
 import React from "react";
-import { Image, Grid, Divider } from 'semantic-ui-react';
+import { Image, Card, Button, Icon } from 'semantic-ui-react';
 
 /**
- * 
- * @param {Object} member { icon, firstname, lastname, pseudo }
- * @returns 
+ * @param {Object} member { icon, firstname, lastname, username }
  */
-const MemberCard = ({member}) => {
+const MemberCard = ({ member, removeSelectedItem, isSelectable }) => {
     return (
-        <Grid colums={2} >
-            <Grid.Column>
-                <Image src={member.icon} size="medium" />
-            </Grid.Column>
-            <Grid.Column>
-                <p>{member.firstname} {member.lastname}</p>
-                <Divider/>
-                <p style={{ fontWeight: 30 }}>{member.pseudo}</p>
-            </Grid.Column>
-        </Grid>
+        <Card
+            columns={2}
+        >
+            <Card.Content>
+                <Image
+                    src={member.discordId !== undefined ? `https://cdn.discordapp.com/avatars/${member.discordId}/${member.avatar}` : `/images/${member.avatar}`}
+                    size="mini"
+                    floated="left"
+                    circular
+                />
+                <Card.Header> {member.username} </Card.Header>
+                <Card.Meta>{member.prenom} {member.nom}</Card.Meta>
+                {
+                    isSelectable &&
+                    <Card.Content extra>
+                        <Button
+                            icon
+                            basic
+                            color='red'
+                            onClick={() => removeSelectedItem(member)}
+                        >
+                            <Icon name="trash alternate outline" />
+
+                            Supprimer de la liste
+                        </Button>
+                    </Card.Content>
+                }
+            </Card.Content>
+        </Card>
     );
 }
 

@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { Modal, Grid, Image, Header, Flag, Button } from 'semantic-ui-react'
-import { Link } from 'react-router-dom';
+import { Modal, Grid, Image, Header, Flag, Button, Icon } from 'semantic-ui-react'
 
-const ModalConnexion = () => {
-    const [open, setOpen] = useState(false)
+const ModalConnexion = ({ equipe }) => {
+    const [open, setOpen] = useState(false);
 
     return (
         <Modal
@@ -12,60 +11,91 @@ const ModalConnexion = () => {
             closeIcon
             open={open}
             trigger={
-                <Link className='see-more'>
+                <Button className='see-more'>
                     En savoir plus
-                </Link>}
+                </Button>}
             onClose={() => setOpen(false)}
             onOpen={() => setOpen(true)}
         >
             <Modal.Content>
-                <Grid columns={2}>
+                <Grid stackable columns={2}>
                     <Grid.Column width={5}>
-                        <Image style={{ margin: "auto" }} src="/images/equipe-icon.png" />
+                        <Image style={{ margin: "auto" }} src={`/images/${equipe.iconSrc}`} />
                     </Grid.Column>
                     <Grid.Column>
-                        <div className='modal-header'>
-                            <div>
+                        <Grid columns={2}>
+                            <Grid.Column>
                                 <Header>
-                                    Nom de l'équipe
+                                    {equipe.nom}
                                     <Header.Subheader style={{ color: "white" }}>
-                                        Créée le ...
+                                        Créée le {equipe.date}, par {equipe.auteur.username}
                                     </Header.Subheader>
                                 </Header>
-                            </div>
-                            <div className='reseaux'>
-                                réseaux
-                            </div>
-                        </div>
 
-                        <div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida mauris venenatis placerat id risus proin fames commodo. Etiam et neque iaculis libero eget facilisi odio velit. Arcu adipiscing in tincidunt mauris vulputate aliquam.
-                            </p>
+                            </Grid.Column>
+
+                            {/* <div className='modal-header'> */}
+                            <Grid.Column>
+                                <Grid columns={3}>
+                                    {
+                                        equipe.reseaux.length > 0 &&
+                                        equipe.reseaux.map((reseau, i) => (
+                                            <Grid.Column key={i}>
+                                                <Icon floated="right" size="large" link name={reseau.icon} onClick={() => window.open(`${reseau.link}${reseau.linkAddress}`, '_blank')} />
+                                            </Grid.Column>
+                                        ))
+                                    }
+                                </Grid>
+
+
+                            </Grid.Column>
+                        </Grid>
+
+                        <div style={{ marginTop: 30 }}>
+                            <p>{equipe.description}</p>
                         </div>
                     </Grid.Column>
                 </Grid>
-                <div>
-                    <p>Nombre de LAN : XXX</p>
-                    <p>Nombre de tournois : XX</p>
+                <div style={{ marginTop: 30 }}>
+                    <p>Nombre de LAN : {equipe.nbLan}</p>
+                    <p>Nombre de tournois : {equipe.nbTournois}</p>
+                    <p>Nombre de succès : {equipe.nbSucces}</p>
                 </div>
-                <div>
+                <div style={{ marginTop: 30 }}>
                     <Header>Entrainements</Header>
                     Calendrier
                 </div>
-                <div>
+                <div style={{ marginTop: 30 }}>
                     <p>
-                        <b>Recrutement : </b> Entretien Discord / Try Out
+                        <b>Recrutement : </b> {equipe.recrutement}
                     </p>
                     <p>
-                        <b>Tarif adhésion : </b> Gratuit
+                        <b>Tarif adhésion : </b> {equipe.tarifs === null ? "Gratuit" : equipe.tarifs + " €"}
                     </p>
                     <p>
-                        <b>Langue(s) parlée(s) : </b> <Flag name="fr" /> <Flag name="gb eng" />
+                        <b>Langue(s) parlée(s) : </b>
+                        {
+                            equipe.langues.length > 0 &&
+                            equipe.langues.map((langue, i) => (
+                                <Flag key={i} name={langue.countryCode} />
+                            ))
+                        }
                     </p>
-                    <p>
-                        <b>profils recherchés : </b> Icônes
-                    </p>
+
+                    <Grid stackable columns={4}>
+                        <Grid.Column width={6}>
+                            <p> <b>profils recherchés : </b></p>
+                        </Grid.Column>
+                        <Grid.Column width={3}>
+                            <Image size="mini" circular src={equipe.profilRecherche.rangImage} />
+                        </Grid.Column>
+                        <Grid.Column width={3}>
+                            <Image circular size="mini" src={equipe.profilRecherche.roleImage} />
+                        </Grid.Column>
+                        <Grid.Column width={4}>
+                            <p>{equipe.profilRecherche.description}</p>
+                        </Grid.Column>
+                    </Grid>
                 </div>
                 <div className="button-candidature">
                     <Button>
@@ -74,7 +104,7 @@ const ModalConnexion = () => {
                 </div>
             </Modal.Content>
 
-        </Modal>
+        </Modal >
     );
 }
 
