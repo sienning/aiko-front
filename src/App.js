@@ -13,7 +13,7 @@ import Footer from './components/Footer';
 import Connexion from './components/Connexion';
 import Inscription from './components/Inscription';
 import InscriptionCoach from './components/isConnected/InscriptionCoach';
-import MdpOublie from './components/MdpOublie';
+// import MdpOublie from './components/MdpOublie';
 import Profil from './components/isConnected/Profil';
 import Joueurs from './components/isConnected/Joueurs';
 import Equipes from './components/isConnected/Equipes/Equipes';
@@ -22,8 +22,11 @@ import FAQ from './components/FAQ';
 import NotFound from './components/NotFound';
 import Tournois from './components/Tournois/Tournois';
 import SeeEvent from './components/Tournois/SeeEvent';
+import ProfilEdit from './components/isConnected/ProfilEdit';
 import ReservationCoach from './components/isConnected/Coach/ReservationCoach';
 import EditEquipe from './components/isConnected/Equipes/EditEquipe';
+import ProfilCoach from './components/isConnected/ProfilCoach';
+import CoachEdit from './components/isConnected/CoachEdit';
 
 class App extends Component {
   state = {
@@ -229,10 +232,48 @@ class App extends Component {
                     <Route path=":id" element={<EditEquipe logout={this.logout} userId={userId} />} />
                     <Route path="new" element={<EditEquipe logout={this.logout} userId={userId} />} />
                   </Route>
-                   : null
+                  : null
               }
+              {
+                isConnected ?
+                  <Route path="edit-profile" element={<ProfilEdit userId={userId} />} >
+                    <Route
+                      path=":id"
+                      element={<ProfilEdit userId={userId} />}
+                    />
+                  </Route> : null
+              }
+              {
+                isConnected ?
+                  <Route
+                    path="my-coach" element={<ProfilCoach userId={userId} />} >
+                    <Route
+                      path=":id"
+                      element={
+                        <ProfilCoach
+                          userId={userId}
+                        />
+                      }
+                    />
+                  </Route>
+                  : null
+              }
+              {
+                isConnected ?
+                  <Route path="edit-coach" element={<CoachEdit userId={userId} />} >
+                    <Route
+                      path=':id'
+                      element={
+                        <CoachEdit
+                          userId={userId}
+                        />
+                      }
+                    />
+                  </Route>
+                  : null
+              }
+              <Route path="*" element={<NotFound />} />
             </Route>
-            <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
         <Footer />

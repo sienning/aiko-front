@@ -1,17 +1,22 @@
 import React, { Component } from 'react';
 import '../../App.css';
-import { Container, Header, Image, Grid, GridColumn, Button} from 'semantic-ui-react'
+import { Container, Header, Image, Grid, GridColumn, Button } from 'semantic-ui-react'
 import axios from 'axios';
+import { InlineWidget } from "react-calendly";
 
-class Profil extends Component {
+class ProfilCoach extends Component {
     state = {
         isLoading: false,
         userId: "",
         userInfos: {},
+        coachId: "",
+        coachInfos: {},
     }
 
     componentDidMount() {
-        this.setState({ userInfos: this.props.userId });
+        this.setState({ 
+            userInfos: this.props.userId,
+        });
         this.getUserInfos(this.props.userId);
     }
 
@@ -27,8 +32,8 @@ class Profil extends Component {
                 this.setState({ userInfos: response.data, isLoading: false });
             })  
             .catch(err => console.log(err))
-
     }
+
     render() {
         const {
             userInfos,
@@ -96,16 +101,14 @@ class Profil extends Component {
             <Container>
                 <div style={{ textAlign: "center", marginBottom: 20, marginTop: 50 }}>
                     <Image style={{ margin: "auto" }} alt={`Logo-${userInfos.avatar}`} src={`${process.env.REACT_APP_FRONT}/images/${userInfos.avatar}`} size="tiny" />
-                    <Header as="h1">Profil Joueur</Header>
+                    <Header as="h1">Profil Coach</Header>
                     <h2>Bienvenu(e), {userInfos.username} !</h2>
                     <div>
-                        <span>Profil Joueur</span>
+                        <a href={`/my-profile/${userInfos._id}`}>
+                            <span>Profil Joueur</span>
+                        </a>
                         <span> | </span>
-                        <span>
-                            <a href={`/my-coach/${userInfos._id}`}>
-                                Profil Coach
-                            </a>
-                        </span>
+                        <span>Profil Coach</span>
                     </div>
                 </div>
 
@@ -140,14 +143,10 @@ class Profil extends Component {
                                 <Image src={`${process.env.REACT_APP_FRONT}/images/rang/${userInfos.rang}.png`} alt={`Logo ${userInfos.rang}`}/>
                             </GridColumn>
                         </Grid>
+                        <h3>Description</h3>
+                        <p >${userInfos.description}</p>
                     </GridColumn>
                 </Grid>
-                {/* <Grid>
-                    <GridColumn width={12}>
-                        <h3>Description</h3>
-                        <p>{userInfos.description}</p>
-                    </GridColumn>
-                </Grid> */}
                 <Grid>
                     <GridColumn width={2} floated={'right'}>
                         <Image circular style={{ margin: "auto" }} alt="Logo-Aiko" src={`${process.env.REACT_APP_FRONT}/images/${userInfos.avatar}`} size="small" />
@@ -172,8 +171,15 @@ class Profil extends Component {
                     </GridColumn>
                 </Grid>
 
+                {
+                    userInfos.calendlyCoach ?
+                        <InlineWidget url={`https://${userInfos.calendlyCoach}`} style={{ overflowY: "hidden" }} />
+                    :
+                    <div></div>
+                }
+
                 <div style={{ textAlign: "center"}}>
-                    <a href={`/edit-profile/${userInfos._id}`}>
+                    <a href={`/edit-coach/${userInfos._id}`}>
                         <Button>Modifier</Button>
                     </a>
                 </div>
@@ -183,4 +189,4 @@ class Profil extends Component {
     }
 }
 
-export default Profil;
+export default ProfilCoach;
