@@ -191,7 +191,10 @@ class ProfilEdit extends Component {
                     mainRole: userData.mainRole,
                     subRole: userData.subRole,
                     rang: userData.rang,
-                    division: userData.division
+                    division: userData.division,
+                    levelCoach: userData.levelCoach,
+                    descriptionCoach: userData.descriptionCoach,
+                    calendlyCoach: userData.calendlyCoach
                 });
             })
             .catch(err => console.log(err))
@@ -200,7 +203,7 @@ class ProfilEdit extends Component {
 
     handleUpdate = async (id) => {
         console.log("id : ", id);
-        const { pseudo, idGame, rang, division, mainRole, subRole } = this.state;
+        const { pseudo, idGame, rang, division, mainRole, subRole, descriptionCoach, calendlyCoach, levelCoach } = this.state;
 
         const userUpdated = {
             username: { pseudo },
@@ -208,7 +211,10 @@ class ProfilEdit extends Component {
             rang: { rang },
             division: { division },
             mainRole: { mainRole },
-            subRole: { subRole }
+            subRole: { subRole },
+            descriptionCoach: { descriptionCoach },
+            calendlyCoach: { calendlyCoach } ,
+            levelCoach: { levelCoach }
         }
 
         console.log("userUpdated : ", userUpdated);

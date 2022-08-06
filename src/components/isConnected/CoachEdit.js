@@ -231,9 +231,10 @@ class CoachEdit extends Component {
 
     handleUpdate = async (id) => {
         console.log("id : ", id);
-        const { idGame, rang, division, mainRole, subRole, descriptionCoach, calendlyCoach, levelCoach } = this.state;
+        const { username, idGame, rang, division, mainRole, subRole, descriptionCoach, calendlyCoach, levelCoach } = this.state;
 
         const userUpdated = {
+            username: { username },
             idGame: { idGame },
             rang: { rang },
             division: { division },
