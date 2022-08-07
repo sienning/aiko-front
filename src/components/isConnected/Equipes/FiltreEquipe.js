@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Button } from 'semantic-ui-react'
+import { Form } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 
 
@@ -34,11 +34,6 @@ const FiltreEquipe = ({ isAuthor=true }) => {
                 </div> */}
             </Form>
             <Link to="/edit-team/new" className='ui button creer-button'>Créer une équipe</Link>
-            {
-                isAuthor &&
-                <Link to="/edit-team/id" className='ui button gerer-button'>Gérer mon équipe</Link>
-
-            }
         </div>
     );
 }

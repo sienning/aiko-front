@@ -14,7 +14,7 @@ const SelectedMemberList = ({ selectedList, removeSelectedItem }) => {
                 selectedList.length > 0 &&
                 <p>Cliquer sur un profil pour le retirer de la liste.</p>
             }
-            <Grid columns={3} >
+            <Grid stackable columns={3} >
                 {
                     selectedList.length > 0 ?
                         selectedList.map((member, i) => (

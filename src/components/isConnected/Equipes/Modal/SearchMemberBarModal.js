@@ -45,7 +45,7 @@ const SearchMemberBarModal = ({ repertoires, placeholder, isLoading, handleSearc
                     fluid
                     loading={isLoading}
                     value={searchValue}
-                    onIconClick={handleUndo}
+                    onClick={handleUndo}
                     placeholder={placeholder}
                     onChange={handleSearchInput}
                     icon={searchValue !== "" && { name: 'times', circular: true, link: true, onClick: () => { handleUndo() } }}

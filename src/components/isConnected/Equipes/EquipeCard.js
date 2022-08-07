@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Image, Card, CardContent, Feed, CardMeta, Button, Icon } from 'semantic-ui-react';
+import { Image, Card, CardContent, Feed, CardMeta, Icon } from 'semantic-ui-react';
 import ModalConnexion from './ModalSavoirPlus';
 
 const EquipeCard = ({ equipe, currentUser }) => {

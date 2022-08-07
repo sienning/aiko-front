@@ -20,7 +20,7 @@ const ModalConnexion = ({ equipe }) => {
             <Modal.Content>
                 <Grid stackable columns={2}>
                     <Grid.Column width={5}>
-                        <Image style={{ margin: "auto" }} src={`/images/${equipe.iconSrc}`} />
+                        <Image circular style={{ margin: "auto" }} src={`/images/profils/${equipe.iconSrc}`} />
                     </Grid.Column>
                     <Grid.Column>
                         <Grid columns={2}>

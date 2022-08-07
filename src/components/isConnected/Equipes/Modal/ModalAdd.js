@@ -25,12 +25,12 @@ import SelectedReseauxList from './SelectedReseauxList';
     Grand Master 
     Challenger
  */
-const ModalAdd = ({ type, editFunc, list, currentList, isIcon }) => {
-    const originalList = list.results
+const ModalAdd = ({ type, editFunc, list, currentList, isIcon, availableListInit }) => {
+    // const originalList = list.results
     const [open, setOpen] = useState(false)
     const [selectedList, setSelectedList] = useState(currentList)
-    const [availableList, setAvailableList] = useState(list.results)
-    const [updatedList, setUpdatedList] = useState(list.results)
+    const [availableList, setAvailableList] = useState(availableListInit)
+    const [updatedList, setUpdatedList] = useState(availableListInit)
 
     const addSelectedItem = (item) => {
         setSelectedList([...selectedList, item]);
@@ -45,7 +45,6 @@ const ModalAdd = ({ type, editFunc, list, currentList, isIcon }) => {
     }
 
     const handleSearchBar = (filteredDirectory) => {
-        console.log("NewAvailableList : ", makeNewAvailableList(filteredDirectory));
         if (filteredDirectory.length > 0) {
             setAvailableList(makeNewAvailableList(filteredDirectory));
         } else {
@@ -60,7 +59,6 @@ const ModalAdd = ({ type, editFunc, list, currentList, isIcon }) => {
     }
 
     const handleSubmit = () => {
-        console.log("selectedList: ", selectedList);
         editFunc(selectedList);
         setOpen(false);
     }
@@ -81,6 +79,7 @@ const ModalAdd = ({ type, editFunc, list, currentList, isIcon }) => {
             }
         >
             <h1> {list.name} </h1>
+            
             <Modal.Content>
                 <div>
                     {

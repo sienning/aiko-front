@@ -39,7 +39,7 @@ const SearchBar = ({ placeholder, isLoading }) => {
                 <Input
                     loading={isLoading}
                     value={searchValue}
-                    onIconClick={handleUndo}
+                    onClick={handleUndo}
                     placeholder={placeholder}
                     onChange={handleSearchInput}
                 />
