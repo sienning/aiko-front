@@ -66,7 +66,6 @@ const ModalSavoirPlus = ({ equipe }) => {
                 </div>
                 <div style={{ marginTop: 30 }}>
                     <Header>Entrainements</Header>
-                    <p>{equipe.calendlyLink}</p>
                     <InlineWidget url={`https://calendly.com/${equipe.calendlyLink}`} />
                 </div>
                 <div>
