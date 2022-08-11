@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { Modal, Grid, Image, Header, Flag, Button, Icon } from 'semantic-ui-react'
+import { Modal, Grid, Image, Header, Flag, Button, Icon, Divider } from 'semantic-ui-react'
+import MemberCard from './MemberCard';
+import { InlineWidget } from "react-calendly";
 
-const ModalConnexion = ({ equipe }) => {
+const ModalSavoirPlus = ({ equipe }) => {
     const [open, setOpen] = useState(false);
 
     return (
@@ -56,6 +58,7 @@ const ModalConnexion = ({ equipe }) => {
                         </div>
                     </Grid.Column>
                 </Grid>
+                <Divider />
                 <div style={{ marginTop: 30 }}>
                     <p>Nombre de LAN : {equipe.nbLan}</p>
                     <p>Nombre de tournois : {equipe.nbTournois}</p>
@@ -63,9 +66,10 @@ const ModalConnexion = ({ equipe }) => {
                 </div>
                 <div style={{ marginTop: 30 }}>
                     <Header>Entrainements</Header>
-                    Calendrier
+                    <p>{equipe.calendlyLink}</p>
+                    <InlineWidget url={`https://calendly.com/${equipe.calendlyLink}`} />
                 </div>
-                <div style={{ marginTop: 30 }}>
+                <div>
                     <p>
                         <b>Recrutement : </b> {equipe.recrutement}
                     </p>
@@ -81,6 +85,81 @@ const ModalConnexion = ({ equipe }) => {
                             ))
                         }
                     </p>
+                    <Divider />
+                    <div>
+                        <Header as='h3'>Membres</Header>
+                        <Grid stackable columns={3}>
+                            {
+                                equipe.membres.length > 0 ?
+                                    equipe.membres.map((membre, i) => (
+                                        <Grid.Column key={i}>
+                                            <MemberCard
+                                                member={membre}
+                                                isSelectable={false}
+                                            />
+                                        </Grid.Column>
+                                    ))
+                                    : <Grid.Column width={6}>
+                                        Pas encore de membres ...
+                                    </Grid.Column>
+                            }
+
+                        </Grid>
+                        <Header as='h3'>Coachs</Header>
+                        <Grid stackable columns={3}>
+                            {
+                                equipe.coach.length > 0 ?
+                                    equipe.coach.map((co, i) => (
+                                        <Grid.Column key={i}>
+                                            <MemberCard
+                                                member={co}
+                                                isSelectable={false}
+                                            />
+                                        </Grid.Column>
+                                    ))
+                                    : <Grid.Column width={6}>
+                                        Pas encore de coachs ...
+                                    </Grid.Column>
+                            }
+
+                        </Grid>
+                        <Header as='h3'>Staff</Header>
+                        <Grid stackable columns={3}>
+                            {
+                                equipe.staff.length > 0 ?
+                                    equipe.staff.map((st, i) => (
+                                        <Grid.Column key={i}>
+                                            <MemberCard
+                                                member={st}
+                                                isSelectable={false}
+                                            />
+                                        </Grid.Column>
+                                    ))
+                                    : <Grid.Column width={6}>
+                                        Pas encore de staff ...
+                                    </Grid.Column>
+                            }
+
+                        </Grid>
+                        <Header as='h3'>Succes</Header>
+                        <Grid stackable columns={3}>
+                            {
+                                equipe.succes.length > 0 ?
+                                    equipe.succes.map((su, i) => (
+                                        <Grid.Column key={i}>
+                                            <MemberCard
+                                                member={su}
+                                                isSelectable={false}
+                                            />
+                                        </Grid.Column>
+                                    ))
+                                    : <Grid.Column width={6}>
+                                        Pas encore de succès ...
+                                    </Grid.Column>
+                            }
+
+                        </Grid>
+                    </div>
 
                     <Grid stackable columns={4}>
                         <Grid.Column width={6}>
@@ -108,4 +187,4 @@ const ModalConnexion = ({ equipe }) => {
     );
 }
 
-export default ModalConnexion;
+export default ModalSavoirPlus;

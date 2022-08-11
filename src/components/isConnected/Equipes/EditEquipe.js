@@ -1,6 +1,22 @@
 import axios from 'axios';
 import { useCallback, useEffect, useState } from 'react';
-import { Button, Container, Divider, Form, Grid, Header, Icon, Image, List, ListItem, Flag, Loader, Card, Message } from 'semantic-ui-react';
+import {
+    Button,
+    Container,
+    Divider,
+    Form,
+    Grid,
+    Header,
+    Icon,
+    Image,
+    List,
+    ListItem,
+    Flag,
+    Loader,
+    Card,
+    Message,
+    Input
+} from 'semantic-ui-react';
 import listes from '../../../listes.json';
 import MemberCard from './MemberCard';
 import ModalAdd from './Modal/ModalAdd';
@@ -8,7 +24,6 @@ import ModalAddMember from './Modal/ModalAddMember';
 import ModalProfil from './Modal/ModalProfil';
 import ModalSelectIcon from './Modal/ModalSelectIcon';
 import { useNavigate, useParams } from 'react-router-dom';
-// import { InlineWidget } from "react-calendly";
 
 const EditEquipe = ({ userId, logout }) => {
     const navigate = useNavigate();
@@ -44,6 +59,7 @@ const EditEquipe = ({ userId, logout }) => {
     const [reseaux, setReseaux] = useState([]); // DROPDOWN + INPUT
     const [tarifs, setTarifs] = useState(""); // DROPDOWN + INPUT
     const [langues, setLangues] = useState([]); // DROPDOWN + SEARCH
+    const [calendlyLink, setCalendlyLink] = useState(""); // INPUT
     const [profilRecherche, setProfilRecherche] = useState({
         "rang": "",
         "rangImage": "",
@@ -366,6 +382,10 @@ const EditEquipe = ({ userId, logout }) => {
         setAvailableReseaux(availableList);
     }
 
+    const editCalendlyLink = (e, { value }) => {
+        setCalendlyLink(value)
+    }
+
     const editProfilRecherche = (profil) => {
         setProfilRecherche(profil)
     }
@@ -389,6 +409,7 @@ const EditEquipe = ({ userId, logout }) => {
             recrutement: recrutement,
             tarifs: tarifs,
             langues: langues,
+            calendlyLink: calendlyLink,
             profilRecherche: profilRecherche
         }
 
@@ -416,6 +437,7 @@ const EditEquipe = ({ userId, logout }) => {
             recrutement: recrutement,
             tarifs: tarifs,
             langues: langues,
+            calendlyLink: calendlyLink,
             profilRecherche: profilRecherche
         }
 
@@ -753,10 +775,15 @@ const EditEquipe = ({ userId, logout }) => {
                                 <br />
                                 <br />
                                 <br />
-                                <Header>Entraînements :</Header>
+                                <Header as='h2' inverted>
+                                    <Header.Content>Entraînements :</Header.Content>
+                                    <Header.Subheader>
+                                        Votre lien <a href='https://calendly.com/' target="_blank" rel='no-ref'>calendly</a> 
+                                    </Header.Subheader>
+                                </Header>
+
                                 <div>
-                                    Là, on est censé avoir un calendrier
-                                    {/* <InlineWidget /> */}
+                                    <Input value={calendlyLink} onChange={editCalendlyLink} label="https://calendly.com/" placeholder="adresse" />
                                 </div>
                                 <br />
                                 <br />
@@ -764,10 +791,10 @@ const EditEquipe = ({ userId, logout }) => {
                                 <br />
                                 <div>
                                     <Form.Group inline>
-                                        <Form.Input onChange={editRecrutement} name="recrutement" label="Recrutement" placeholder="Entretien Discord / Try Out" />
+                                        <Form.Input width={10} value={recrutement} onChange={editRecrutement} name="recrutement" label="Recrutement" placeholder="Entretien Discord / Try Out" />
                                     </Form.Group>
                                     <Form.Group inline>
-                                        <Form.Input onChange={editTarifs} name="tarif" type="number" label="Tarif adhésion" placeholder="Tarif" /> €
+                                        <Form.Input defaultValue={0} min={0} max={0} onChange={editTarifs} name="tarif" type="number" label="Tarif adhésion" placeholder="Tarif" /> €
                                     </Form.Group>
                                     <div>
                                         <br />

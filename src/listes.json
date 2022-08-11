@@ -87,7 +87,7 @@
                 "value": "argent",
                 "image": {
                     "avatar": true,
-                    "src": "/images/rangs/argent.png"
+                    "src": "/images/rang/argent.png"
                 }
             },
             {
@@ -96,7 +96,7 @@
                 "value": "bronze",
                 "image": {
                     "avatar": true,
-                    "src": "/images/rangs/bronze.png"
+                    "src": "/images/rang/bronze.png"
                 }
             },
             {
@@ -105,7 +105,7 @@
                 "value": "challenger",
                 "image": {
                     "avatar": true,
-                    "src": "/images/rangs/challenger.png"
+                    "src": "/images/rang/challenger.png"
                 }
             },
             {
@@ -114,7 +114,7 @@
                 "value": "diamant",
                 "image": {
                     "avatar": true,
-                    "src": "/images/rangs/diamant.png"
+                    "src": "/images/rang/diamant.png"
                 }
             },
             {
@@ -123,7 +123,7 @@
                 "value": "fer",
                 "image": {
                     "avatar": true,
-                    "src": "/images/rangs/fer.png"
+                    "src": "/images/rang/fer.png"
                 }
             },
             {
@@ -132,7 +132,7 @@
                 "value": "maitre",
                 "image": {
                     "avatar": true,
-                    "src": "/images/rangs/master.png"
+                    "src": "/images/rang/master.png"
                 }
             },
             {
@@ -141,7 +141,7 @@
                 "value": "grand maitre",
                 "image": {
                     "avatar": true,
-                    "src": "/images/rangs/grandmaster.png"
+                    "src": "/images/rang/grandmaster.png"
                 }
             },
             {
@@ -150,7 +150,7 @@
                 "value": "or",
                 "image": {
                     "avatar": true,
-                    "src": "/images/rangs/or.png"
+                    "src": "/images/rang/or.png"
                 }
             },
             {
@@ -159,7 +159,7 @@
                 "value": "platine",
                 "image": {
                     "avatar": true,
-                    "src": "/images/rangs/platine.png"
+                    "src": "/images/rang/platine.png"
                 }
             }
         ]
@@ -175,7 +175,7 @@
                 "value": "adc",
                 "image": {
                     "avatar": true,
-                    "src": "/images/lanes/adc.png"
+                    "src": "/images/role/adc.webp"
                 }
             },
             {
@@ -184,7 +184,7 @@
                 "value": "jungle",
                 "image": {
                     "avatar": true,
-                    "src": "/images/lanes/jungle.png"
+                    "src": "/images/role/jungle.webp"
                 }
             },
             {
@@ -193,7 +193,7 @@
                 "value": "mid",
                 "image": {
                     "avatar": true,
-                    "src": "/images/lanes/mid.png"
+                    "src": "/images/role/mid.webp"
                 }
             },
             {
@@ -202,7 +202,7 @@
                 "value": "support",
                 "image": {
                     "avatar": true,
-                    "src": "/images/lanes/support.png"
+                    "src": "/images/role/support.webp"
                 }
             },
             {
@@ -211,7 +211,7 @@
                 "value": "top",
                 "image": {
                     "avatar": true,
-                    "src": "/images/lanes/top.png"
+                    "src": "/images/role/top.webp"
                 }
             }
         ]

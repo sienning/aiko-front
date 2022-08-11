@@ -48,7 +48,7 @@ const SearchBarModal = ({ repertoires, placeholder, isLoading, handleSearchBar }
                     onClick={handleUndo}
                     placeholder={placeholder}
                     onChange={handleSearchInput}
-                    icon={searchValue !== "" && { name: 'times', circular: true, link: true, onClick: () => {handleUndo()} }}
+                    icon={searchValue !== "" ? { name: 'times', circular: true, link: true, onClick: () => { handleUndo() } } : "search"}
                 />
             </Grid.Column>
         </Grid>
