@@ -18,8 +18,11 @@ class Equipes extends Component {
     }
 
     componentDidMount() {
-        this.getCurrentUser();
-        this.getListeEquipes();
+        console.log(this.props.isConnected);
+        if (this.props.isConnected) {
+            this.getCurrentUser();
+            this.getListeEquipes();
+        }
     }
 
     getCurrentUser = async () => {
@@ -36,6 +39,7 @@ class Equipes extends Component {
             .catch(err => {
                 if (err.response.status === 401) {
                     this.props.logout()
+                    console.log("logout");
                 }
                 console.log(err)
             })

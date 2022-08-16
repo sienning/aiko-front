@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
-import { Container, Header, Button, Image } from 'semantic-ui-react'
+import { Container, Header, Image } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 
 class RedirectionConnexion extends Component {
@@ -13,7 +13,7 @@ class RedirectionConnexion extends Component {
                     <p>Pour accéder à cette page, connectez-vous !</p>
                     <Link className="ui button" to="/login">Je me connecte</Link>
                     
-                    <p> <br/>Pas encore inscrit ? <Link to="/sign-up" >Inscrivez-vous</Link></p>
+                    <p><br/>Pas encore inscrit ? <Link to="/sign-up" >Inscrivez-vous</Link></p>
                 </Container>
             </div>
         );

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Header, Image, Accordion, Button, Divider, Grid } from 'semantic-ui-react'
+import { Container, Header, Grid } from 'semantic-ui-react'
 import RedirectionConnexion from '../../RedirectionConnexion';
 
 class ReservationCoach extends Component {
