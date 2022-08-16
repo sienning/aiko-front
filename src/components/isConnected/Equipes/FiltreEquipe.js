@@ -1,7 +1,7 @@
 import React from 'react';
-import { Form, Button } from 'semantic-ui-react'
+import { Button, Form, Header } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
-
+import SearchBar from './SearchBar';
 
 /**
  * 
@@ -22,23 +22,20 @@ import { Link } from 'react-router-dom';
     Grand Master 
     Challenger
  */
-const FiltreEquipe = ({ isAuthor=true }) => {
+const FiltreEquipe = ({ handleSearchBar, listeEquipes, buttonFilterText, titleText, handleFilterButton }) => {
     return (
         <div className='filtre-equipe'>
+            <Header as='h1'>{titleText}</Header>
             <Form>
-                <Form.Input icon="search" label="Recherche" placeholder="Rechercher une équipe ..." />
-
-                {/* <div className='buttons'>
-                    <Button size='small' className='reinitialiser-button'>Réinitialiser</Button>
-                    <Form.Button size='small' className='appliquer-button'>Appliquer</Form.Button>
-                </div> */}
+                <SearchBar
+                    placeholder="Rechercher une équipe ..."
+                    isLoading={false}
+                    repertoires={listeEquipes}
+                    handleSearchBar={handleSearchBar}
+                />
             </Form>
             <Link to="/edit-team/new" className='ui button creer-button'>Créer une équipe</Link>
-            {
-                isAuthor &&
-                <Link to="/edit-team/id" className='ui button gerer-button'>Gérer mon équipe</Link>
-
-            }
+            <Button onClick={() => handleFilterButton()} style={{ width: "100%", marginTop: 30 }} basic inverted className='equipe-button'>Voir {buttonFilterText}</Button>
         </div>
     );
 }

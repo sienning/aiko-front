@@ -1,7 +1,7 @@
-import React from "react";
-import { Grid } from "semantic-ui-react";
+import React, { useState } from "react";
+import { Grid, Input } from "semantic-ui-react";
 
-const SearchBar = ({ placeholder, isLoading }) => {
+const SearchBar = ({ repertoires, placeholder, isLoading, handleSearchBar }) => {
     const [searchValue, setSearchValue] = useState("");
 
     // ----------- SEARCH -----------
@@ -9,15 +9,18 @@ const SearchBar = ({ placeholder, isLoading }) => {
      * Lance la recherche du dossier ou fichier
      */
     const handleSearchInput = (e) => {
-        setSearchValue(e.inputValue);
-        let inputVal = e.inputValue.toUpperCase();
+        console.log("repertoires : ", repertoires);
+        setSearchValue(e.target.value);
+        let inputVal = e.target.value.toLowerCase();
         let filteredDirectory = [];
         if (inputVal !== "") {
             repertoires.forEach(elt => {
-                if (elt.name.toUpperCase().indexOf(inputVal) > -1) {
-                    filteredDirectory.push(elt.name);
+                if (elt.nom.toLowerCase().indexOf(inputVal) > -1) {
+                    filteredDirectory.push(elt.nom);
                 }
             })
+            console.log("filteredDirectory : ", filteredDirectory);
+
             handleSearchBar(filteredDirectory);
         } else {
             setSearchValue("");
@@ -37,11 +40,13 @@ const SearchBar = ({ placeholder, isLoading }) => {
         <Grid className="barre-recherche">
             <Grid.Column>
                 <Input
+                    fluid
                     loading={isLoading}
                     value={searchValue}
-                    onIconClick={handleUndo}
+                    onClick={handleUndo}
                     placeholder={placeholder}
                     onChange={handleSearchInput}
+                    icon={searchValue !== "" ? { name: 'times', circular: true, link: true, onClick: () => { handleUndo() } } : "search"}
                 />
             </Grid.Column>
         </Grid>

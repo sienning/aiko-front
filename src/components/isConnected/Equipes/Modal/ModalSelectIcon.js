@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import { Image, Modal, Icon, Reveal, Grid, Button } from 'semantic-ui-react'
 
-const ModalSelectIcon = ({ editIconSrc }) => {
+const ModalSelectIcon = ({ iconSrc, editIconSrc }) => {
     const [open, setOpen] = useState(false);
-    const [selectedIconIndex, setSelectedIconIndex] = useState(0);
-    const [currentIcon, setCurrentIcon] = useState("equipe-icon.png");
-
     const listIcons = [
         "equipe-icon.png",
         "team-ekko.jpeg",
         "team-jinx.jpeg",
         "team-vi.jpeg"
     ]
+    const [selectedIconIndex, setSelectedIconIndex] = useState(listIcons.indexOf(iconSrc));
+    const [currentIcon, setCurrentIcon] = useState(iconSrc);
+
+    
 
     const selectIconIndex = (index) => {
         if (selectedIconIndex !== index) setSelectedIconIndex(index);

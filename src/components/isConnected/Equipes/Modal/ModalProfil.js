@@ -27,14 +27,14 @@ import { Modal, Icon, Button, Container, Form, Dropdown, Header } from 'semantic
 const ModalProfil = ({ editProfilRecherche, listeRangs, listeRoles, currentProfil, liste }) => {
     const [open, setOpen] = useState(false)
     const [role, setRole] = useState({
-        "value": "",
-        "image": ""
+        "value": currentProfil.role,
+        "image": currentProfil.roleImage
     })
     const [rang, setRang] = useState({
-        "value": "",
-        "image": ""
+        "value": currentProfil.rang,
+        "image": currentProfil.rangImage
     })
-    const [description, setDescription] = useState("")
+    const [description, setDescription] = useState(currentProfil.description)
 
     const handleSubmit = () => {
         const profil = {

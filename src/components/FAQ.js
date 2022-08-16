@@ -45,7 +45,7 @@ const panels = [
                         Les coachs certifiés Aiko ont passé et réussi un entretien de compétence et motivation avec nos équipes.
                          Chez Aiko nous cherchons à réunir des passionnés bienveillants et pédagogue,
                           c’est pour cela que nous avons créé un processus de certification.
-                           N’aies pas peur de tenter ta chance, chez Aiko, la motivation prime sur l’expérience et nous serons ravis d’échanger avec toi.
+                           N’aie pas peur de tenter ta chance, chez Aiko, la motivation prime sur l’expérience et nous serons ravis d’échanger avec toi.
                     </p>
                 </div>
             ),
@@ -55,7 +55,7 @@ const panels = [
         key: 'inscription-connexion',
         title: 'Je n’arrive pas à m’inscrire/ me connecter ',
         content: [
-            'Tu as un problème pour t’inscrire / te connecter ? Envoie un mail à help@aiko.fr et nos équipes t’aideront à résoudre ton problème.',
+            'Tu as un problème pour t’inscrire / te connecter ? Envoie un mail à aiko.gg.contact@gmail.com et nos équipes t’aideront à résoudre ton problème.',
         ].join(' '),
     },
     {
@@ -63,7 +63,7 @@ const panels = [
         title: 'Comment supprimer mon compte ?',
         content: [
             'Tu nous quittes ? :(',
-            'Envoie un mail à help@aiko.fr et nos équipes t’aideront à supprimer ton compte',
+            'Envoie un mail à aiko.gg.contact@gmail.com et nos équipes t’aideront à supprimer ton compte',
         ].join(' '),
     },
 ]

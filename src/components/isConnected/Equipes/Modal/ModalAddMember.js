@@ -4,12 +4,12 @@ import SearchMemberBarModal from './SearchMemberBarModal';
 import SearchMemberList from './SearchMemberList';
 import SelectedMemberList from './SelectedMemberList';
 
-const ModalAddMember = ({ editFunc, list, currentList }) => {
+const ModalAddMember = ({ editFunc, list, currentList, availableListInit }) => {
     // const originalList = list
     const [open, setOpen] = useState(false)
     const [selectedList, setSelectedList] = useState(currentList)
-    const [availableList, setAvailableList] = useState(list)
-    const [updatedList, setUpdatedList] = useState(list)
+    const [availableList, setAvailableList] = useState(availableListInit)
+    const [updatedList, setUpdatedList] = useState(availableListInit)
 
     const addSelectedItem = (item) => {
         setSelectedList([...selectedList, item]);
@@ -52,6 +52,13 @@ const ModalAddMember = ({ editFunc, list, currentList }) => {
             }
         >
             <h1> {list.name} </h1>
+            {
+                console.log("selectedList", selectedList)
+            }
+            {
+                console.log("availableList", availableList)
+
+            }
             <Modal.Content>
                 <Header>Rechercher un joueur</Header>
                 <SelectedMemberList

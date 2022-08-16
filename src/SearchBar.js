@@ -55,7 +55,7 @@ const SearchBar = ({
                     value={searchValue}
                     hasIcon={true}
                     customIcon={IconName.TIMES}
-                    onIconClick={handleUndo}
+                    onClick={handleUndo}
                     placeholder={placeholder}
                     onChange={handleSearchInput}
                 />

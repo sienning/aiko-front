@@ -9,11 +9,11 @@ function ProfilModal({userInfos}) {
       onClose={() => setOpen(false)}
       onOpen={() => setOpen(true)}
       open={open}
-      trigger={<Image circular style={{ margin: "auto" }} alt="Logo-Aiko" src={`${process.env.REACT_APP_FRONT}/images/${userInfos.avatar}`} size="small" />}
+      trigger={<Image circular style={{ margin: "auto" }} alt="Logo-Aiko" src={userInfos.discordId === "0" ? `/images/${userInfos.avatar}` : `https://cdn.discordapp.com/avatars/${userInfos.discordId}/${userInfos.avatar}`} size="small" />}
     >
       <Modal.Header>Selectionne une image de profil</Modal.Header>
       <Modal.Content image>
-        <Image size='medium' src={`${process.env.REACT_APP_FRONT}/images/${userInfos.avatar}`} wrapped />
+        <Image size='medium' src={userInfos.discordId === "0" ? `/images/${userInfos.avatar}` : `https://cdn.discordapp.com/avatars/${userInfos.discordId}/${userInfos.avatar}`} wrapped />
       </Modal.Content>
       <Modal.Actions>
         <Button color='black' onClick={() => setOpen(false)}>

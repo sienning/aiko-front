@@ -248,7 +248,7 @@ class ProfilEdit extends Component {
         return (
             <Container>
                 <div style={{ textAlign: "center", marginBottom: 20, marginTop: 50 }}>
-                    <Image style={{ margin: "auto" }} alt={`Logo-${userInfos.avatar}`} src={`${process.env.REACT_APP_FRONT}/images/${userInfos.avatar}`} size="tiny" />
+                    <Image circular style={{ margin: "auto" }} alt={`Logo-${userInfos.avatar}`} src={userInfos.discordId === "0" ? `/images/${userInfos.avatar}` : `https://cdn.discordapp.com/avatars/${userInfos.discordId}/${userInfos.avatar}`} size="small" />
                     <Header as="h1">Modification Joueur</Header>
                     <h2>Bienvenu(e), {userInfos.username} !</h2>
 
@@ -342,7 +342,7 @@ class ProfilEdit extends Component {
 
                     <Grid>
                         <GridColumn width={2} floated={'right'}>
-                            <Image circular style={{ margin: "auto" }} alt="Logo-Aiko" src={`${process.env.REACT_APP_FRONT}/images/${userInfos.avatar}`} size="small" />
+                            <Image circular style={{ margin: "auto" }} alt="Logo-Aiko" src={userInfos.discordId === "0" ? `/images/${userInfos.avatar}` : `https://cdn.discordapp.com/avatars/${userInfos.discordId}/${userInfos.avatar}`} size="small" />
                         </GridColumn>
                         <GridColumn width={10}>
                             <div>

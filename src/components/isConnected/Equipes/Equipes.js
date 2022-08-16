@@ -10,11 +10,14 @@ class Equipes extends Component {
         isLoadingForCurrentUser: true,
         isLoadingForListeEquipes: true,
         listeEquipes: [],
+        mesEquipes: [],
+        displayListeEquipes: [],
         currentUser: {},
+        buttonFilterText: "mes équipes",
+        titleText: "Les équipes sur Aiko"
     }
 
     componentDidMount() {
-
         this.getCurrentUser();
         this.getListeEquipes();
     }
@@ -48,7 +51,7 @@ class Equipes extends Component {
             .then(response => {
                 console.log(response.data);
                 if (response.data.length > 0) {
-                    this.setState({ listeEquipes: response.data });
+                    this.setState({ listeEquipes: response.data, displayListeEquipes: response.data });
                 }
                 this.setState({ isLoadingForListeEquipes: false });
             })
@@ -60,12 +63,80 @@ class Equipes extends Component {
             })
     }
 
+    handleSearchBar = (filteredArray) => {
+        if (filteredArray.length > 0) {
+            let newArray = this.makeNewAvailableList(filteredArray)
+            this.setState({ displayListeEquipes: newArray })
+        } else {
+            let newArray = this.state.mesEquipes
+            if (this.state.buttonFilterText === "mes équipes") {
+                newArray = this.state.listeEquipes
+            }
+            this.setState({ displayListeEquipes: newArray })
+        }
+    }
+
+    handleFilterButton = () => {
+        if (this.state.buttonFilterText === "mes équipes") {
+            this.setState({ buttonFilterText: "les équipes sur Aiko", titleText: "Mes équipes" })
+            const mesEquipes = this.makeMesEquipesList(this.state.currentUser._id)
+            this.setState({ displayListeEquipes: mesEquipes, mesEquipes: mesEquipes })
+        } else {
+            this.setState({ buttonFilterText: "mes équipes", titleText: "Les équipes sur Aiko" })
+            this.setState({ displayListeEquipes: this.state.listeEquipes })
+
+        }
+    }
+
+    makeNewAvailableList = (filteredArray) => {
+        let res = this.state.listeEquipes.filter(elt => filteredArray.includes(elt.nom))
+        return res;
+    }
+
+    makeMesEquipesList = (idUser) => {
+        let res = [];
+        const listeEquipes = this.state.listeEquipes
+        if (listeEquipes.length > 0) {
+            listeEquipes.forEach(equipe => {
+                if (equipe.auteur._id === idUser) {
+                    if (res.filter(r => r._id === equipe._id).length === 0) res.push(equipe);
+                } else {
+                    equipe.membres.forEach(membre => {
+                        if (membre._id === idUser) {
+                            if (res.filter(r => r._id === equipe._id).length === 0) res.push(equipe);
+                        }
+                    });
+                    equipe.staff.forEach(st => {
+                        if (st._id === idUser) {
+                            if (res.filter(r => r._id === equipe._id).length === 0) res.push(equipe);
+                        }
+                    });
+                    equipe.coach.forEach(c => {
+                        if (c._id === idUser) {
+                            if (res.filter(r => r._id === equipe._id).length === 0) res.push(equipe);
+                        }
+                    });
+                    equipe.succes.forEach(su => {
+                        if (su._id === idUser) {
+                            if (res.filter(r => r._id === equipe._id).length === 0) res.push(equipe);
+                        }
+                    });
+                }
+            });
+        }
+        console.log("mes équipes : ", res);
+        return res;
+    }
+
     render() {
         const {
             isLoadingForCurrentUser,
             isLoadingForListeEquipes,
+            displayListeEquipes,
             listeEquipes,
-            currentUser
+            currentUser,
+            buttonFilterText,
+            titleText,
         } = this.state;
         return (
             <div style={{ marginTop: 60 }}>
@@ -75,7 +146,13 @@ class Equipes extends Component {
                 <Container>
                     <Grid stackable columns={2} >
                         <Grid.Column width={4}>
-                            <FiltreEquipe />
+                            <FiltreEquipe
+                                handleSearchBar={this.handleSearchBar}
+                                listeEquipes={listeEquipes}
+                                buttonFilterText={buttonFilterText}
+                                titleText={titleText}
+                                handleFilterButton={this.handleFilterButton}
+                            />
                         </Grid.Column>
                         <Grid.Column width={12}>
                             <Grid stackable columns={2}>
@@ -84,8 +161,8 @@ class Equipes extends Component {
                                         <Segment>
                                             <Loader />
                                         </Segment> :
-                                        listeEquipes.length > 0 ?
-                                            listeEquipes.map((equipe, i) => (
+                                        displayListeEquipes.length > 0 ?
+                                            displayListeEquipes.map((equipe, i) => (
                                                 < Grid.Column key={i} >
                                                     <EquipeCard
                                                         currentUser={currentUser}

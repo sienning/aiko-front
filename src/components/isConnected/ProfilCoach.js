@@ -100,7 +100,7 @@ class ProfilCoach extends Component {
         return (
             <Container>
                 <div style={{ textAlign: "center", marginBottom: 20, marginTop: 50 }}>
-                    <Image style={{ margin: "auto" }} alt={`Logo-${userInfos.avatar}`} src={`${process.env.REACT_APP_FRONT}/images/${userInfos.avatar}`} size="tiny" />
+                    <Image circular style={{ margin: "auto" }} alt={`Logo-${userInfos.avatar}`} src={userInfos.discordId === "0" ? `/images/${userInfos.avatar}` : `https://cdn.discordapp.com/avatars/${userInfos.discordId}/${userInfos.avatar}`} size="small" />
                     <Header as="h1">Profil Coach</Header>
                     <h2>Bienvenu(e), {userInfos.username} !</h2>
                     <div>
@@ -114,12 +114,7 @@ class ProfilCoach extends Component {
 
                 <Grid>
                     <GridColumn width={2} floated={'right'}>
-                        {
-                            //userInfos.discordId ?
-                            //<Image circular style={{ margin: "auto" }} alt="Logo-Aiko" src={`https://cdn.discordapp.com/avatars/${userInfos.discordId}/${userInfos.avatar}`} size="small" />
-                            //: 
-                            <Image circular style={{ margin: "auto" }} alt="Logo-Aiko" src={`${process.env.REACT_APP_FRONT}/images/${userInfos.avatar}`} size="small" />
-                        }
+                            <Image circular style={{ margin: "auto" }} alt="Logo-Aiko" src={userInfos.discordId === "0" ? `/images/${userInfos.avatar}` : `https://cdn.discordapp.com/avatars/${userInfos.discordId}/${userInfos.avatar}`} size="small" />
                     </GridColumn>
                     <GridColumn width={10}>
                         <h2>
@@ -129,13 +124,13 @@ class ProfilCoach extends Component {
                             <h3>
                                 Jeu(x)
                             </h3>
-                            <Image src={`${process.env.REACT_APP_FRONT}/images/lol-logo.png`} size="small" alt="Logo-LeagueOfLegends"/>
+                            <Image src={`/images/lol-logo.png`} size="small" alt="Logo-LeagueOfLegends"/>
                         </div>
                         <Grid>
                             <GridColumn width={6}>
                                 <h3>Rôle(s)</h3>
-                                <Image src={`${process.env.REACT_APP_FRONT}/images/role/${logoMainRole}.webp`} alt={`Logo ${mainRoleTitle}`}/>
-                                <Image src={`${process.env.REACT_APP_FRONT}/images/role/${logoSubRole}.webp`} alt={`Logo ${subRoleTitle}`}/>
+                                <Image src={`/images/role/${logoMainRole}.webp`} alt={`Logo ${mainRoleTitle}`}/>
+                                <Image src={`/images/role/${logoSubRole}.webp`} alt={`Logo ${subRoleTitle}`}/>
                             </GridColumn>
                             <GridColumn width={6}>
                                 <h3>Rangs</h3>
@@ -149,7 +144,7 @@ class ProfilCoach extends Component {
                 </Grid>
                 <Grid>
                     <GridColumn width={2} floated={'right'}>
-                        <Image circular style={{ margin: "auto" }} alt="Logo-Aiko" src={`${process.env.REACT_APP_FRONT}/images/${userInfos.avatar}`} size="small" />
+                        <Image circular style={{ margin: "auto" }} alt="Logo-Aiko" src={userInfos.discordId === "0" ? `/images/${userInfos.avatar}` : `https://cdn.discordapp.com/avatars/${userInfos.discordId}/${userInfos.avatar}`} size="small" />
                     </GridColumn>
                     <GridColumn width={10}>
                         <div>
