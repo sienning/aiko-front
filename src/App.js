@@ -30,6 +30,7 @@ import CoachEdit from './components/isConnected/CoachEdit';
 
 class App extends Component {
   state = {
+    isLoading: true,
     isConnected: false,
     userInfos: {},
     email: "",
@@ -40,6 +41,7 @@ class App extends Component {
     console.log("APP");
     if (window.localStorage.getItem('email') !== null) {
       this.setState({
+        isLoading: false,
         isConnected: true,
         email: window.localStorage.getItem('email'),
         userId: window.localStorage.getItem('userId')
@@ -47,6 +49,7 @@ class App extends Component {
     } else {
       this.setState({
         isConnected: false,
+        isLoading: false,
         email: "",
         userInfo: {}
       });
@@ -122,6 +125,7 @@ class App extends Component {
 
   render() {
     const {
+      isLoading,
       isConnected,
       userId,
     } = this.state;
@@ -141,7 +145,7 @@ class App extends Component {
             >
               <Route
                 index
-                element={<Accueil />}
+                element={<Accueil isConnected={isConnected} />}
               />
               <Route
                 path="coaching"
@@ -175,10 +179,14 @@ class App extends Component {
                 <Route path=":id" element={<SeeEvent />} />
               </Route>
 
-              <Route
-                path="teams"
-                element={<Equipes userId={userId} logout={this.logout} isConnected={isConnected} />}
-              />
+              {
+                isLoading ?
+                  null :
+                  <Route
+                    path="teams"
+                    element={<Equipes userId={userId} logout={this.logout} isConnected={isConnected} />}
+                  />
+              }
 
               {/* IL FAUT NE PAS ÊTRE CONNECTÉ */}
               {

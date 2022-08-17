@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react';
-import { Container, Header, Image, Loader, Segment, Grid } from 'semantic-ui-react'
+import { Container, Header, Grid, Segment, Loader } from 'semantic-ui-react'
 import RedirectionConnexion from '../../RedirectionConnexion';
 import CoachCard from './CoachCard';
 import FiltreCoach from './FiltreCoach';

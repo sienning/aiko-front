@@ -441,7 +441,6 @@ const EditEquipe = ({ userId, logout }) => {
             profilRecherche: profilRecherche
         }
 
-        console.log(updatedTeam);
         updateTeam(updatedTeam);
     }
 
@@ -459,7 +458,6 @@ const EditEquipe = ({ userId, logout }) => {
     }
 
     useEffect(() => {
-        console.log("ON charge les data");
         getUsers();
         getAuteur();
         getCoachs();
@@ -472,7 +470,6 @@ const EditEquipe = ({ userId, logout }) => {
     })
 
     useEffect(() => {
-        console.log("params.id : ", params.id);
         if (params.id !== undefined) {
             if (users.length > 0) getTeamContent(params.id, users);
         }
@@ -488,9 +485,7 @@ const EditEquipe = ({ userId, logout }) => {
     const makeAvailableList = (selectedList, totalList) => {
         let res = [];
         totalList.forEach(obj => {
-            if (selectedList.filter(value => value.name === obj.name).length > 0)
-                console.log("on a : ", obj.name);
-            else
+            if (selectedList.filter(value => value.name === obj.name).length === 0)
                 res.push(obj);
 
         });
@@ -498,16 +493,11 @@ const EditEquipe = ({ userId, logout }) => {
     }
 
     const makeAvailableMemberList = (selectedList, totalList) => {
-        console.log("selectedList : ", selectedList);
-        console.log("totalList : ", totalList);
         let res = [];
         totalList.forEach(obj => {
-            if (selectedList.filter(value => value.username === obj.username).length > 0)
-                console.log("on a : ", obj.username);
-            else
+            if (selectedList.filter(value => value.username === obj.username).length === 0)
                 res.push(obj);
         });
-        console.log("makeAvailableMemberList : ", res);
         return res;
     }
 
@@ -778,7 +768,7 @@ const EditEquipe = ({ userId, logout }) => {
                                 <Header as='h2' inverted>
                                     <Header.Content>Entraînements :</Header.Content>
                                     <Header.Subheader>
-                                        Votre lien <a href='https://calendly.com/' target="_blank" rel='no-ref'>calendly</a> 
+                                        Votre lien <a href='https://calendly.com/' target="_blank" rel="noreferrer">calendly</a> 
                                     </Header.Subheader>
                                 </Header>
 

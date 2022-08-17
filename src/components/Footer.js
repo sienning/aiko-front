@@ -14,7 +14,7 @@ class Footer extends Component {
                         <div>
                             <div><Link to="coaching">Le coaching Aiko</Link></div>
                             <div><Link to="tournaments">Tournois</Link></div>
-                            <div>Mon équipe</div>
+                            <div><Link to="teams">Les équipes</Link></div>
                             <div><Link to="faq">F.A.Q</Link></div>
                         </div>
                     </Grid.Column>

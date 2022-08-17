@@ -16,29 +16,21 @@ const NavigationBar = ({ isConnected, logout, userId }) => {
           {
             isConnected ?
               <>
-                <div className="navbar-link">
+                {/* <div className="navbar-link">
                   <Link to="/players">Joueurs</Link>
-                </div>
-                <div className="navbar-link">
-                  <Link to="/teams">Équipes</Link>
-                </div>
-                <div className="navbar-link">
-                  <Link to="/find-a-coach">Coaching</Link>
-                </div>
-                <div className="navbar-link">
+                </div> */}
+                <div className="navbar-link"> <Link to="/teams">Équipes</Link> </div>
+                <div className="navbar-link"> <Link to="/coaches">Coaching</Link> </div>
+                {/* <div className="navbar-link">
                   <Link to="/events">Évènements</Link>
-                </div>
+                </div> */}
               </> :
               <>
-                <div className="navbar-link">
-                  <Link to="/coaching">Le coaching Aiko</Link>
-                </div>
-                <div className="navbar-link">
+                <div className="navbar-link"> <Link to="/coaching">Le coaching Aiko</Link></div>
+                {/* <div className="navbar-link">
                   <Link to="/tournaments">Tournois</Link>
-                </div>
-                <div className="navbar-link">
-                  <Link to="/teams">Équipes</Link>
-                </div>
+                </div> */}
+                <div className="navbar-link"> <Link to="/teams">Équipes</Link> </div>
               </>
           }
         </div>
@@ -62,20 +54,12 @@ const NavigationBar = ({ isConnected, logout, userId }) => {
           {
             isConnected ?
               <div className='navbar-login-links'>
-                <div className="navbar-link">
-                  <Link to={`/my-profile/${userId}`}>Mon compte</Link>
-                </div>
-                <div className="navbar-link">
-                  <Button onClick={() => logout()}>Déconnexion</Button>
-                </div>
+                <div className="navbar-link"> <Link to={`/my-profile/${userId}`}>Mon compte</Link></div>
+                <div className="navbar-link"><Button onClick={() => logout()}>Déconnexion</Button></div>
               </div> :
               <div className='navbar-login-links'>
-                <div className="navbar-link">
-                  <Link to="/login">Connexion</Link>
-                </div>
-                <div className="navbar-link">
-                  <Link to="/sign-up">Inscription</Link>
-                </div>
+                <div className="navbar-link"><Link to="/login">Connexion</Link></div>
+                <div className="navbar-link"><Link to="/sign-up">Inscription</Link></div>
               </div>
           }
         </div>

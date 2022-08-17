@@ -488,13 +488,13 @@ footer ul {
   background-repeat: no-repeat;
   background-size: 22%;
   left: -75px;
-  z-index: 10;
+  z-index: 0;
 }
 
 .accueil-leviathanSide4{
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 200px;
   background-image: url("images/aiko-leviathanp4.png");
   background-repeat: no-repeat;
   background-size: 20%;
@@ -688,6 +688,7 @@ footer ul {
 }
 
 .accueil-carrou .carrou {
+  z-index: 15;
   width: 100%;
   height: auto;
   min-height: 300px;
@@ -1038,6 +1039,28 @@ p.carousel-image-date {
   }
 }
 
+/* EQUIPE MODAL SAVOIR PLUS */
+.ui.tabular.menu .active.item, .ui.tabular.menu .item {
+  background: transparent !important;
+  color: white;
+}
+
+.ui.tabular.menu .active.item:hover, .ui.tabular.menu .item:hover {
+  color: #B754A5;
+}
+
+.ui.basic.button, .ui.basic.buttons .button {
+  color: white !important;
+  border: 1px solid transparent;
+
+}
+
+.ui.basic.button:hover, .ui.basic.buttons .button:hover {
+  background: transparent !important;
+  color: #B754A5 !important;
+  border: 1px solid #B754A5;
+}
+
 /* EQUIPE EDIT */
 .top-equipe {
   margin-bottom: 100px;
@@ -1223,9 +1246,11 @@ p.carousel-image-date {
 /* REDIRECTION CONNEXION */
 .redirection-connexion {
   position: absolute;
-  width: 100vmax;
-  height: calc(100vw - 65px);
-  z-index: 1;
+  width: 100%;
+  /* height: 100%; */
+  height: calc(100% - 65px);
+  z-index: 10;
+  overflow: hidden;
   top: 65px;
   bottom: 0;
   background: rgb(24 23 23 / 80%) !important;
@@ -1240,6 +1265,13 @@ p.carousel-image-date {
 }
 
 /* ----------------- RESPONSIVE ----------------- */
+/* MODAL ICON */
+@media only screen and (max-width: 991px)  {
+  .ui.modal>.close {
+    color: #ffffffbf;
+  }
+}
+
 /* NAVBAR */
 /* MOYEN */
 @media screen and (max-width: 1280px) {

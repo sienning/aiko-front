@@ -47,16 +47,16 @@ const NavBarCollapsed1 = ({ isConnected, logout, userId }) => {
                         {
                             isConnected ?
                                 <>
-                                    <li><Link onClick={handleBgClick} to="/players">Joueurs</Link></li>
+                                    {/* <li><Link onClick={handleBgClick} to="/players">Joueurs</Link></li> */}
                                     <li><Link onClick={handleBgClick} to="/teams">Équipes</Link></li>
                                     <li><Link onClick={handleBgClick} to="/coaching">Coaching</Link></li>
-                                    <li><Link onClick={handleBgClick} to="/tournaments">Évènements</Link></li>
+                                    {/* <li><Link onClick={handleBgClick} to="/tournaments">Évènements</Link></li> */}
                                 </>
                                 :
                                 <>
                                     <li><Link onClick={handleBgClick} to="/">Accueil</Link></li>
                                     <li><Link onClick={handleBgClick} to="/coaching">Le coaching Aiko</Link></li>
-                                    <li><Link onClick={handleBgClick} to="/tournaments">Tournois</Link></li>
+                                    {/* <li><Link onClick={handleBgClick} to="/tournaments">Tournois</Link></li> */}
                                     <li><Link onClick={handleBgClick} to="/teams">Équipes</Link></li>
                                 </>
                         }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Container, Header, Image, Button, Segment } from 'semantic-ui-react'
+import { Grid, Container, Header, Image, Segment } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 
 class Coaching extends Component {
@@ -17,7 +17,7 @@ class Coaching extends Component {
                         <Grid.Column>
                             <Header as='h1'>Le coaching Aiko</Header>
                             <p style={{ fontSize: "20px" }}>
-                                Plus qu’un coaching, c’est permettre aux coach et aux joueurs de se dépasser ensemble, dans leur apprentissage et dans l’expérience de coaching. Vous voulez vous dépasser ?
+                                Plus qu’un coaching, c’est permettre aux coachs et aux joueurs de se dépasser ensemble, dans leur apprentissage et dans l’expérience de coaching. Vous voulez vous dépasser ?
                             </p>
                             <Container textAlign="center">
                                 <Link to="/find-a-coach" className="ui button">J'adopte un coach</Link>
@@ -91,7 +91,7 @@ class Coaching extends Component {
                     <br />
                     <br />
                     <br />
-                    <Button content="J'adopte un coach" />
+                    <Link to="/find-a-coach" className="ui button">J'adopte un coach</Link>
                 </Container>
             </div>
         );
