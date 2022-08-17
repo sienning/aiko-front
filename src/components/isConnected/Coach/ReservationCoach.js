@@ -19,7 +19,7 @@ class ReservationCoach extends Component {
 
     getListeCoachs = async () => {
         this.setState({ isLoadingForCoach: true })
-        await axios.get(`/see-all-coachs`, {
+        await axios.get(`/users/see-all-coachs`, {
             headers: {
                 Authorization: window.localStorage.getItem('token')
             }
