@@ -21,7 +21,7 @@ const NavigationBar = ({ isConnected, logout, userId }) => {
                 <Link to="/teams">Équipes</Link>
               </div>
               <div className="navbar-link">
-                <Link to="/coaches">Coaching</Link>
+                <Link to="/find-a-coach">Coaching</Link>
               </div>
               <div className="navbar-link">
                 <Link to="/events">Évènements</Link>

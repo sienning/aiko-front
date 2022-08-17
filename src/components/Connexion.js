@@ -91,9 +91,9 @@ class Connexion extends Component {
                             label="Mot de passe"
                             placeholder="Mot de passe"
                         />
-                        <div>
+                        {/* <div>
                             <Link to="/forgot-my-password">Mot de passe oublié ?</Link>
-                        </div>
+                        </div> */}
                         <Message
                             error
                             header='Une erreur est survenue !'

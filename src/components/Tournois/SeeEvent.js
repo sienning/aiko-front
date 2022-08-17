@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image, Container, Header, Grid, Button } from 'semantic-ui-react'
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import events from './Events.json';
 
 const SeeEvent = () => {
