@@ -973,6 +973,16 @@ p.carousel-image-date {
   background-color: rgb(183 84 165 / 60%);
 }
 
+.coach-card {
+  background: #120131 !important;
+  color: white !important;
+  border: transparent;
+  box-shadow: none !important;
+  padding: 10px 10px !important;
+  border-radius: 17px !important;
+  /* box-shadow: 0 0.5px 3px 0 #4603B8; */
+}
+
 /* TOURNOIS */
 .tournois .event-over {
   position: absolute;
@@ -1134,7 +1144,7 @@ p.carousel-image-date {
   background: transparent !important;
   color: white !important;
   box-shadow: 0 0.5px 3px 0 #4603B8;
-
+  border-radius: 17px;
 }
 
 .equipe-card.ui.feed>.event>.content .summary {

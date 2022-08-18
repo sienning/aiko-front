@@ -7,14 +7,37 @@ import FiltreCoach from './FiltreCoach';
 
 class ReservationCoach extends Component {
     state = {
+        isLoadingForCurrentUser: true,
         isLoadingForCoach: true,
         listeCoachs: [],
         displayListeCoachs: [],
-        titleText: "Les coachs sur Aiko"
+        titleText: "Les coachs sur Aiko",
+        currentUser: {},
     }
 
     componentDidMount() {
         this.getListeCoachs();
+        this.getCurrentUser();
+    }
+
+    getCurrentUser = async () => {
+        this.setState({ isLoadingForCurrentUser: true })
+        await axios.get(`/users/see-user/id_user=${window.localStorage.getItem('userId')}`, {
+            headers: {
+                Authorization: window.localStorage.getItem('token')
+            }
+        })
+            .then(response => {
+                console.log(response.data);
+                this.setState({ currentUser: response.data, isLoadingForCurrentUser: false });
+            })
+            .catch(err => {
+                if (err.response.status === 401) {
+                    this.props.logout()
+                    console.log("logout");
+                }
+                console.log(err)
+            })
     }
 
     getListeCoachs = async () => {
@@ -29,7 +52,7 @@ class ReservationCoach extends Component {
                 if (response.data.length > 0) {
                     this.setState({ listeCoachs: response.data, displayListeCoachs: response.data });
                 }
-                this.setState({ isLoadingForCoach: false});
+                this.setState({ isLoadingForCoach: false });
             })
             .catch(err => {
                 if (err.response.status === 401) {
@@ -59,10 +82,12 @@ class ReservationCoach extends Component {
 
     render() {
         const {
+            isLoadingForCurrentUser,
             isLoadingForCoach,
             displayListeCoachs,
             listeCoachs,
             titleText,
+            currentUser
         } = this.state;
         return (
             <div className='reservation-coach'>
@@ -70,9 +95,7 @@ class ReservationCoach extends Component {
                 <Container>
                     <div className='header'>
                         <Header as={'h1'}> Réserve ton coach
-                            <Header.Subheader>
-                                Trouve ton coach
-                            </Header.Subheader>
+                            <Header.Subheader> Trouve ton coach </Header.Subheader>
                         </Header>
                     </div>
 
@@ -85,23 +108,22 @@ class ReservationCoach extends Component {
                                     handleSearchBar={this.handleSearchBar}
                                     listeCoachs={listeCoachs}
                                     titleText={titleText}
-                                    handleFilterButton={this.handleFilterButton}
+                                // handleFilterButton={this.handleFilterButton}
                                 />
                             </Grid.Column>
                             <Grid.Column width={12}>
-                                <Grid stackable columns={2}>
+                                <Grid stackable columns={3}>
                                     {
-                                        isLoadingForCoach ?
-                                            <Segment>
-                                                <Loader />
-                                            </Segment> :
+                                        isLoadingForCurrentUser && isLoadingForCoach ?
+                                            <Segment><Loader /></Segment> :
                                             displayListeCoachs.length > 0 ?
-                                                displayListeCoachs.map((user, i) => (
-                                                    < Grid.Column key={i} >
+                                                displayListeCoachs.map((coach, i) => (
+                                                    <Grid.Column key={i}>
                                                         <CoachCard
-                                                            open={false}
-                                                            user={user}
+                                                            currentUser={currentUser}
+                                                            coach={coach}
                                                         />
+
                                                     </Grid.Column>
                                                 ))
                                                 : <p>Pas d'équipe disponible ...</p>
