@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Image, Button, List, Icon, Loader, Segment } from 'semantic-ui-react'
 import axios from 'axios';
 
-const ModalCandidatures = ({ equipe }) => {
+const ModalCandidatures = ({ equipe, refresh }) => {
     const [isLoadingForCandidature, setIsLoadingForCandidature] = useState(false);
     const [candidatures, setCandidatures] = useState(equipe.candidatures);
 
@@ -19,9 +18,30 @@ const ModalCandidatures = ({ equipe }) => {
             .then(response => {
                 setIsLoadingForCandidature(false)
                 let newCandidaturesList = candidatures.filter(candidate => candidate.username !== candidat.username)
-                console.log(response.data);
-                setCandidatures(newCandidaturesList)
+                setCandidatures([...newCandidaturesList])
+                refresh();
 
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
+
+    const handleAddMember = async (candidat) => {
+        setIsLoadingForCandidature(true)
+        await axios.post(`/teams/add-member/${equipe._id}`, {
+            member: candidat
+        }, {
+            headers: {
+                Authorization: window.localStorage.getItem('token')
+            }
+        })
+            .then(response => {
+                console.log(response.data);
+                setIsLoadingForCandidature(false)
+                let newCandidaturesList = candidatures.filter(candidate => candidate.username !== candidat.username)
+                setCandidatures([...newCandidaturesList])
+                handleRemoveCandidature(candidat)
             })
             .catch(err => {
                 console.log(err)
@@ -40,7 +60,7 @@ const ModalCandidatures = ({ equipe }) => {
                             candidatures.map((candidat, i) => (
                                 <List.Item key={i}>
                                     <List.Content floated='right'>
-                                        <Link to={`/edit-team/${equipe._id}`} className='ui button'>Ajouter</Link>
+                                        <Button onClick={() => handleAddMember(candidat)} >Ajouter</Button>
                                         <Button onClick={() => handleRemoveCandidature(candidat)} basic icon><Icon name='times' /></Button>
                                     </List.Content>
                                     <Image size="mini" src={candidat.discordId === "0" ? `/images/${candidat.avatar}` : `https://cdn.discordapp.com/avatars/${candidat.discordId}/${candidat.avatar}`} />

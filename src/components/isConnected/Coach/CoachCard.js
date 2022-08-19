@@ -1,8 +1,8 @@
 import React from 'react';
-import { Card, Feed, Image } from 'semantic-ui-react'
+import { Card, Image } from 'semantic-ui-react'
 
 
-const CoachCard = ({ currentUser, coach }) => {
+const CoachCard = ({ coach }) => {
     return (
         <Card  style={{ textAlign: "center" }} className='coach-card' >
             <Card.Content>

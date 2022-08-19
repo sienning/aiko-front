@@ -12,7 +12,6 @@ const MemberCard = ({ member, removeSelectedItem, isSelectable }) => {
             columns={2}
         >
             <Card.Content>
-                {console.log(member.discordId)}
                 <Image
                     src={
                         member.discordId !== "0"

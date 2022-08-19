@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Image, Card, CardContent, Feed, CardMeta, Icon, Label } from 'semantic-ui-react';
 import ModalSavoirPlus from './ModalSavoirPlus';
 
-const EquipeCard = ({ equipe, currentUser }) => {
+const EquipeCard = ({ equipe, currentUser, refresh }) => {
     return (
         <Card className='equipe-card' >
             {
@@ -45,7 +45,7 @@ const EquipeCard = ({ equipe, currentUser }) => {
 
             </CardContent>
             <CardMeta>
-                <ModalSavoirPlus currentUser={currentUser} equipe={equipe} />
+                <ModalSavoirPlus refresh={refresh} currentUser={currentUser} equipe={equipe} />
                 {
                     currentUser.username === equipe.auteur.username &&
                     <Link className='button ui' to={`/edit-team/${equipe._id}`} ><Icon name="pencil" /> Modifier </Link>
