@@ -3,8 +3,7 @@ import { Modal, Button, Tab, Label, Menu } from 'semantic-ui-react'
 import ModalMonEquipe from './ModalMonEquipe';
 import ModalCandidatures from './ModalCandidatures';
 
-
-const ModalSavoirPlus = ({ equipe, currentUser }) => {
+const ModalSavoirPlus = ({ equipe, currentUser, refresh }) => {
     const [open, setOpen] = useState(false);
     const panes = [
         {
@@ -17,7 +16,7 @@ const ModalSavoirPlus = ({ equipe, currentUser }) => {
                     Candidatures<Label color={equipe.candidatures.length > 0 ? 'red' : "grey"} >{equipe.candidatures.length}</Label>
                 </Menu.Item>
             ),
-            render: () => <ModalCandidatures equipe={equipe} />,
+            render: () => <ModalCandidatures refresh={refresh} equipe={equipe} />,
         },
     ]
 

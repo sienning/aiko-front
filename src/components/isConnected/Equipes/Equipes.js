@@ -18,7 +18,6 @@ class Equipes extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props.isConnected);
         if (this.props.isConnected) {
             this.getCurrentUser();
             this.getListeEquipes();
@@ -33,19 +32,18 @@ class Equipes extends Component {
             }
         })
             .then(response => {
-                console.log(response.data);
                 this.setState({ currentUser: response.data, isLoadingForCurrentUser: false });
             })
             .catch(err => {
                 if (err.response.status === 401) {
                     this.props.logout()
-                    console.log("logout");
                 }
                 console.log(err)
             })
     }
 
     getListeEquipes = async () => {
+        console.log("getListeEquipes");
         this.setState({ isLoadingForListeEquipes: true })
         await axios.get(`/teams`, {
             headers: {
@@ -132,6 +130,10 @@ class Equipes extends Component {
         return res;
     }
 
+    refresh = () => {
+        this.getListeEquipes();
+    }
+
     render() {
         const {
             isLoadingForCurrentUser,
@@ -162,13 +164,12 @@ class Equipes extends Component {
                             <Grid stackable columns={2}>
                                 {
                                     isLoadingForCurrentUser && isLoadingForListeEquipes ?
-                                        <Segment>
-                                            <Loader />
-                                        </Segment> :
+                                        <Loader active inverted /> :
                                         displayListeEquipes.length > 0 ?
                                             displayListeEquipes.map((equipe, i) => (
                                                 < Grid.Column key={i} >
                                                     <EquipeCard
+                                                        refresh={this.refresh}
                                                         currentUser={currentUser}
                                                         equipe={equipe}
                                                     />

@@ -1,22 +1,22 @@
 import React from 'react';
-import { Image, Card } from 'semantic-ui-react'
+import { Card, Image } from 'semantic-ui-react'
 
 
-const CoachCard = ({ open, user }) => {
+const CoachCard = ({ coach }) => {
     return (
-        <>
+        <Card  style={{ textAlign: "center" }} className='coach-card' >
             <Card.Content>
-                {
-                    user.discordId ?
-                        <Image className="pp_user" floated="right" size="tiny" circular src={`https://cdn.discordapp.com/avatars/${user.discordId}/${user.avatar}`} />
-                        : <Image className="pp_user" floated="right" size="tiny" circular src={`${process.env.REACT_APP_SERVER}/images/${user.avatar}`} />
-                }
-                <Card.Header>{user.username}</Card.Header>
-                <p>Info</p>
-                <p>Info</p>
-                <p>Info</p>
+                <Image size="small" className='img-icon' src={
+                    coach.discordId !== "0"
+                        ? `https://cdn.discordapp.com/avatars/${coach.discordId}/${coach.avatar}`
+                        : `/images/${coach.avatar}`
+                } />
             </Card.Content>
-        </>
+            <Card.Description>
+
+                {coach.username}
+            </Card.Description>
+        </Card>
     )
 }
 

@@ -2,7 +2,9 @@ import React from "react";
 import { Image, Card, Button, Icon } from 'semantic-ui-react';
 
 /**
- * @param {Object} member { member, removeSelectedItem, isSelectable }
+ * @param {Object} member 
+ * @param {Function} removeSelectedItem 
+ * @param {Boolean} isSelectable 
  */
 const MemberCard = ({ member, removeSelectedItem, isSelectable }) => {
     return (
@@ -10,10 +12,9 @@ const MemberCard = ({ member, removeSelectedItem, isSelectable }) => {
             columns={2}
         >
             <Card.Content>
-                {console.log(member.discordId)}
                 <Image
                     src={
-                        member.discordId > 0
+                        member.discordId !== "0"
                             ? `https://cdn.discordapp.com/avatars/${member.discordId}/${member.avatar}`
                             : `/images/${member.avatar}`}
                     size="mini"

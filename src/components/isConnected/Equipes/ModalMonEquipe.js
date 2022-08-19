@@ -9,7 +9,7 @@ const ModalMonEquipe = ({ equipe, currentUser }) => {
     const [textButtonCandidature, setTextButtonCandidature] = useState("Envoyer ma candidature");
     const [iconButtonCandidature, setIconButtonCandidature] = useState("mail"); // ou check
     const [isDisabledForCandidature, setIsDisabledForCandidature] = useState(false); // ou check
-    
+
     const renderDate = (date) => {
         var day, month, year, hours, minutes;
         let creationDate = new Date(date);
@@ -51,7 +51,7 @@ const ModalMonEquipe = ({ equipe, currentUser }) => {
     }
 
     const addCandidature = async () => {
-        setIsLoadingForCandidature(true) 
+        setIsLoadingForCandidature(true)
         await axios.post(`/teams/add-candidature/${equipe._id}`, {
             newCandidate: currentUser
         }, {
@@ -72,9 +72,35 @@ const ModalMonEquipe = ({ equipe, currentUser }) => {
             })
     }
 
+    const verifyUserNotInTeam = () => {
+        console.log("currentUser : ", currentUser);
+        let res = true;
+        if (equipe.auteur.username === currentUser.username)
+            return false
+        equipe.membres.forEach(user => {
+            if (user.username === currentUser.username)
+                res = false
+        })
+        equipe.coach.forEach(user => {
+            if (user.username === currentUser.username)
+                res = false
+        })
+        equipe.succes.forEach(user => {
+            console.log(user);
+            if (user.username === currentUser.username)
+                res = false
+        })
+        equipe.staff.forEach(user => {
+            if (user.username === currentUser.username)
+                res = false
+        })
+
+        return res
+    }
+
     useEffect(() => {
         checkDisabled();
-    }, [])
+    }, [checkDisabled])
 
     return (
         <div style={{ marginTop: 30 }}>
@@ -231,7 +257,7 @@ const ModalMonEquipe = ({ equipe, currentUser }) => {
                 </Grid>
             </div>
             {
-                equipe.auteur.username !== currentUser.username &&
+                verifyUserNotInTeam() &&
                 <div className="button-candidature">
                     <Button disabled={isDisabledForCandidature} icon loading={isLoadingForCandidature} onClick={() => addCandidature()}>
                         <Icon name={iconButtonCandidature} />
