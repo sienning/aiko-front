@@ -14,7 +14,7 @@ const SearchMemberList = ({ availableList, addSelectedItem }) => {
                     availableList.length > 0 ?
                         availableList.map((member, i) => (
                             <List.Item onClick={() => addSelectedItem(member)} key={i}>
-                                <Image circular size="mini" src={member.discordId !== "0" ? `https://cdn.discordapp.com/avatars/${member.discordId}/${member.avatar}` : `/images/${member.avatar}`} />
+                                <Image circular size="mini" src={member.discordId !== "0" ? `https://cdn.discordapp.com/avatars/${member.discordId}/${member.avatar}` : `/images/avatars/${member.avatar}`} />
                                 <List.Content>
                                     <List.Header>{member.username}</List.Header>
                                     <List.Description>

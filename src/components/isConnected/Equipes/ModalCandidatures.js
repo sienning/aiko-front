@@ -63,7 +63,7 @@ const ModalCandidatures = ({ equipe, refresh }) => {
                                         <Button onClick={() => handleAddMember(candidat)} >Ajouter</Button>
                                         <Button onClick={() => handleRemoveCandidature(candidat)} basic icon><Icon name='times' /></Button>
                                     </List.Content>
-                                    <Image size="mini" src={candidat.discordId === "0" ? `/images/${candidat.avatar}` : `https://cdn.discordapp.com/avatars/${candidat.discordId}/${candidat.avatar}`} />
+                                    <Image size="mini" src={candidat.discordId === "0" ? `/images/avatars/${candidat.avatar}` : `https://cdn.discordapp.com/avatars/${candidat.discordId}/${candidat.avatar}`} />
                                     <List.Content>
                                         <List.Header style={{ color: "white" }}><u>{candidat.username}</u> souhaite intégrer votre équipe.</List.Header>
                                     </List.Content>

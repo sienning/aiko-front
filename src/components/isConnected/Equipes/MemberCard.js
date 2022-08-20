@@ -16,7 +16,7 @@ const MemberCard = ({ member, removeSelectedItem, isSelectable }) => {
                     src={
                         member.discordId !== "0"
                             ? `https://cdn.discordapp.com/avatars/${member.discordId}/${member.avatar}`
-                            : `/images/${member.avatar}`}
+                            : `/images/avatars/${member.avatar}`}
                     size="mini"
                     floated="left"
                     circular

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../../App.css';
-import { Container, Header, Image, Grid, GridColumn, Button} from 'semantic-ui-react'
+import { Container, Header, Image, Grid, GridColumn, Button } from 'semantic-ui-react'
 import axios from 'axios';
 
 class Profil extends Component {
@@ -16,7 +16,7 @@ class Profil extends Component {
     }
 
     getUserInfos = async (id) => {
-        this.setState({ isLoading: true }); 
+        this.setState({ isLoading: true });
         await axios.get(`/users/see-user/id_user=${id}`, {
             headers: {
                 Authorization: window.localStorage.getItem('token')
@@ -25,7 +25,7 @@ class Profil extends Component {
 
             .then(response => {
                 this.setState({ userInfos: response.data, isLoading: false });
-            })  
+            })
             .catch(err => console.log(err))
 
     }
@@ -37,23 +37,23 @@ class Profil extends Component {
         var mainRoleTitle = ""
         var logoMainRole = ""
         switch (userInfos.mainRole) {
-            case "top": 
+            case "top":
                 mainRoleTitle = "Toplane"
                 logoMainRole = "top"
                 break;
-            case "jungle": 
+            case "jungle":
                 mainRoleTitle = "Jungle"
                 logoMainRole = "jungle"
                 break;
-            case "mid": 
+            case "mid":
                 mainRoleTitle = "Midlane"
                 logoMainRole = "mid"
                 break;
-            case "bot": 
+            case "bot":
                 mainRoleTitle = "Botlane"
                 logoMainRole = "adc"
                 break;
-            case "support": 
+            case "support":
                 mainRoleTitle = "Support"
                 logoMainRole = "support"
                 break;
@@ -66,23 +66,23 @@ class Profil extends Component {
         var subRoleTitle = ""
         var logoSubRole = ""
         switch (userInfos.subRole) {
-            case "top": 
+            case "top":
                 subRoleTitle = "Toplane"
                 logoSubRole = "top"
                 break;
-            case "jungle": 
+            case "jungle":
                 subRoleTitle = "Jungle"
                 logoSubRole = "jungle"
                 break;
-            case "mid": 
+            case "mid":
                 subRoleTitle = "Midlane"
                 logoSubRole = "mid"
                 break;
-            case "bot": 
+            case "bot":
                 subRoleTitle = "Botlane"
                 logoSubRole = "adc"
                 break;
-            case "support": 
+            case "support":
                 subRoleTitle = "Support"
                 logoSubRole = "support"
                 break;
@@ -95,7 +95,7 @@ class Profil extends Component {
         return (
             <Container>
                 <div style={{ textAlign: "center", marginBottom: 20, marginTop: 50 }}>
-                    <Image circular style={{ margin: "auto" }} alt={`Logo-${userInfos.avatar}`} src={userInfos.discordId === "0" ? `/images/${userInfos.avatar}` : `https://cdn.discordapp.com/avatars/${userInfos.discordId}/${userInfos.avatar}`} size="small" />
+                    <Image circular style={{ margin: "auto" }} alt={`Logo-${userInfos.avatar}`} src={userInfos.discordId === "0" ? `/images/avatars/${userInfos.avatar}` : `https://cdn.discordapp.com/avatars/${userInfos.discordId}/${userInfos.avatar}`} size="small" />
                     <Header as="h1">Profil Joueur</Header>
                     <h2>Bienvenu(e), {userInfos.username} !</h2>
                     <div>
@@ -109,14 +109,9 @@ class Profil extends Component {
                     </div>
                 </div>
 
-                <Grid>
+                <Grid stackable>
                     <GridColumn width={2} floated={'right'}>
-                        {
-                            //userInfos.discordId ?
-                            //<Image circular style={{ margin: "auto" }} alt="Logo-Aiko" src={`https://cdn.discordapp.com/avatars/${userInfos.discordId}/${userInfos.avatar}`} size="small" />
-                            //: 
-                            <Image circular style={{ margin: "auto" }} alt="Logo-Aiko" src={userInfos.discordId === "0" ? `/images/${userInfos.avatar}` : `https://cdn.discordapp.com/avatars/${userInfos.discordId}/${userInfos.avatar}`} size="small" />
-                        }
+                        <Image circular style={{ margin: "auto" }} alt="Logo-Aiko" src={userInfos.discordId === "0" ? `/images/avatars/${userInfos.avatar}` : `https://cdn.discordapp.com/avatars/${userInfos.discordId}/${userInfos.avatar}`} size="small" />
                     </GridColumn>
                     <GridColumn width={10}>
                         <h2>
@@ -126,31 +121,25 @@ class Profil extends Component {
                             <h3>
                                 Jeu(x)
                             </h3>
-                            <Image src={`/images/lol-logo.png`} size="small" alt="Logo-LeagueOfLegends"/>
+                            <Image src={`/images/lol-logo.png`} size="small" alt="Logo-LeagueOfLegends" />
                         </div>
-                        <Grid>
+                        <Grid stackable>
                             <GridColumn width={6}>
                                 <h3>Rôle(s)</h3>
-                                <Image src={`${process.env.REACT_APP_FRONT}/images/role/${logoMainRole}.webp`} alt={`Logo ${mainRoleTitle}`}/>
-                                <Image src={`${process.env.REACT_APP_FRONT}/images/role/${logoSubRole}.webp`} alt={`Logo ${subRoleTitle}`}/>
+                                <Image src={`${process.env.REACT_APP_FRONT}/images/role/${logoMainRole}.webp`} alt={`Logo ${mainRoleTitle}`} />
+                                <Image src={`${process.env.REACT_APP_FRONT}/images/role/${logoSubRole}.webp`} alt={`Logo ${subRoleTitle}`} />
                             </GridColumn>
                             <GridColumn width={6}>
                                 <h3>Rangs</h3>
                                 <span>{userInfos.rang}</span>
-                                <Image src={`${process.env.REACT_APP_FRONT}/images/rang/${userInfos.rang}.png`} alt={`Logo ${userInfos.rang}`}/>
+                                <Image src={`${process.env.REACT_APP_FRONT}/images/rang/${userInfos.rang}.png`} alt={`Logo ${userInfos.rang}`} />
                             </GridColumn>
                         </Grid>
                     </GridColumn>
                 </Grid>
-                {/* <Grid>
-                    <GridColumn width={12}>
-                        <h3>Description</h3>
-                        <p>{userInfos.description}</p>
-                    </GridColumn>
-                </Grid> */}
-                <Grid>
+                <Grid stackable>
                     <GridColumn width={2} floated={'right'}>
-                        <Image circular style={{ margin: "auto" }} alt="Logo-Aiko" src={userInfos.discordId === "0" ? `/images/${userInfos.avatar}` : `https://cdn.discordapp.com/avatars/${userInfos.discordId}/${userInfos.avatar}`} size="small" />
+                        <Image circular style={{ margin: "auto" }} alt="Logo-Aiko" src={userInfos.discordId === "0" ? `/images/avatars/${userInfos.avatar}` : `https://cdn.discordapp.com/avatars/${userInfos.discordId}/${userInfos.avatar}`} size="small" />
                     </GridColumn>
                     <GridColumn width={10}>
                         <div>
@@ -172,7 +161,7 @@ class Profil extends Component {
                     </GridColumn>
                 </Grid>
 
-                <div style={{ textAlign: "center"}}>
+                <div style={{ textAlign: "center" }}>
                     <a href={`/edit-profile/${userInfos._id}`}>
                         <Button>Modifier</Button>
                     </a>

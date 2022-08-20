@@ -30,6 +30,7 @@ import CoachEdit from './components/isConnected/CoachEdit';
 
 class App extends Component {
   state = {
+    isLoadingForProfile: true,
     isLoading: true,
     isConnected: false,
     userInfos: {},
@@ -40,6 +41,8 @@ class App extends Component {
   componentDidMount() {
     console.log("APP");
     if (window.localStorage.getItem('email') !== null) {
+      this.getProfil();
+
       this.setState({
         isLoading: false,
         isConnected: true,
@@ -59,10 +62,12 @@ class App extends Component {
 
   getProfil = async () => {
     console.log("getProfil");
+    this.setState({ isLoadingForProfile: true })
+    console.log("getProfil");
     await axios.get(`/profil/get-profile`)
       .then(response => {
         const res = response.data;
-        console.log(res);
+        console.log("user", res);
         localStorage.setItem("email", res.userInfos.email);
         localStorage.setItem("token", res.token);
         localStorage.setItem("userId", res.userId);
@@ -71,10 +76,12 @@ class App extends Component {
           userInfos: res.userInfos,
           email: res.userInfos.email,
           userId: res.userId,
+          isLoadingForProfile: false
         })
       })
       .catch(err => { console.log(err) })
-  }
+      this.setState({ isLoadingForProfile: false })
+    }
 
   getUserInfos = (userInfos) => {
     this.setState({ userInfos: userInfos, isConnected: true });
@@ -125,23 +132,28 @@ class App extends Component {
 
   render() {
     const {
+      userInfos,
       isLoading,
+      isLoadingForProfile,
       isConnected,
       userId,
     } = this.state;
     return (
       <Router>
         <div className="App">
-          <NavigationBar
-            logout={this.logout}
-            isConnected={isConnected}
-            userId={userId}
-          />
+          {
+            isLoadingForProfile ? <></> :
+              <NavigationBar
+                userInfos={userInfos}
+                logout={this.logout}
+                isConnected={isConnected}
+                userId={userId}
+              />
+          }
 
           <Routes>
             <Route
               path="/"
-            // element={<Accueil />}
             >
               <Route
                 index

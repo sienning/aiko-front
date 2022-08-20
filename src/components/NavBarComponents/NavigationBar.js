@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import NavBarCollapsed1 from './NavBarCollapsed1';
 import NavBarCollapsed2 from './NavBarCollapsed2';
 
-const NavigationBar = ({ isConnected, logout, userId }) => {
+const NavigationBar = ({ isConnected, logout, userId, userInfos }) => {
   return (
     <div>
       <nav className="navbar">
@@ -20,7 +20,7 @@ const NavigationBar = ({ isConnected, logout, userId }) => {
                   <Link to="/players">Joueurs</Link>
                 </div> */}
                 <div className="navbar-link"> <Link to="/teams">Équipes</Link> </div>
-                <div className="navbar-link"> <Link to="/coaches">Coaching</Link> </div>
+                <div className="navbar-link"> <Link to="/coaching">Coaching</Link> </div>
                 {/* <div className="navbar-link">
                   <Link to="/events">Évènements</Link>
                 </div> */}
@@ -54,6 +54,13 @@ const NavigationBar = ({ isConnected, logout, userId }) => {
           {
             isConnected ?
               <div className='navbar-login-links'>
+                {
+                  console.log(userInfos.admin)
+                }
+                {
+                  userInfos.admin === "admin" &&
+                  <div className="navbar-link"><Icon name="bell outline" /></div>
+                }
                 <div className="navbar-link"> <Link to={`/my-profile/${userId}`}>Mon compte</Link></div>
                 <div className="navbar-link"><Button onClick={() => logout()}>Déconnexion</Button></div>
               </div> :
