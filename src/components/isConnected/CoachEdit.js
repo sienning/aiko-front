@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import '../../App.css';
-import { Container, Header, Image, Input, Form, Grid, GridColumn, TextArea } from 'semantic-ui-react'
+import { Container, Header, Image, Input, Form, Grid, GridColumn, TextArea, Message } from 'semantic-ui-react'
 import axios from 'axios';
 import ProfilModal from './Profil/ProfilModal';
 
 class CoachEdit extends Component {
     state = {
-        isLoading: false,
+        isErrorMessage: false,
+        isLoading: true,
         userId: "",
         userInfos: {},
         username: "",
@@ -18,6 +19,9 @@ class CoachEdit extends Component {
         subRole: "",
         calendlyCoach: "",
         descriptionCoach: "",
+        levelCoach: "",
+        avatar: "",
+
         jeux: [
             {
                 key: 0,
@@ -168,15 +172,18 @@ class CoachEdit extends Component {
     }
 
     componentDidMount() {
-        this.setState({ 
-            userInfos: this.props.userId,
+        this.setState({
+            userId: this.props.userId,
         });
         this.getUserInfos(this.props.userId);
-        this.handleUpdate(this.props.userId);
+        // this.handleUpdate(this.props.userId);
     }
 
     handleChange = (e, { name, value }) => this.setState({ [name]: value })
 
+    handleAvatarChange = (avatar) => {
+        this.setState({ avatar: avatar });
+    }
     handleJeuxChange = (e, { value }) => {
         this.setState({ idGame: value });
     }
@@ -193,13 +200,13 @@ class CoachEdit extends Component {
         this.setState({ division: value });
     }
     handleLevelCoachChange = (e, { value }) => {
-        this.setState({ levelCoach: value});
+        this.setState({ levelCoach: value });
     }
     handleDescriptionCoachChange = (e, { value }) => {
         this.setState({ descriptionCoach: value });
     }
     handleCalendlyCoachChange = (e, { value }) => {
-        this.setState({ calendlyCoach: value });
+        this.setState({ calendlyCoach: value, isErrorMessage: false });
     }
 
     getUserInfos = async (id) => {
@@ -213,8 +220,9 @@ class CoachEdit extends Component {
                 console.log("user : ", response.data);
                 const userData = response.data;
                 this.setState({
-                    userInfos: response.data,
                     isLoading: false,
+                    userInfos: response.data,
+                    avatar: userData.avatar,
                     pseudo: userData.username,
                     idGame: userData.idGame,
                     mainRole: userData.mainRole,
@@ -230,36 +238,43 @@ class CoachEdit extends Component {
     }
 
     handleUpdate = async (id) => {
-        console.log("id : ", id);
-        const { username, idGame, rang, division, mainRole, subRole, descriptionCoach, calendlyCoach, levelCoach } = this.state;
+        const { username, avatar, idGame, rang, division, mainRole, subRole, descriptionCoach, calendlyCoach, levelCoach } = this.state;
+        if (calendlyCoach === "") {
+            this.setState({ isErrorMessage: true });
+        } else {
+            console.log("id : ", id);
 
-        const userUpdated = {
-            username: { username },
-            idGame: { idGame },
-            rang: { rang },
-            division: { division },
-            mainRole: { mainRole },
-            subRole: { subRole },
-            descriptionCoach: { descriptionCoach },
-            calendlyCoach: { calendlyCoach },
-            levelCoach: { levelCoach },
-        }
-
-        console.log("userUpdated : ", userUpdated);
-
-        await axios.post(`/users/update-user/id_user=${id}`, { user: userUpdated }, {
-            headers: {
-                Authorization: window.localStorage.getItem('token')
+            const userUpdated = {
+                avatar: { avatar },
+                username: { username },
+                idGame: { idGame },
+                rang: { rang },
+                division: { division },
+                mainRole: { mainRole },
+                subRole: { subRole },
+                descriptionCoach: { descriptionCoach },
+                calendlyCoach: { calendlyCoach },
+                levelCoach: { levelCoach },
+                coach: true
             }
-        })
-            .then(response => {
-                this.setState({ status: response.status });
+
+
+            await axios.post(`/users/update-user/id_user=${id}`, { user: userUpdated }, {
+                headers: {
+                    Authorization: window.localStorage.getItem('token')
+                }
             })
-            .catch(err => console.log(err))
+                .then(response => {
+                    window.location.replace(`/my-profile/${this.state.userId}`);
+                })
+                .catch(err => console.log(err))
+        }
     }
 
     render() {
         const {
+            isLoading,
+            isErrorMessage,
             userInfos,
             idGame,
             jeux,
@@ -273,7 +288,8 @@ class CoachEdit extends Component {
             division,
             niveauCoach,
             calendlyCoach,
-            descriptionCoach
+            descriptionCoach,
+            levelCoach
         } = this.state;
         return (
             <Container>
@@ -289,17 +305,17 @@ class CoachEdit extends Component {
                     </div>
                 </div>
 
-                <Form onSubmit={() => this.handleUpdate(this.props.userId)}>
-                    <Grid>
+                <Form loading={isLoading} onSubmit={() => this.handleUpdate(this.props.userId)}>
+                    <Grid stackable>
                         <GridColumn width={2} floated={'right'}>
-                            <ProfilModal userInfos={userInfos}></ProfilModal>
+                            <ProfilModal userInfos={userInfos} editIconSrc={this.handleAvatarChange} ></ProfilModal>
                         </GridColumn>
                         <GridColumn width={10}>
-                            <Grid columns={2}>
+                            <Grid stackable columns={2}>
                                 <GridColumn width={6}>
                                     <Header>Jeu</Header>
                                     <Form.Dropdown
-                                        defaultValue={idGame}
+                                        value={idGame}
                                         fluid
                                         selection
                                         options={jeux}
@@ -309,7 +325,7 @@ class CoachEdit extends Component {
                                 <GridColumn width={6}>
                                     <Header>Niveau de coaching</Header>
                                     <Form.Dropdown
-                                        defaultValue={niveauCoach}
+                                        value={levelCoach}
                                         fluid
                                         selection
                                         options={niveauCoach}
@@ -318,9 +334,9 @@ class CoachEdit extends Component {
                                 </GridColumn>
                             </Grid>
                             <div>
-                                
+
                             </div>
-                            <Grid style={{ marginTop: 40 }} columns={2}>
+                            <Grid stackable style={{ marginTop: 40 }} columns={2}>
                                 <GridColumn width={6}>
                                     <Header>Rôle(s)</Header>
                                     <Form.Dropdown
@@ -362,7 +378,7 @@ class CoachEdit extends Component {
                                     />
                                 </GridColumn>
                             </Grid>
-                            <Grid>
+                            <Grid stackable>
                                 <GridColumn width={12}>
                                     <Header>Description</Header>
                                     <Form.Field
@@ -377,25 +393,36 @@ class CoachEdit extends Component {
                                 </GridColumn>
                             </Grid>
 
-                            <Grid>
+                            <Grid stackable>
                                 <GridColumn width={12}>
-                                    <Header>Lien calendly</Header>
-                                    <Form.Field
-                                        required
-                                        onChange={this.handleCalendlyCoachChange}
-                                        name="calendly"
-                                        type="text"
-                                        control={Input}
+                                    <Header>Lien calendly
+                                        <Header.Subheader style={{ color: "white" }}>
+                                            Si vous ne possédez pas de compte <u><a href='https://calendly.com/' target="_blank" rel="noreferrer" >Calendly</a></u>, veuillez vous en créer un!
+                                        </Header.Subheader>
+                                    </Header>
+                                    <Input
+                                        error={isErrorMessage}
+                                        loading={isLoading}
                                         value={calendlyCoach}
-                                        placeholder={userInfos.calendlyCoach}
+                                        onChange={this.handleCalendlyCoachChange}
+                                        label="https://calendly.com/"
+                                        placeholder="adresse"
                                     />
-                                    <span>Si vous ne possédez pas de compte calendly veuillez vous en créer un!</span>
                                 </GridColumn>
                             </Grid>
                         </GridColumn>
 
                     </Grid>
 
+                    {
+                        isErrorMessage &&
+                        <Message
+                            negative
+                            icon='meh'
+                            header='Il manque quelque chose ...'
+                            content='Il faut que tu entres ton lien calendly pour valider le formulaire'
+                        />
+                    }
                     <div style={{ textAlign: "center", marginTop: 30, marginBottom: 30 }}>
                         <Form.Button type="submit" name="update" value="Update" >Sauvegarder</Form.Button>
                     </div>
