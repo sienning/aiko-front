@@ -1317,3 +1317,17 @@ p.carousel-image-date {
     margin: 0 10px;
   }
 }
+
+.mc-grid{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.mc-grid2{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  margin: 20px;
+}

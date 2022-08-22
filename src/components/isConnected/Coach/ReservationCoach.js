@@ -4,6 +4,7 @@ import { Container, Header, Grid, Segment, Loader } from 'semantic-ui-react'
 import RedirectionConnexion from '../../RedirectionConnexion';
 import CoachCard from './CoachCard';
 import FiltreCoach from './FiltreCoach';
+import CoachModal from './CoachModal';
 
 class ReservationCoach extends Component {
     state = {
@@ -123,10 +124,9 @@ class ReservationCoach extends Component {
                                                             currentUser={currentUser}
                                                             coach={coach}
                                                         />
-
                                                     </Grid.Column>
                                                 ))
-                                                : <p>Pas d'équipe disponible ...</p>
+                                                : <p>Pas de coach disponible ...</p>
                                     }
                                 </Grid>
                             </Grid.Column>
